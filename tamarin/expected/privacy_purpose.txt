@@ -1,0 +1,15 @@
+summary of summaries:
+
+analyzed: privacy_purpose.spthy
+
+  processing time: 394.67s
+  
+  RHS :  exec_access (exists-trace): verified (5 steps)
+  LHS :  exec_access (exists-trace): verified (5 steps)
+  DiffLemma:  Observational_equivalence : analysis incomplete (15902 steps)
+
+==============================================================================
+
+real	6m35.093s
+user	6m49.928s
+sys	0m5.730s

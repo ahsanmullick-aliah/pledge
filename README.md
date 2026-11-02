@@ -78,8 +78,8 @@ Every run writes to `results/<mode>-<date-time>/`:
 ## Symbolic verification (Tamarin)
 
 The `tamarin/` folder holds the Tamarin model of the access protocol from the paper's appendix,
-four mutants that each remove one check, and the expected prover output. Run `tamarin/run.sh`
-(needs `tamarin-prover` 1.10 and `maude` 3.5; about one minute). See [tamarin/README.md](tamarin/README.md).
+the log-privacy equivalence models, eight mutants that each remove one check, and the expected prover output. Run `tamarin/run.sh`
+(needs `tamarin-prover` 1.10 and `maude` 3.5; about 10 minutes). See [tamarin/README.md](tamarin/README.md).
 
 ## Reading the report
 

@@ -1,0 +1,67 @@
+theory PLEDGE_Privacy_Purpose
+begin
+
+/*
+  Log privacy, part 2 (Section V-F): validators cannot learn the purpose,
+  resource or type of an access, even when the ES joins them and reveals
+  which patient owns each tag. Observational equivalence between two worlds
+  in which an honest clinician accesses for purpose p1 (left) or p2 (right);
+  the adversary chooses p1 and p2 for every access. The patient and the
+  regulator are honest.
+
+    tamarin-prover --diff --prove privacy_purpose.spthy
+
+  E_aud is encrypted to the patient and to the regulator; the purpose OR-proof
+  is abstracted as zero knowledge (it is checked by the chaincode against the
+  public purpose set and reveals nothing else).
+*/
+
+builtins: asymmetric-encryption, signing, hashing
+
+rule Setup_Regulator:
+    [ Fr(~rk) ]
+  -->
+    [ !Regulator(pk(~rk)), Out(pk(~rk)) ]
+
+rule Register_Patient:
+    [ Fr(~s) ]
+  -->
+    [ !Patient($P, ~s), Out(<'reg', $P, pk(~s)>) ]
+
+rule Enrol_Clinician:
+    [ Fr(~sk) ]
+  -->
+    [ !Clin($G, ~sk), Out(<'clin', $G, pk(~sk)>) ]
+
+rule Corrupt_Clinician:
+    [ !Clin(G, sk) ]
+  --[ Corrupt(G) ]->
+    [ Out(sk) ]
+
+rule Upload_Record:
+    [ !Patient($P, s), Fr(~t), Fr(~salt), Fr(~rid) ]
+  --[ Upload(~t) ]->
+    [ !Rec(~t, $P, s, ~rid),
+      Out(<'rectx', ~t, pk(h(<'rec', s, ~t>)), ~salt, h(<~salt, $D, ~t>), 'side'>) ]
+
+/* The ES colludes with the validators: it reveals tag -> patient and the
+   stored ciphertext's resource id. */
+rule ES_Reveals:
+    [ !Rec(t, P, s, rid) ]
+  --[ ESReveal(t) ]->
+    [ Out(<'es', t, P, rid>) ]
+
+/* Honest clinician accesses for purpose p1 (left) or p2 (right) */
+rule Access_Entry:
+    let p = diff($p1, $p2) in
+    [ !Rec(t, P, s, rid), !Clin(G, sk), !Regulator(pkR), Fr(~r1), Fr(~r2) ]
+  --[ Access(G, t) ]->
+    [ Out(<'acc', G, t, p,
+           aenc(<rid, p, ~r1>, pk(s)),
+           aenc(<rid, p, ~r2>, pkR),
+           sign(<'acc', G, t>, sk)>) ]
+
+
+lemma exec_access: exists-trace "Ex G t #i. Access(G, t) @ i"
+
+end

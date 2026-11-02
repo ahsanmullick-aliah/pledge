@@ -1,0 +1,71 @@
+theory PLEDGE_Privacy_Owner
+begin
+
+/*
+  Log privacy, part 1 (Theorem 3): validators cannot tell WHOSE record a
+  record transaction or an access entry refers to. Observational equivalence
+  between two worlds that differ only in which of two registered patients,
+  A or B, owns the record. The adversary is the coalition of validators: it
+  sees every registration, record transaction and access entry, chooses the
+  patients' public identities and the clinicians, and may corrupt clinicians.
+  The ES, the patients and the regulator are honest (as in Definition 3).
+
+    tamarin-prover --diff --prove privacy_owner.spthy
+
+  Modelled leakage per record transaction: tag t, public salt, salted deny
+  tag h(<salt, G, t>), a per-record public key derived from the patient
+  secret, and the side-record values (here the public constant 'side').
+  Per access entry: clinician G, tag t, E_aud encrypted to the patient and
+  regulator, and G's signature. The purpose proof is abstracted (zero
+  knowledge); purpose hiding is privacy_purpose.spthy.
+*/
+
+builtins: asymmetric-encryption, signing, hashing
+
+/* Regulator key (honest) */
+rule Setup_Regulator:
+    [ Fr(~rk) ]
+  -->
+    [ !Regulator(pk(~rk)), Out(pk(~rk)) ]
+
+/* Two patients register (Reg_P: public identity and public key, no tags).
+   Creating them together avoids restrictions, which diff mode handles
+   poorly; the adversary can start any number of such pairs. */
+rule Register_Patients:
+    [ Fr(~sA), Fr(~sB) ]
+  -->
+    [ !Pair($A, ~sA, $B, ~sB),
+      Out(<'reg', $A, pk(~sA)>), Out(<'reg', $B, pk(~sB)>) ]
+
+rule Enrol_Clinician:
+    [ Fr(~sk) ]
+  -->
+    [ !Clin($G, ~sk), Out(<'clin', $G, pk(~sk)>) ]
+
+rule Corrupt_Clinician:
+    [ !Clin(G, sk) ]
+  --[ Corrupt(G) ]->
+    [ Out(sk) ]
+
+/* A record of patient A (left) or B (right); the deny list names $D */
+rule Upload_Record:
+    let s   = diff(sA, sB)
+        rpk = pk(h(<'rec', s, ~t>)) in
+    [ !Pair(A, sA, B, sB), Fr(~t), Fr(~salt), Fr(~rid) ]
+  --[ Upload(~t) ]->
+    [ !Rec(~t, s, ~rid),
+      Out(<'rectx', ~t, rpk, pk(s), ~salt, h(<~salt, $D, ~t>), 'side'>) ]
+
+/* An honest clinician's access entry for that record */
+rule Access_Entry:
+    [ !Rec(t, s, rid), !Clin(G, sk), !Regulator(pkR), Fr(~r1), Fr(~r2) ]
+  --[ Access(G, t) ]->
+    [ Out(<'acc', G, t,
+           aenc(<rid, 'purpose', ~r1>, pk(s)),
+           aenc(<rid, 'purpose', ~r2>, pkR),
+           sign(<'acc', G, t>, sk)>) ]
+
+
+lemma exec_access: exists-trace "Ex G t #i. Access(G, t) @ i"
+
+end
