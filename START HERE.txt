@@ -1,0 +1,24 @@
+PLEDGE - source code and reproduction package
+==============================================
+
+WINDOWS (one click per step)
+  1. Double-click  "1 - Setup.bat"            (once; downloads about 2 GB into this folder)
+  2. Double-click  "2 - Quick check - about 30 minutes.bat"
+     or            "3 - Full paper experiments - several hours.bat"
+  3. The report opens in your browser at the end.
+     "4 - Open the latest report.bat" opens it again.
+
+  Hyperledger Fabric only runs on Linux. If Docker Desktop is installed and
+  running, setup and the run files use a Linux image for everything,
+  including the Fabric experiments. Without Docker, all other experiments
+  run directly on Windows.
+
+LINUX (x86-64)
+  ./setup.sh
+  ./run.sh quick        or   ./run.sh full
+
+macOS / ANY MACHINE WITH DOCKER
+  ./run.sh docker quick  or   ./run.sh docker full
+
+Results: results\<mode>-<date-time>\REPORT.html, next to every raw result file.
+Details: README.md

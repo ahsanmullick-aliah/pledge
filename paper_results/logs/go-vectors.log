@@ -1,0 +1,33 @@
+=== RUN   TestCrossLanguageVectors
+    checks_test.go:107: access/valid                     ok=true <nil>
+    checks_test.go:107: access/bundle                    ok=true <nil>
+    checks_test.go:107: access/tampered-body             ok=false bad clinician signature
+    checks_test.go:107: access/stale-ts                  ok=false stale or future timestamp
+    checks_test.go:107: access/replay                    ok=false replayed nonce
+    checks_test.go:107: access/bad-S                     ok=false designated set S must name k distinct services
+    checks_test.go:107: access/deny-listed               ok=false clinician is on the record's deny list
+    checks_test.go:107: access/forged-purpose-proof      ok=false purpose proof invalid or purpose not allowed
+    checks_test.go:107: access/out-of-period             ok=false outside the consent period
+    checks_test.go:107: access/breakglass-valid          ok=true <nil>
+    checks_test.go:107: access/breakglass-bad-cosig      ok=false bad co-signature
+    checks_test.go:107: access/revoked                   ok=false revoked clinician dr-rev
+    checks_test.go:107: access/retry-valid               ok=true <nil>
+    checks_test.go:107: access/retry-unknown             ok=false retry must reference the clinician's own committed entry
+    checks_test.go:107: cred/valid                       ok=true <nil>
+    checks_test.go:107: cred/wrong-signer                ok=false credential not signed by a known authority
+    checks_test.go:107: revoke/valid                     ok=true <nil>
+    checks_test.go:107: record/owner-update              ok=true <nil>
+    checks_test.go:107: record/hijack                    ok=false record update not signed by its owner
+    checks_test.go:107: patient/valid                    ok=true <nil>
+    checks_test.go:107: patient/already-bound            ok=false patient pseudonym already bound
+    checks_test.go:107: patient/rotate-valid             ok=true <nil>
+    checks_test.go:107: patient/rotate-unbound           ok=false rotation for an unregistered patient
+    checks_test.go:107: patient/unknown-signer           ok=false patient registration not certified by a known authority
+    checks_test.go:107: record/rekey-valid               ok=true <nil>
+    checks_test.go:107: record/rekey-bad-retire-sig      ok=false retirement not signed by the old tag's owner
+    checks_test.go:107: record/rekey-unknown-old         ok=false a re-key must register a new tag and retire an existing one
+    checks_test.go:107: record/retire-self               ok=true <nil>
+    checks_test.go:107: record/update-retired            ok=false record tag retired by a re-key
+    checks_test.go:107: access/retired-tag               ok=false record tag retired by a re-key
+--- PASS: TestCrossLanguageVectors (0.07s)
+PASS

@@ -1,0 +1,77 @@
+test_read_requires_logged_read_and_policy (tests.test_baselines.CalypsoTest.test_read_requires_logged_read_and_policy) ... ok
+test_revocation_is_one_tx_and_quorum_can_decrypt (tests.test_baselines.CalypsoTest.test_revocation_is_one_tx_and_quorum_can_decrypt) ... ok
+test_wrong_secret_and_wrong_reader (tests.test_baselines.CalypsoTest.test_wrong_secret_and_wrong_reader) ... ok
+test_access_and_log (tests.test_baselines.GuoTest.test_access_and_log) ... ok
+test_revocation_reencrypts_and_others_keep_access (tests.test_baselines.GuoTest.test_revocation_reencrypts_and_others_keep_access) ... ok
+test_all_ledger_nodes_together_cannot_decrypt (tests.test_baselines.LedgerQuorumTest.test_all_ledger_nodes_together_cannot_decrypt) ... ok
+test_grant_access_revoke (tests.test_baselines.RomelTest.test_grant_access_revoke) ... ok
+test_deny_overrides (tests.test_consent.CompilerTest.test_deny_overrides) ... ok
+test_named_deny_beats_breakglass (tests.test_consent.CompilerTest.test_named_deny_beats_breakglass) ... ok
+test_no_emergency_opt_out (tests.test_consent.CompilerTest.test_no_emergency_opt_out) ... ok
+test_paper_example (tests.test_consent.CompilerTest.test_paper_example) ... ok
+test_rejects_differing_purposes (tests.test_consent.CompilerTest.test_rejects_differing_purposes) ... ok
+test_rejects_provision_data (tests.test_consent.CompilerTest.test_rejects_provision_data) ... ok
+test_specialty_closure (tests.test_consent.CompilerTest.test_specialty_closure) ... ok
+test_unsupported (tests.test_consent.CompilerTest.test_unsupported) ... ok
+test_compiler_matches_reference (tests.test_consent.DifferentialTest.test_compiler_matches_reference) ... 
+differential test: 6000 triples agree; 14 generated consents rejected as outside F
+ok
+test_bad_partial_detected (tests.test_crypto_ext.LedgerGatedTest.test_bad_partial_detected) ... ok
+test_dkg_excludes_cheating_dealer (tests.test_crypto_ext.LedgerGatedTest.test_dkg_excludes_cheating_dealer) ... ok
+test_threshold_key_decrypts (tests.test_crypto_ext.LedgerGatedTest.test_threshold_key_decrypts) ... ok
+test_wrong_tau_and_wrong_gid (tests.test_crypto_ext.LedgerGatedTest.test_wrong_tau_and_wrong_gid) ... ok
+test_bls (tests.test_crypto_ext.SupportTest.test_bls) ... ok
+test_purpose_proof (tests.test_crypto_ext.SupportTest.test_purpose_proof) ... ok
+test_sym (tests.test_crypto_ext.SupportTest.test_sym) ... ok
+test_synthea_folder (tests.test_datasets.DetectTest.test_synthea_folder) ... ok
+test_groups_by_patient_and_caps (tests.test_datasets.MimicLoaderTest.test_groups_by_patient_and_caps) ... ok
+test_quota_keeps_every_type (tests.test_datasets.MimicLoaderTest.test_quota_keeps_every_type) ... ok
+test_real_records_encrypt_and_open (tests.test_datasets.MimicLoaderTest.test_real_records_encrypt_and_open) ... ok
+test_sensitive_conditions_labelled (tests.test_datasets.MimicLoaderTest.test_sensitive_conditions_labelled) ... ok
+test_upload_access_via_fhir (tests.test_fhir_store.FhirStoreTest.test_upload_access_via_fhir) ... skipped 'no FHIR server at http://127.0.0.1:8080/baseR4'
+test_clinician_needs_verified_hpr (tests.test_registry.RegistrationTest.test_clinician_needs_verified_hpr) ... ok
+test_device_recovery_rotates_binding (tests.test_registry.RegistrationTest.test_device_recovery_rotates_binding) ... ok
+test_double_registration_and_forged_cert_rejected (tests.test_registry.RegistrationTest.test_double_registration_and_forged_cert_rejected) ... ok
+test_eaud_uses_certified_key (tests.test_registry.RegistrationTest.test_eaud_uses_certified_key) ... ok
+test_otp_and_assertion_checks (tests.test_registry.RegistrationTest.test_otp_and_assertion_checks) ... ok
+test_patient_bound_under_pseudonym (tests.test_registry.RegistrationTest.test_patient_bound_under_pseudonym) ... ok
+test_key_issued_before_rekey_stays_valid_until_strict_rekey (tests.test_registry.RetirementTest.test_key_issued_before_rekey_stays_valid_until_strict_rekey) ... ok
+test_retire_without_successor (tests.test_registry.RetirementTest.test_retire_without_successor) ... ok
+test_retired_tag_gets_no_new_key (tests.test_registry.RetirementTest.test_retired_tag_gets_no_new_key) ... ok
+test_retirement_needs_old_owner (tests.test_registry.RetirementTest.test_retirement_needs_old_owner) ... ok
+test_entries_do_not_name_patient_keys (tests.test_registry.UnlinkabilityTest.test_entries_do_not_name_patient_keys) ... ok
+test_side_records_share_no_public_value (tests.test_registry.UnlinkabilityTest.test_side_records_share_no_public_value) ... ok
+test_parse_errors (tests.test_rw15.LSSSTest.test_parse_errors) ... ok
+test_shapes (tests.test_rw15.LSSSTest.test_shapes) ... ok
+test_collusion_fails (tests.test_rw15.RW15Test.test_collusion_fails)
+Two users pooling components get a wrong plaintext (H(GID) mismatch). ... ok
+test_outsourcing (tests.test_rw15.RW15Test.test_outsourcing) ... ok
+test_roundtrip_and_reject (tests.test_rw15.RW15Test.test_roundtrip_and_reject) ... ok
+test_A1_skip_the_log (tests.test_system.AttackTest.test_A1_skip_the_log) ... ok
+test_A2_record_substitution (tests.test_system.AttackTest.test_A2_record_substitution) ... ok
+test_A3_pass_transfer (tests.test_system.AttackTest.test_A3_pass_transfer) ... ok
+test_A4_revoked_clinician (tests.test_system.AttackTest.test_A4_revoked_clinician) ... ok
+test_A4b_revocation_race (tests.test_system.AttackTest.test_A4b_revocation_race)
+Endorsed before revocation, ordered after it: invalid at commit, no key shares. ... ok
+test_A5_minority_of_hospitals (tests.test_system.AttackTest.test_A5_minority_of_hospitals)
+f = 1 of n = 4 hospitals is fully malicious: endorses anything, issues rogue keys, ... ok
+test_A5b_more_than_f_breaks_assumption (tests.test_system.AttackTest.test_A5b_more_than_f_breaks_assumption)
+Documented limit: k = f + 1 colluding services can issue a pass off-ledger. ... ok
+test_A6_curious_validators_learn_only_leakage (tests.test_system.AttackTest.test_A6_curious_validators_learn_only_leakage) ... ok
+test_bad_share_triggers_logged_retry (tests.test_system.AttackTest.test_bad_share_triggers_logged_retry) ... ok
+test_deny_list_and_purpose_and_period (tests.test_system.AttackTest.test_deny_list_and_purpose_and_period) ... ok
+test_replay_rejected (tests.test_system.AttackTest.test_replay_rejected) ... ok
+test_silent_hospital_liveness (tests.test_system.AttackTest.test_silent_hospital_liveness) ... ok
+test_breakglass (tests.test_system.FlowTest.test_breakglass) ... ok
+test_bundle_one_transaction (tests.test_system.FlowTest.test_bundle_one_transaction) ... ok
+test_cardiologist_reads_and_is_logged (tests.test_system.FlowTest.test_cardiologist_reads_and_is_logged) ... ok
+test_consent_change_invalidates_old_pass (tests.test_system.FlowTest.test_consent_change_invalidates_old_pass) ... ok
+test_outsourced_decryption (tests.test_system.FlowTest.test_outsourced_decryption) ... ok
+test_receipts_verify_and_anchor (tests.test_system.FlowTest.test_receipts_verify_and_anchor) ... ok
+test_restricted_record_only_patient_or_breakglass (tests.test_system.FlowTest.test_restricted_record_only_patient_or_breakglass) ... ok
+test_subspecialist_and_icu_nurse (tests.test_system.FlowTest.test_subspecialist_and_icu_nurse) ... ok
+
+----------------------------------------------------------------------
+Ran 66 tests in 12.246s
+
+OK (skipped=1)

@@ -1,0 +1,8 @@
+tools/
+results/
+data/synthea-seed42/
+data/mimic-iv-fhir-demo/
+fabric/network/run/
+fabric/third_party/
+**/__pycache__/
+*.bat

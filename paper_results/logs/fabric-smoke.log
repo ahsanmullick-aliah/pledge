@@ -1,0 +1,22 @@
+PLEDGE ledger up: n=4, f=1, k=2, channel pledgechannel
+Deployment on Fabric: n=4 f=1 k=2 (DKG + InitConfig 26.2s)
+Enrolled 5 clinicians, uploaded 3 records (all on-ledger).
+Flows:
+  ok    cardiologist read BP 128 mmHg
+  ok    bundle of 2 records in one transaction
+  ok    break-glass read Condition (co-signed)
+  ok    outsourced decryption read BP 128
+Attacks:
+  ok    A1 decrypt without a ledger entry: blocked (AccessDenied: no access key for this record: request access first)
+  ok    A2 record substitution: blocked (InvalidTag: )
+  ok    A3 pass transfer: blocked (AccessDenied: decryption failed (key not valid for this clinician/record))
+  ok    deny-listed nurse: blocked (AccessDenied: clinician is on the record's deny list)
+  ok    emergency role without break-glass: blocked (AccessDenied: attributes do not satisfy the consent policy (nothing logged))
+  ok    A4 revoked clinician: blocked (AccessDenied: revoked clinician dr-card)
+  ok    service 1 returned bad shares; detected, 1 logged retry
+Identity and re-keying:
+  ok    second binding of the same ABHA number: blocked (Rejected: patient pseudonym already bound)
+  ok    header-only re-key of 3 records committed in 272 ms
+  ok    access through a retired tag: blocked (AccessDenied: record tag retired by a re-key)
+Access entries committed: 10; mean endorse 23 ms, submit 4 ms, commit 67 ms, key shares 7 ms
+Attacks blocked: 8/8. Timings -> /home/user/PLEDGE-Artifact/results/stage2_smoke_n4.json

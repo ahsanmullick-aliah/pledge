@@ -1,0 +1,8 @@
+stopped
+PLEDGE ledger up: n=4, f=1, k=2, channel pledgechannel
+setup: 20 clinicians, 60 records in 9s
+n=4 bundle=1 send_rate=10.0 sent=200 committed_valid=200 throughput=10.0 tx/s latency_ms p50=99.6 p95=135.6 key_shares_after_commit_ms p50=7.9 p95=9.2 wall=20.0s  (signing 2.0s)
+n=4 bundle=10 send_rate=10.0 sent=200 committed_valid=200 throughput=10.0 tx/s latency_ms p50=166.5 p95=203.2 key_shares_after_commit_ms p50=20.1 p95=38.5 wall=20.1s  (signing 18.2s)
+n=4 bundle=25 send_rate=10.0 sent=200 committed_valid=200 throughput=9.9 tx/s latency_ms p50=333.7 p95=454.6 key_shares_after_commit_ms p50=47.5 p95=162.1 wall=20.2s  (signing 42.8s)
+n=4 bundle=50 send_rate=10.0 sent=200 committed_valid=200 throughput=8.6 tx/s latency_ms p50=6710.8 p95=11377.2 key_shares_after_commit_ms p50=867.9 p95=2640.8 wall=25.7s  (signing 86.1s)
+summary -> /home/user/PLEDGE-Artifact/results/full-20261030-214231/bundles/ledger_summary_n4.json

@@ -1,0 +1,12 @@
+stopped
+Error: Post "https://127.0.0.1:7011/participation/v1/channels": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "x509: ECDSA verification failure" while trying to verify candidate authority certificate "tlsca.ordh1.pledge.local")
+
+command failed: /home/user/PLEDGE-Artifact/tools/fabric/bin/osnadmin channel join --channelID ...
+Traceback (most recent call last):
+  File "/home/user/PLEDGE-Artifact/fabric/bench_e2e.py", line 161, in <module>
+    main()
+  File "/home/user/PLEDGE-Artifact/fabric/bench_e2e.py", line 109, in main
+    subprocess.run([sys.executable, ROOT / "network" / "pledge_net.py", "up", "--n", str(a.n)], check=True)
+  File "/home/user/PLEDGE-Artifact/tools/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/user/PLEDGE-Artifact/tools/python/bin/python3', PosixPath('/home/user/PLEDGE-Artifact/fabric/network/pledge_net.py'), 'up', '--n', '4']' returned non-zero exit status 1.

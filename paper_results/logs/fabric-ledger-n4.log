@@ -1,0 +1,16 @@
+stopped
+PLEDGE ledger up: n=4, f=1, k=2, channel pledgechannel
+setup: 20 clinicians, 60 records in 10s
+n=4 bundle=1 send_rate=5.0 sent=150 committed_valid=150 throughput=5.0 tx/s latency_ms p50=104.6 p95=134.9 key_shares_after_commit_ms p50=8.2 p95=9.7 wall=29.9s  (signing 1.5s)
+n=4 bundle=1 send_rate=10.0 sent=300 committed_valid=300 throughput=10.0 tx/s latency_ms p50=109.7 p95=151.4 key_shares_after_commit_ms p50=8.1 p95=10.3 wall=30.1s  (signing 3.3s)
+n=4 bundle=1 send_rate=15.0 sent=450 committed_valid=450 throughput=15.0 tx/s latency_ms p50=131.2 p95=177.8 key_shares_after_commit_ms p50=8.1 p95=10.6 wall=30.1s  (signing 4.5s)
+n=4 bundle=1 send_rate=20.0 sent=600 committed_valid=600 throughput=20.0 tx/s latency_ms p50=132.7 p95=186.9 key_shares_after_commit_ms p50=8.1 p95=11.8 wall=30.1s  (signing 6.2s)
+n=4 bundle=1 send_rate=30.0 sent=900 committed_valid=900 throughput=29.9 tx/s latency_ms p50=124.6 p95=182.1 key_shares_after_commit_ms p50=7.9 p95=14.3 wall=30.1s  (signing 9.7s)
+n=4 bundle=1 send_rate=40.0 sent=1200 committed_valid=1200 throughput=39.8 tx/s latency_ms p50=128.0 p95=175.7 key_shares_after_commit_ms p50=7.9 p95=14.4 wall=30.1s  (signing 12.0s)
+n=4 GUO-LOG send_rate=5.0 sent=150 committed_valid=150 throughput=5.0 tx/s latency_ms p50=77.4 p95=100.9 key_shares_after_commit_ms p50=0.0 p95=0.0 wall=29.9s
+n=4 GUO-LOG send_rate=10.0 sent=300 committed_valid=300 throughput=10.0 tx/s latency_ms p50=76.9 p95=101.1 key_shares_after_commit_ms p50=0.0 p95=0.0 wall=30.0s
+n=4 GUO-LOG send_rate=15.0 sent=450 committed_valid=450 throughput=15.0 tx/s latency_ms p50=88.9 p95=128.3 key_shares_after_commit_ms p50=0.0 p95=0.0 wall=30.1s
+n=4 GUO-LOG send_rate=20.0 sent=600 committed_valid=600 throughput=20.0 tx/s latency_ms p50=91.0 p95=127.6 key_shares_after_commit_ms p50=0.0 p95=0.0 wall=30.0s
+n=4 GUO-LOG send_rate=30.0 sent=900 committed_valid=900 throughput=29.9 tx/s latency_ms p50=91.4 p95=124.5 key_shares_after_commit_ms p50=0.0 p95=0.0 wall=30.1s
+n=4 GUO-LOG send_rate=40.0 sent=1200 committed_valid=1200 throughput=39.9 tx/s latency_ms p50=93.0 p95=127.5 key_shares_after_commit_ms p50=0.0 p95=0.0 wall=30.1s
+summary -> /home/user/PLEDGE-Artifact/results/full-20261030-214231/n4fine/ledger_summary_n4.json

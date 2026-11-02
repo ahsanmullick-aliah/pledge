@@ -1,0 +1,20 @@
+stopped
+PLEDGE ledger up: n=4, f=1, k=2, channel pledgechannel
+uploaded 120 readable records of patient 922fb35e to HAPI + Fabric
+chart of   1: 138 ms
+chart of   1: 140 ms
+chart of   1: 164 ms
+chart of  10: 675 ms
+chart of  10: 670 ms
+chart of  10: 719 ms
+chart of  25: 1565 ms
+chart of  25: 1550 ms
+chart of  25: 1531 ms
+chart of  50: 2888 ms
+chart of  50: 2935 ms
+chart of  50: 2948 ms
+chart of 100: 5400 ms
+chart of 100: 5463 ms
+chart of 100: 5381 ms
+first access, median ms: fetch 34.2, side 4.2, build 3.1, endorse 20.1, order 73.6, shares 2.6, verify 7.9, decrypt 2.9, total 162.8
+-> /home/user/PLEDGE-Artifact/results/full-20261030-214231/e2e_fabric.json

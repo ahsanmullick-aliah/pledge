@@ -1,0 +1,4 @@
+# Python packages for PLEDGE and the experiments (Python 3.10 or newer)
+cryptography>=42,<60
+matplotlib>=3.8,<4
+pyyaml>=6,<7

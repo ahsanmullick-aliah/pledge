@@ -1,0 +1,4 @@
+exact results equal to the paper: 60/60
+Section VII statements holding on this run: 16/17
+  statement does not hold: At 10 entries/s PLEDGE's commit latency is close to Guo's plain logging (within 25%) | PLEDGE 109.9 ms vs Guo 77.1 ms (+32.8 ms)
+report -> /home/user/PLEDGE-Artifact/results/full-20261030-214231/REPORT.html

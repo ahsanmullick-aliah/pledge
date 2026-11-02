@@ -1,0 +1,240 @@
+R=10   G=5   P=1   PLEDGE             share              0.155s txs=10    ops=10
+R=10   G=5   P=1   PLEDGE             revoke             0.008s txs=1     ops=0
+R=10   G=5   P=1   PLEDGE             onboard_clinician    0.068s txs=1     ops=0
+R=10   G=5   P=1   PLEDGE             narrow_consent     0.092s txs=10    ops=10
+R=10   G=5   P=1   Guo et al. 2022    share              0.109s txs=10    ops=10
+R=10   G=5   P=1   Guo et al. 2022    revoke             0.117s txs=0     ops=26
+R=10   G=5   P=1   Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=10   G=5   P=1   Guo et al. 2022    narrow_consent     0.076s txs=0     ops=10
+R=10   G=5   P=1   Romel et al. 2025  share              0.070s txs=5     ops=50
+R=10   G=5   P=1   Romel et al. 2025  revoke             0.001s txs=1     ops=0
+R=10   G=5   P=1   Romel et al. 2025  onboard_clinician    0.015s txs=1     ops=10
+R=10   G=5   P=1   Romel et al. 2025  narrow_consent     0.005s txs=4     ops=0
+R=10   G=5   P=1   CALYPSO 2021       share              0.007s txs=10    ops=10
+R=10   G=5   P=1   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=10   G=5   P=1   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=10   G=5   P=1   CALYPSO 2021       narrow_consent     0.000s txs=1     ops=0
+R=10   G=20  P=1   PLEDGE             share              0.155s txs=10    ops=10
+R=10   G=20  P=1   PLEDGE             revoke             0.008s txs=1     ops=0
+R=10   G=20  P=1   PLEDGE             onboard_clinician    0.069s txs=1     ops=0
+R=10   G=20  P=1   PLEDGE             narrow_consent     0.090s txs=10    ops=10
+R=10   G=20  P=1   Guo et al. 2022    share              0.107s txs=10    ops=10
+R=10   G=20  P=1   Guo et al. 2022    revoke             0.166s txs=0     ops=86
+R=10   G=20  P=1   Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=10   G=20  P=1   Guo et al. 2022    narrow_consent     0.077s txs=0     ops=10
+R=10   G=20  P=1   Romel et al. 2025  share              0.281s txs=20    ops=200
+R=10   G=20  P=1   Romel et al. 2025  revoke             0.001s txs=1     ops=0
+R=10   G=20  P=1   Romel et al. 2025  onboard_clinician    0.015s txs=1     ops=10
+R=10   G=20  P=1   Romel et al. 2025  narrow_consent     0.023s txs=19    ops=0
+R=10   G=20  P=1   CALYPSO 2021       share              0.007s txs=10    ops=10
+R=10   G=20  P=1   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=10   G=20  P=1   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=10   G=20  P=1   CALYPSO 2021       narrow_consent     0.000s txs=1     ops=0
+R=10   G=50  P=1   PLEDGE             share              0.154s txs=10    ops=10
+R=10   G=50  P=1   PLEDGE             revoke             0.008s txs=1     ops=0
+R=10   G=50  P=1   PLEDGE             onboard_clinician    0.070s txs=1     ops=0
+R=10   G=50  P=1   PLEDGE             narrow_consent     0.091s txs=10    ops=10
+R=10   G=50  P=1   Guo et al. 2022    share              0.109s txs=10    ops=10
+R=10   G=50  P=1   Guo et al. 2022    revoke             0.261s txs=0     ops=206
+R=10   G=50  P=1   Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=10   G=50  P=1   Guo et al. 2022    narrow_consent     0.077s txs=0     ops=10
+R=10   G=50  P=1   Romel et al. 2025  share              0.698s txs=50    ops=500
+R=10   G=50  P=1   Romel et al. 2025  revoke             0.001s txs=1     ops=0
+R=10   G=50  P=1   Romel et al. 2025  onboard_clinician    0.016s txs=1     ops=10
+R=10   G=50  P=1   Romel et al. 2025  narrow_consent     0.061s txs=49    ops=0
+R=10   G=50  P=1   CALYPSO 2021       share              0.007s txs=10    ops=10
+R=10   G=50  P=1   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=10   G=50  P=1   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=10   G=50  P=1   CALYPSO 2021       narrow_consent     0.000s txs=1     ops=0
+R=50   G=5   P=1   PLEDGE             share              0.779s txs=50    ops=50
+R=50   G=5   P=1   PLEDGE             revoke             0.008s txs=1     ops=0
+R=50   G=5   P=1   PLEDGE             onboard_clinician    0.069s txs=1     ops=0
+R=50   G=5   P=1   PLEDGE             narrow_consent     0.452s txs=50    ops=50
+R=50   G=5   P=1   Guo et al. 2022    share              0.549s txs=50    ops=50
+R=50   G=5   P=1   Guo et al. 2022    revoke             0.542s txs=0     ops=66
+R=50   G=5   P=1   Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=50   G=5   P=1   Guo et al. 2022    narrow_consent     0.385s txs=0     ops=50
+R=50   G=5   P=1   Romel et al. 2025  share              0.316s txs=5     ops=250
+R=50   G=5   P=1   Romel et al. 2025  revoke             0.001s txs=1     ops=0
+R=50   G=5   P=1   Romel et al. 2025  onboard_clinician    0.064s txs=1     ops=50
+R=50   G=5   P=1   Romel et al. 2025  narrow_consent     0.005s txs=4     ops=0
+R=50   G=5   P=1   CALYPSO 2021       share              0.034s txs=50    ops=50
+R=50   G=5   P=1   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=50   G=5   P=1   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=50   G=5   P=1   CALYPSO 2021       narrow_consent     0.000s txs=1     ops=0
+R=50   G=20  P=1   PLEDGE             share              0.771s txs=50    ops=50
+R=50   G=20  P=1   PLEDGE             revoke             0.008s txs=1     ops=0
+R=50   G=20  P=1   PLEDGE             onboard_clinician    0.068s txs=1     ops=0
+R=50   G=20  P=1   PLEDGE             narrow_consent     0.453s txs=50    ops=50
+R=50   G=20  P=1   Guo et al. 2022    share              0.545s txs=50    ops=50
+R=50   G=20  P=1   Guo et al. 2022    revoke             0.589s txs=0     ops=126
+R=50   G=20  P=1   Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=50   G=20  P=1   Guo et al. 2022    narrow_consent     0.382s txs=0     ops=50
+R=50   G=20  P=1   Romel et al. 2025  share              1.288s txs=20    ops=1000
+R=50   G=20  P=1   Romel et al. 2025  revoke             0.001s txs=1     ops=0
+R=50   G=20  P=1   Romel et al. 2025  onboard_clinician    0.064s txs=1     ops=50
+R=50   G=20  P=1   Romel et al. 2025  narrow_consent     0.024s txs=19    ops=0
+R=50   G=20  P=1   CALYPSO 2021       share              0.033s txs=50    ops=50
+R=50   G=20  P=1   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=50   G=20  P=1   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=50   G=20  P=1   CALYPSO 2021       narrow_consent     0.000s txs=1     ops=0
+R=50   G=50  P=1   PLEDGE             share              0.773s txs=50    ops=50
+R=50   G=50  P=1   PLEDGE             revoke             0.008s txs=1     ops=0
+R=50   G=50  P=1   PLEDGE             onboard_clinician    0.069s txs=1     ops=0
+R=50   G=50  P=1   PLEDGE             narrow_consent     0.453s txs=50    ops=50
+R=50   G=50  P=1   Guo et al. 2022    share              0.566s txs=50    ops=50
+R=50   G=50  P=1   Guo et al. 2022    revoke             0.678s txs=0     ops=246
+R=50   G=50  P=1   Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=50   G=50  P=1   Guo et al. 2022    narrow_consent     0.390s txs=0     ops=50
+R=50   G=50  P=1   Romel et al. 2025  share              3.201s txs=50    ops=2500
+R=50   G=50  P=1   Romel et al. 2025  revoke             0.001s txs=1     ops=0
+R=50   G=50  P=1   Romel et al. 2025  onboard_clinician    0.065s txs=1     ops=50
+R=50   G=50  P=1   Romel et al. 2025  narrow_consent     0.061s txs=49    ops=0
+R=50   G=50  P=1   CALYPSO 2021       share              0.033s txs=50    ops=50
+R=50   G=50  P=1   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=50   G=50  P=1   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=50   G=50  P=1   CALYPSO 2021       narrow_consent     0.000s txs=1     ops=0
+R=100  G=5   P=1   PLEDGE             share              1.559s txs=100   ops=100
+R=100  G=5   P=1   PLEDGE             revoke             0.008s txs=1     ops=0
+R=100  G=5   P=1   PLEDGE             onboard_clinician    0.072s txs=1     ops=0
+R=100  G=5   P=1   PLEDGE             narrow_consent     0.903s txs=100   ops=100
+R=100  G=5   P=1   Guo et al. 2022    share              1.092s txs=100   ops=100
+R=100  G=5   P=1   Guo et al. 2022    revoke             1.068s txs=0     ops=116
+R=100  G=5   P=1   Guo et al. 2022    onboard_clinician    0.005s txs=0     ops=0
+R=100  G=5   P=1   Guo et al. 2022    narrow_consent     0.784s txs=0     ops=100
+R=100  G=5   P=1   Romel et al. 2025  share              0.631s txs=5     ops=500
+R=100  G=5   P=1   Romel et al. 2025  revoke             0.001s txs=1     ops=0
+R=100  G=5   P=1   Romel et al. 2025  onboard_clinician    0.126s txs=1     ops=100
+R=100  G=5   P=1   Romel et al. 2025  narrow_consent     0.006s txs=4     ops=0
+R=100  G=5   P=1   CALYPSO 2021       share              0.069s txs=100   ops=100
+R=100  G=5   P=1   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=100  G=5   P=1   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=100  G=5   P=1   CALYPSO 2021       narrow_consent     0.000s txs=1     ops=0
+R=100  G=20  P=1   PLEDGE             share              1.582s txs=100   ops=100
+R=100  G=20  P=1   PLEDGE             revoke             0.008s txs=1     ops=0
+R=100  G=20  P=1   PLEDGE             onboard_clinician    0.069s txs=1     ops=0
+R=100  G=20  P=1   PLEDGE             narrow_consent     0.902s txs=100   ops=100
+R=100  G=20  P=1   Guo et al. 2022    share              1.084s txs=100   ops=100
+R=100  G=20  P=1   Guo et al. 2022    revoke             1.110s txs=0     ops=176
+R=100  G=20  P=1   Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=100  G=20  P=1   Guo et al. 2022    narrow_consent     0.773s txs=0     ops=100
+R=100  G=20  P=1   Romel et al. 2025  share              2.522s txs=20    ops=2000
+R=100  G=20  P=1   Romel et al. 2025  revoke             0.001s txs=1     ops=0
+R=100  G=20  P=1   Romel et al. 2025  onboard_clinician    0.128s txs=1     ops=100
+R=100  G=20  P=1   Romel et al. 2025  narrow_consent     0.024s txs=19    ops=0
+R=100  G=20  P=1   CALYPSO 2021       share              0.066s txs=100   ops=100
+R=100  G=20  P=1   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=100  G=20  P=1   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=100  G=20  P=1   CALYPSO 2021       narrow_consent     0.000s txs=1     ops=0
+R=100  G=50  P=1   PLEDGE             share              1.560s txs=100   ops=100
+R=100  G=50  P=1   PLEDGE             revoke             0.008s txs=1     ops=0
+R=100  G=50  P=1   PLEDGE             onboard_clinician    0.068s txs=1     ops=0
+R=100  G=50  P=1   PLEDGE             narrow_consent     0.912s txs=100   ops=100
+R=100  G=50  P=1   Guo et al. 2022    share              1.088s txs=100   ops=100
+R=100  G=50  P=1   Guo et al. 2022    revoke             1.236s txs=0     ops=296
+R=100  G=50  P=1   Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=100  G=50  P=1   Guo et al. 2022    narrow_consent     0.769s txs=0     ops=100
+R=100  G=50  P=1   Romel et al. 2025  share              6.345s txs=50    ops=5000
+R=100  G=50  P=1   Romel et al. 2025  revoke             0.001s txs=1     ops=0
+R=100  G=50  P=1   Romel et al. 2025  onboard_clinician    0.128s txs=1     ops=100
+R=100  G=50  P=1   Romel et al. 2025  narrow_consent     0.065s txs=49    ops=0
+R=100  G=50  P=1   CALYPSO 2021       share              0.066s txs=100   ops=100
+R=100  G=50  P=1   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=100  G=50  P=1   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=100  G=50  P=1   CALYPSO 2021       narrow_consent     0.000s txs=1     ops=0
+R=250  G=5   P=1   PLEDGE             share              3.920s txs=250   ops=250
+R=250  G=5   P=1   PLEDGE             revoke             0.010s txs=1     ops=0
+R=250  G=5   P=1   PLEDGE             onboard_clinician    0.071s txs=1     ops=0
+R=250  G=5   P=1   PLEDGE             narrow_consent     2.285s txs=250   ops=250
+R=250  G=5   P=1   Guo et al. 2022    share              2.743s txs=250   ops=250
+R=250  G=5   P=1   Guo et al. 2022    revoke             2.661s txs=0     ops=266
+R=250  G=5   P=1   Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=250  G=5   P=1   Guo et al. 2022    narrow_consent     1.954s txs=0     ops=250
+R=250  G=5   P=1   Romel et al. 2025  share              1.559s txs=5     ops=1250
+R=250  G=5   P=1   Romel et al. 2025  revoke             0.001s txs=1     ops=0
+R=250  G=5   P=1   Romel et al. 2025  onboard_clinician    0.313s txs=1     ops=250
+R=250  G=5   P=1   Romel et al. 2025  narrow_consent     0.006s txs=4     ops=0
+R=250  G=5   P=1   CALYPSO 2021       share              0.167s txs=250   ops=250
+R=250  G=5   P=1   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=250  G=5   P=1   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=250  G=5   P=1   CALYPSO 2021       narrow_consent     0.000s txs=1     ops=0
+R=250  G=20  P=1   PLEDGE             share              3.868s txs=250   ops=250
+R=250  G=20  P=1   PLEDGE             revoke             0.008s txs=1     ops=0
+R=250  G=20  P=1   PLEDGE             onboard_clinician    0.070s txs=1     ops=0
+R=250  G=20  P=1   PLEDGE             narrow_consent     2.265s txs=250   ops=250
+R=250  G=20  P=1   Guo et al. 2022    share              2.748s txs=250   ops=250
+R=250  G=20  P=1   Guo et al. 2022    revoke             2.693s txs=0     ops=326
+R=250  G=20  P=1   Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=250  G=20  P=1   Guo et al. 2022    narrow_consent     1.917s txs=0     ops=250
+R=250  G=20  P=1   Romel et al. 2025  share              6.300s txs=20    ops=5000
+R=250  G=20  P=1   Romel et al. 2025  revoke             0.001s txs=1     ops=0
+R=250  G=20  P=1   Romel et al. 2025  onboard_clinician    0.313s txs=1     ops=250
+R=250  G=20  P=1   Romel et al. 2025  narrow_consent     0.028s txs=19    ops=0
+R=250  G=20  P=1   CALYPSO 2021       share              0.168s txs=250   ops=250
+R=250  G=20  P=1   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=250  G=20  P=1   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=250  G=20  P=1   CALYPSO 2021       narrow_consent     0.000s txs=1     ops=0
+R=250  G=50  P=1   PLEDGE             share              3.885s txs=250   ops=250
+R=250  G=50  P=1   PLEDGE             revoke             0.008s txs=1     ops=0
+R=250  G=50  P=1   PLEDGE             onboard_clinician    0.069s txs=1     ops=0
+R=250  G=50  P=1   PLEDGE             narrow_consent     2.272s txs=250   ops=250
+R=250  G=50  P=1   Guo et al. 2022    share              2.724s txs=250   ops=250
+R=250  G=50  P=1   Guo et al. 2022    revoke             2.795s txs=0     ops=446
+R=250  G=50  P=1   Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=250  G=50  P=1   Guo et al. 2022    narrow_consent     1.917s txs=0     ops=250
+R=250  G=50  P=1   Romel et al. 2025  share             15.638s txs=50    ops=12500
+R=250  G=50  P=1   Romel et al. 2025  revoke             0.002s txs=1     ops=0
+R=250  G=50  P=1   Romel et al. 2025  onboard_clinician    0.314s txs=1     ops=250
+R=250  G=50  P=1   Romel et al. 2025  narrow_consent     0.068s txs=49    ops=0
+R=250  G=50  P=1   CALYPSO 2021       share              0.166s txs=250   ops=250
+R=250  G=50  P=1   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=250  G=50  P=1   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=250  G=50  P=1   CALYPSO 2021       narrow_consent     0.000s txs=1     ops=0
+R=100  G=20  P=2   PLEDGE             share              3.098s txs=200   ops=200
+R=100  G=20  P=2   PLEDGE             revoke             0.008s txs=1     ops=0
+R=100  G=20  P=2   PLEDGE             onboard_clinician    0.069s txs=1     ops=0
+R=100  G=20  P=2   PLEDGE             narrow_consent     1.818s txs=200   ops=200
+R=100  G=20  P=2   Guo et al. 2022    share              2.177s txs=200   ops=200
+R=100  G=20  P=2   Guo et al. 2022    revoke             2.177s txs=0     ops=276
+R=100  G=20  P=2   Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=100  G=20  P=2   Guo et al. 2022    narrow_consent     1.550s txs=0     ops=200
+R=100  G=20  P=2   Romel et al. 2025  share              5.071s txs=40    ops=4000
+R=100  G=20  P=2   Romel et al. 2025  revoke             0.003s txs=2     ops=0
+R=100  G=20  P=2   Romel et al. 2025  onboard_clinician    0.255s txs=2     ops=200
+R=100  G=20  P=2   Romel et al. 2025  narrow_consent     0.049s txs=38    ops=0
+R=100  G=20  P=2   CALYPSO 2021       share              0.133s txs=200   ops=200
+R=100  G=20  P=2   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=100  G=20  P=2   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=100  G=20  P=2   CALYPSO 2021       narrow_consent     0.000s txs=2     ops=0
+R=100  G=20  P=5   PLEDGE             share              7.786s txs=500   ops=500
+R=100  G=20  P=5   PLEDGE             revoke             0.008s txs=1     ops=0
+R=100  G=20  P=5   PLEDGE             onboard_clinician    0.071s txs=1     ops=0
+R=100  G=20  P=5   PLEDGE             narrow_consent     4.537s txs=500   ops=500
+R=100  G=20  P=5   Guo et al. 2022    share              5.451s txs=500   ops=500
+R=100  G=20  P=5   Guo et al. 2022    revoke             5.364s txs=0     ops=576
+R=100  G=20  P=5   Guo et al. 2022    onboard_clinician    0.005s txs=0     ops=0
+R=100  G=20  P=5   Guo et al. 2022    narrow_consent     3.870s txs=0     ops=500
+R=100  G=20  P=5   Romel et al. 2025  share             12.791s txs=100   ops=10000
+R=100  G=20  P=5   Romel et al. 2025  revoke             0.007s txs=5     ops=0
+R=100  G=20  P=5   Romel et al. 2025  onboard_clinician    0.632s txs=5     ops=500
+R=100  G=20  P=5   Romel et al. 2025  narrow_consent     0.123s txs=95    ops=0
+R=100  G=20  P=5   CALYPSO 2021       share              0.335s txs=500   ops=500
+R=100  G=20  P=5   CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=100  G=20  P=5   CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=100  G=20  P=5   CALYPSO 2021       narrow_consent     0.000s txs=5     ops=0
+R=100  G=20  P=10  PLEDGE             share             15.781s txs=1000  ops=1000
+R=100  G=20  P=10  PLEDGE             revoke             0.008s txs=1     ops=0
+R=100  G=20  P=10  PLEDGE             onboard_clinician    0.070s txs=1     ops=0
+R=100  G=20  P=10  PLEDGE             narrow_consent     9.186s txs=1000  ops=1000
+R=100  G=20  P=10  Guo et al. 2022    share             11.039s txs=1000  ops=1000
+R=100  G=20  P=10  Guo et al. 2022    revoke            10.834s txs=0     ops=1076
+R=100  G=20  P=10  Guo et al. 2022    onboard_clinician    0.004s txs=0     ops=0
+R=100  G=20  P=10  Guo et al. 2022    narrow_consent     7.749s txs=0     ops=1000
+R=100  G=20  P=10  Romel et al. 2025  share             25.402s txs=200   ops=20000
+R=100  G=20  P=10  Romel et al. 2025  revoke             0.013s txs=10    ops=0
+R=100  G=20  P=10  Romel et al. 2025  onboard_clinician    1.265s txs=10    ops=1000
+R=100  G=20  P=10  Romel et al. 2025  narrow_consent     0.245s txs=190   ops=0
+R=100  G=20  P=10  CALYPSO 2021       share              0.671s txs=1000  ops=1000
+R=100  G=20  P=10  CALYPSO 2021       revoke             0.000s txs=1     ops=0
+R=100  G=20  P=10  CALYPSO 2021       onboard_clinician    0.000s txs=1     ops=0
+R=100  G=20  P=10  CALYPSO 2021       narrow_consent     0.000s txs=10    ops=0

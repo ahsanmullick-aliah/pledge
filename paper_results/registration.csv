@@ -1,0 +1,9 @@
+op,median_ms,p95_ms,bytes
+reg/patient-client,0.78,1.30,
+reg/patient-aa,3.52,4.23,502
+reg/patient-check,1.27,1.32,
+reg/clinician-aa,42.92,44.86,
+rec/key-derive,0.31,0.69,
+rekey/header-only,28.02,30.24,834
+rekey/strict,28.16,31.45,834
+check/rekey,2.96,3.56,834

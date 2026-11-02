@@ -1,0 +1,12 @@
+| Attack | PLEDGE | Guo et al. 2022 | Romel et al. 2025 | CALYPSO 2021 |
+| --- | --- | --- | --- | --- |
+| A1 Read without a log entry | blocked | succeeds | succeeds | blocked |
+| A2 Log record A, read record B | blocked | succeeds | succeeds | blocked |
+| A3 Use another clinician's access capability | blocked | n/a | blocked | blocked |
+| A4 Revoked clinician opens a new record | blocked | blocked | blocked | blocked |
+| A4b Revoked clinician re-reads a record opened before | succeeds | succeeds | succeeds | succeeds |
+| A5 f < n/3 ledger nodes grant access off-ledger | blocked | n/a | n/a | blocked |
+| A6 Validators learn which patient record was read | blocked | succeeds | succeeds | succeeds |
+| A7 Validators learn the purpose of access | blocked | n/a | n/a | n/a |
+| A8 Emergency role used without co-signed break-glass | blocked | n/a | n/a | n/a |
+| A9 A ledger quorum decrypts records itself | blocked | blocked | blocked | succeeds |

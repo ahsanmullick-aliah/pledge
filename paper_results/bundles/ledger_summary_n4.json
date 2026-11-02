@@ -1,0 +1,58 @@
+[
+ {
+  "system": "pledge",
+  "n": 4,
+  "bundle": 1,
+  "rate": 10.0,
+  "send_rate": "10.0",
+  "sent": "200",
+  "committed_valid": "200",
+  "throughput": "10.0",
+  "p50": "7.9",
+  "p95": "9.2",
+  "wall": "20.0",
+  "csv": "/home/user/PLEDGE-Artifact/results/full-20261030-214231/bundles/ledger_n4_r10_b1.csv"
+ },
+ {
+  "system": "pledge",
+  "n": 4,
+  "bundle": 10,
+  "rate": 10.0,
+  "send_rate": "10.0",
+  "sent": "200",
+  "committed_valid": "200",
+  "throughput": "10.0",
+  "p50": "20.1",
+  "p95": "38.5",
+  "wall": "20.1",
+  "csv": "/home/user/PLEDGE-Artifact/results/full-20261030-214231/bundles/ledger_n4_r10_b10.csv"
+ },
+ {
+  "system": "pledge",
+  "n": 4,
+  "bundle": 25,
+  "rate": 10.0,
+  "send_rate": "10.0",
+  "sent": "200",
+  "committed_valid": "200",
+  "throughput": "9.9",
+  "p50": "47.5",
+  "p95": "162.1",
+  "wall": "20.2",
+  "csv": "/home/user/PLEDGE-Artifact/results/full-20261030-214231/bundles/ledger_n4_r10_b25.csv"
+ },
+ {
+  "system": "pledge",
+  "n": 4,
+  "bundle": 50,
+  "rate": 10.0,
+  "send_rate": "10.0",
+  "sent": "200",
+  "committed_valid": "200",
+  "throughput": "8.6",
+  "p50": "867.9",
+  "p95": "2640.8",
+  "wall": "25.7",
+  "csv": "/home/user/PLEDGE-Artifact/results/full-20261030-214231/bundles/ledger_n4_r10_b50.csv"
+ }
+]

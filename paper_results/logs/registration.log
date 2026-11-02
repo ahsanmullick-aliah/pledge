@@ -1,0 +1,8 @@
+reg/patient-client         0.78 ms  p95     1.30  
+reg/patient-aa             3.52 ms  p95     4.23  502
+reg/patient-check          1.27 ms  p95     1.32  
+reg/clinician-aa          42.92 ms  p95    44.86  
+rec/key-derive             0.31 ms  p95     0.69  
+rekey/header-only         28.02 ms  p95    30.24  834
+rekey/strict              28.16 ms  p95    31.45  834
+check/rekey                2.96 ms  p95     3.56  834

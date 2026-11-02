@@ -1,0 +1,89 @@
+{
+ "mode": "full",
+ "started": "2026-10-30T21:42:31",
+ "host": {
+  "system": "Linux-6.8.0-1070-gcp-x86_64-with-glibc2.35",
+  "machine": "x86_64",
+  "python": "3.12.10",
+  "cpus": 8,
+  "cpu": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+  "ram_gb": 31.3
+ },
+ "stages": {
+  "tests": {
+   "status": "ok",
+   "seconds": 12.5,
+   "note": "66 tests: OK (skipped=1); differential test 6000 triples agree, 14 consents outside F rejected; Go/Python test vectors pass"
+  },
+  "attacks": {
+   "status": "ok",
+   "seconds": 0.9,
+   "note": ""
+  },
+  "crypto": {
+   "status": "ok",
+   "seconds": 32.2,
+   "note": "40 interleaved repetitions"
+  },
+  "micro": {
+   "status": "ok",
+   "seconds": 15.1,
+   "note": ""
+  },
+  "lifecycle": {
+   "status": "ok",
+   "seconds": 271.9,
+   "note": "full grid"
+  },
+  "registration": {
+   "status": "ok",
+   "seconds": 52.2,
+   "note": ""
+  },
+  "fhir-synthea": {
+   "status": "ok",
+   "seconds": 1906.4,
+   "note": "50 patients, at most 300 resources each"
+  },
+  "fhir-mimic": {
+   "status": "ok",
+   "seconds": 4249.1,
+   "note": "100 patients, at most 300 resources each"
+  },
+  "fabric-smoke": {
+   "status": "ok",
+   "seconds": 35.0,
+   "note": "attacks blocked 8/8"
+  },
+  "fabric-e2e": {
+   "status": "ok",
+   "seconds": 89.5,
+   "note": "40 first accesses, charts 1,10,25,50,100"
+  },
+  "fabric-ledger": {
+   "status": "ok",
+   "seconds": 837.3,
+   "note": "n=4 at 5,10,15,20,30,40 entries/s, n=7 and n=10"
+  },
+  "fabric-bundle": {
+   "status": "ok",
+   "seconds": 277.2,
+   "note": "m = 1,10,25,50"
+  },
+  "figures": {
+   "status": "ok",
+   "seconds": 5.5,
+   "note": ""
+  },
+  "report": {
+   "status": "ok",
+   "seconds": 0.1,
+   "note": ""
+  }
+ },
+ "finished": "2026-10-31T00:40:49",
+ "fabric_rerun": {
+  "started": "2026-10-31T00:19:32",
+  "reason": "peer snapshot dir /var/hyperledger not writable for a non-root user in run 1; fixed in fabric/network/pledge_net.py"
+ }
+}

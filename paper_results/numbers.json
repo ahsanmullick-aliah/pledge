@@ -1,0 +1,396 @@
+{
+ "pledge_enc_5": 8.979046500030563,
+ "pledge_dec_5": 8.129079500122316,
+ "pledge_enc_50": 74.01890099993125,
+ "pledge_dec_50": 32.94733450002241,
+ "guo_enc_5": 7.6206085000194435,
+ "guo_dec_5": 3.8189084999658007,
+ "guo_enc_50": 72.41124150004907,
+ "guo_dec_50": 28.718232999949578,
+ "romel_enc_50": 60.444065500064426,
+ "romel_enc_5": 6.2208015000351224,
+ "romel_dec": 0.812958500091554,
+ "calypso_enc": 0.624391499968624,
+ "calypso_release": 0.29470099991613097,
+ "calypso_dec": 0.39491550001002906,
+ "romel_crossover": 7.451729436670521,
+ "share_verify": 1.7524206999799692,
+ "share_gen": 0.7839961666832096,
+ "combine": 3.739814366652657,
+ "device_finish": 0.32471473331649275,
+ "pledge_n4_r15_p50": 131.3115,
+ "pledge_n4_r15_p95": 178.2021,
+ "pledge_n4_r15_thr": 15.0,
+ "pledge_n4_r15_endorse_p50": 30.092,
+ "pledge_n4_r15_shares_p50": 8.139,
+ "pledge_n4_r15_shares_p95": 10.569400000000002,
+ "pledge_n4_r20_p50": 132.725,
+ "pledge_n4_r20_p95": 186.90849999999998,
+ "pledge_n4_r20_thr": 20.0,
+ "pledge_n4_r20_endorse_p50": 31.4955,
+ "pledge_n4_r20_shares_p50": 8.103000000000002,
+ "pledge_n4_r20_shares_p95": 11.835349999999988,
+ "pledge_n4_r30_p50": 124.67099999999999,
+ "pledge_n4_r30_p95": 182.15114999999997,
+ "pledge_n4_r30_thr": 29.9,
+ "pledge_n4_r30_endorse_p50": 28.867,
+ "pledge_n4_r30_shares_p50": 7.8965,
+ "pledge_n4_r30_shares_p95": 14.303299999999998,
+ "pledge_n4_r5_p50": 104.79950000000001,
+ "pledge_n4_r5_p95": 135.2955,
+ "pledge_n4_r5_thr": 5.0,
+ "pledge_n4_r5_endorse_p50": 22.8835,
+ "pledge_n4_r5_shares_p50": 8.182,
+ "pledge_n4_r5_shares_p95": 9.7085,
+ "pledge_n4_r10_p50": 109.86600000000001,
+ "pledge_n4_r10_p95": 151.43574999999998,
+ "pledge_n4_r10_thr": 10.0,
+ "pledge_n4_r10_endorse_p50": 28.174,
+ "pledge_n4_r10_shares_p50": 8.0795,
+ "pledge_n4_r10_shares_p95": 10.307500000000001,
+ "pledge_n4_r40_p50": 128.029,
+ "pledge_n4_r40_p95": 175.66755,
+ "pledge_n4_r40_thr": 39.8,
+ "pledge_n4_r40_endorse_p50": 28.7905,
+ "pledge_n4_r40_shares_p50": 7.939500000000001,
+ "pledge_n4_r40_shares_p95": 14.437299999999999,
+ "guo_n4_r20_p50": 91.0695,
+ "guo_n4_r20_p95": 127.5774,
+ "guo_n4_r20_thr": 20.0,
+ "guo_n4_r20_endorse_p50": 13.99,
+ "guo_n4_r10_p50": 77.07,
+ "guo_n4_r10_p95": 101.10535,
+ "guo_n4_r10_thr": 10.0,
+ "guo_n4_r10_endorse_p50": 11.363,
+ "guo_n4_r30_p50": 91.428,
+ "guo_n4_r30_p95": 124.54504999999999,
+ "guo_n4_r30_thr": 29.9,
+ "guo_n4_r30_endorse_p50": 13.931000000000001,
+ "guo_n4_r5_p50": 77.4455,
+ "guo_n4_r5_p95": 102.13065000000002,
+ "guo_n4_r5_thr": 5.0,
+ "guo_n4_r5_endorse_p50": 11.693,
+ "guo_n4_r40_p50": 92.96600000000001,
+ "guo_n4_r40_p95": 127.50914999999999,
+ "guo_n4_r40_thr": 39.9,
+ "guo_n4_r40_endorse_p50": 13.754000000000001,
+ "guo_n4_r15_p50": 89.05850000000001,
+ "guo_n4_r15_p95": 128.45865,
+ "guo_n4_r15_thr": 15.0,
+ "guo_n4_r15_endorse_p50": 13.6875,
+ "pledge_n7_r10_p50": 145.19350000000003,
+ "pledge_n7_r10_p95": 185.87650000000002,
+ "pledge_n7_r10_thr": 9.9,
+ "pledge_n7_r10_endorse_p50": 42.2025,
+ "pledge_n7_r10_shares_p50": 9.025,
+ "pledge_n7_r10_shares_p95": 18.875000000000004,
+ "pledge_n7_r50_p50": 2388.612,
+ "pledge_n7_r50_p95": 3648.9926,
+ "pledge_n7_r50_thr": 47.5,
+ "pledge_n7_r50_endorse_p50": 606.3525,
+ "pledge_n7_r50_shares_p50": 139.656,
+ "pledge_n7_r50_shares_p95": 841.5879999999999,
+ "pledge_n10_r50_p50": 12465.737000000001,
+ "pledge_n10_r50_p95": 16950.022849999998,
+ "pledge_n10_r50_thr": 33.6,
+ "pledge_n10_r50_endorse_p50": 3269.2985,
+ "pledge_n10_r50_shares_p50": 522.8979999999999,
+ "pledge_n10_r50_shares_p95": 2369.8950999999997,
+ "pledge_n10_r25_p50": 1355.424,
+ "pledge_n10_r25_p95": 2435.7929499999996,
+ "pledge_n10_r25_thr": 23.5,
+ "pledge_n10_r25_endorse_p50": 633.144,
+ "pledge_n10_r25_shares_p50": 141.86399999999998,
+ "pledge_n10_r25_shares_p95": 628.5588500000001,
+ "pledge_n10_r10_p50": 252.52749999999997,
+ "pledge_n10_r10_p95": 398.55210000000017,
+ "pledge_n10_r10_thr": 9.9,
+ "pledge_n10_r10_endorse_p50": 84.3555,
+ "pledge_n10_r10_shares_p50": 16.299500000000002,
+ "pledge_n10_r10_shares_p95": 47.778050000000015,
+ "pledge_n7_r25_p50": 220.347,
+ "pledge_n7_r25_p95": 333.87045000000006,
+ "pledge_n7_r25_thr": 24.8,
+ "pledge_n7_r25_endorse_p50": 64.443,
+ "pledge_n7_r25_shares_p50": 13.3045,
+ "pledge_n7_r25_shares_p95": 37.871300000000005,
+ "guo_n10_r25_p50": 740.7905,
+ "guo_n10_r25_p95": 1172.0254000000002,
+ "guo_n10_r25_thr": 24.5,
+ "guo_n10_r25_endorse_p50": 182.8345,
+ "guo_n7_r50_p50": 217.90550000000002,
+ "guo_n7_r50_p95": 327.35769999999997,
+ "guo_n7_r50_thr": 49.7,
+ "guo_n7_r50_endorse_p50": 40.138000000000005,
+ "guo_n7_r25_p50": 165.449,
+ "guo_n7_r25_p95": 227.5165,
+ "guo_n7_r25_thr": 24.8,
+ "guo_n7_r25_endorse_p50": 29.9405,
+ "guo_n7_r10_p50": 123.91750000000002,
+ "guo_n7_r10_p95": 164.12015,
+ "guo_n7_r10_thr": 10.0,
+ "guo_n7_r10_endorse_p50": 26.0825,
+ "guo_n10_r50_p50": 9756.974999999999,
+ "guo_n10_r50_p95": 12054.824849999999,
+ "guo_n10_r50_thr": 35.2,
+ "guo_n10_r50_endorse_p50": 395.214,
+ "guo_n10_r10_p50": 291.671,
+ "guo_n10_r10_p95": 563.72195,
+ "guo_n10_r10_thr": 9.9,
+ "guo_n10_r10_endorse_p50": 81.3665,
+ "max_thr_pledge_n4": 39.8,
+ "max_thr_guo_n4": 39.9,
+ "max_thr_pledge_n7": 47.5,
+ "max_thr_guo_n7": 49.7,
+ "max_thr_pledge_n10": 33.6,
+ "max_thr_guo_n10": 35.2,
+ "bundle_1_p50": 99.80850000000001,
+ "bundle_1_shares_p50": 7.949,
+ "bundle_1_records_per_s": 10.0,
+ "bundle_1_entries_per_s": 10.0,
+ "bundle_10_p50": 166.6485,
+ "bundle_10_shares_p50": 20.0895,
+ "bundle_10_records_per_s": 100.0,
+ "bundle_10_entries_per_s": 10.0,
+ "bundle_25_p50": 333.908,
+ "bundle_25_shares_p50": 47.7795,
+ "bundle_25_records_per_s": 247.5,
+ "bundle_25_entries_per_s": 9.9,
+ "bundle_50_p50": 6790.1795,
+ "bundle_50_shares_p50": 868.981,
+ "bundle_50_records_per_s": 430.0,
+ "bundle_50_entries_per_s": 8.6,
+ "lc_PLEDGE_revoke_250": {
+  "tx": 1,
+  "ops": 0
+ },
+ "lc_Guo et al. 2022_revoke_250": {
+  "tx": 0,
+  "ops": 326
+ },
+ "lc_Romel et al. 2025_revoke_250": {
+  "tx": 1,
+  "ops": 0
+ },
+ "lc_CALYPSO 2021_revoke_250": {
+  "tx": 1,
+  "ops": 0
+ },
+ "lc_PLEDGE_onboard_clinician_250": {
+  "tx": 1,
+  "ops": 0
+ },
+ "lc_Guo et al. 2022_onboard_clinician_250": {
+  "tx": 0,
+  "ops": 0
+ },
+ "lc_Romel et al. 2025_onboard_clinician_250": {
+  "tx": 1,
+  "ops": 250
+ },
+ "lc_CALYPSO 2021_onboard_clinician_250": {
+  "tx": 1,
+  "ops": 0
+ },
+ "lc_PLEDGE_narrow_consent_250": {
+  "tx": 250,
+  "ops": 250
+ },
+ "lc_Guo et al. 2022_narrow_consent_250": {
+  "tx": 0,
+  "ops": 250
+ },
+ "lc_Romel et al. 2025_narrow_consent_250": {
+  "tx": 19,
+  "ops": 0
+ },
+ "lc_CALYPSO 2021_narrow_consent_250": {
+  "tx": 1,
+  "ops": 0
+ },
+ "pledge_share_500": {
+  "s": 7.78636766700015,
+  "tx": 500,
+  "ops": 500
+ },
+ "pledge_revoke_500": {
+  "s": 0.007930418999876565,
+  "tx": 1,
+  "ops": 0
+ },
+ "pledge_onboard_clinician_500": {
+  "s": 0.07069265699988136,
+  "tx": 1,
+  "ops": 0
+ },
+ "pledge_narrow_consent_500": {
+  "s": 4.536589154000012,
+  "tx": 500,
+  "ops": 500
+ },
+ "pledge_revoke_ms_range": [
+  7.825679000006858,
+  9.704552000130207
+ ],
+ "guo_share_500": {
+  "s": 5.451476734000153,
+  "tx": 500,
+  "ops": 500
+ },
+ "guo_revoke_500": {
+  "s": 5.3636399049999,
+  "tx": 0,
+  "ops": 576
+ },
+ "guo_onboard_clinician_500": {
+  "s": 0.004584048999959123,
+  "tx": 0,
+  "ops": 0
+ },
+ "guo_narrow_consent_500": {
+  "s": 3.870403233000161,
+  "tx": 0,
+  "ops": 500
+ },
+ "guo_revoke_ms_range": [
+  116.90740300014113,
+  10834.373887000083
+ ],
+ "romel_share_500": {
+  "s": 12.790841049000164,
+  "tx": 100,
+  "ops": 10000
+ },
+ "romel_revoke_500": {
+  "s": 0.006863765999923999,
+  "tx": 5,
+  "ops": 0
+ },
+ "romel_onboard_clinician_500": {
+  "s": 0.6315374309999697,
+  "tx": 5,
+  "ops": 500
+ },
+ "romel_narrow_consent_500": {
+  "s": 0.12289537099991321,
+  "tx": 95,
+  "ops": 0
+ },
+ "romel_revoke_ms_range": [
+  1.2289230000988027,
+  13.224278000052436
+ ],
+ "calypso_share_500": {
+  "s": 0.33507862500005103,
+  "tx": 500,
+  "ops": 500
+ },
+ "calypso_revoke_500": {
+  "s": 1.1220000033063116e-05,
+  "tx": 1,
+  "ops": 0
+ },
+ "calypso_onboard_clinician_500": {
+  "s": 0.00011733700011973269,
+  "tx": 1,
+  "ops": 0
+ },
+ "calypso_narrow_consent_500": {
+  "s": 4.212000021652784e-06,
+  "tx": 5,
+  "ops": 0
+ },
+ "calypso_revoke_ms_range": [
+  0.010260999943056959,
+  0.012915000070279348
+ ],
+ "fhir_patients": 50,
+ "fhir_resources": 13791,
+ "fhir_restricted": 9,
+ "fhir_enc_ms": 15.66,
+ "fhir_put_ms": 6.116,
+ "fhir_get_ms": 3.3285,
+ "fhir_expansion": 19.78238313301766,
+ "fhir_binary_expansion": 9.58436457580293,
+ "fhir_mean_plain": 851.8749184250598,
+ "fhir_mean_binary": 8164.679791168153,
+ "mimic_patients": 100,
+ "mimic_resources": 30000,
+ "mimic_restricted": 197,
+ "mimic_enc_ms": 15.697,
+ "mimic_put_ms": 5.915,
+ "mimic_get_ms": 3.3754999999999997,
+ "mimic_expansion": 17.63354738283724,
+ "mimic_binary_expansion": 8.545960291447496,
+ "mimic_mean_plain": 965.2647666666667,
+ "mimic_mean_binary": 8249.114366666667,
+ "e2e": {
+  "fetch": 34.221000000000004,
+  "side": 4.244999999999999,
+  "build": 3.1435,
+  "endorse": 20.064500000000002,
+  "order": 73.59,
+  "shares": 2.6325000000000003,
+  "verify": 7.91,
+  "decrypt": 2.881,
+  "total": 162.807
+ },
+ "e2e_p95_total": 190.56929999999997,
+ "chart": {
+  "1": {
+   "fetch": 36.636,
+   "side": 4.687,
+   "build": 3.26,
+   "endorse": 21.666,
+   "order": 60.895,
+   "shares": 2.557,
+   "verify": 7.741,
+   "decrypt": 2.895,
+   "total": 140.152
+  },
+  "10": {
+   "fetch": 319.789,
+   "side": 46.123,
+   "build": 28.146,
+   "endorse": 83.932,
+   "order": 63.63,
+   "shares": 31.843,
+   "verify": 78.184,
+   "decrypt": 29.979,
+   "total": 675.477
+  },
+  "25": {
+   "fetch": 779.918,
+   "side": 116.588,
+   "build": 72.129,
+   "endorse": 184.009,
+   "order": 92.052,
+   "shares": 43.864,
+   "verify": 194.396,
+   "decrypt": 78.386,
+   "total": 1549.929
+  },
+  "50": {
+   "fetch": 1439.014,
+   "side": 248.783,
+   "build": 148.272,
+   "endorse": 354.921,
+   "order": 99.672,
+   "shares": 89.553,
+   "verify": 381.929,
+   "decrypt": 147.086,
+   "total": 2934.592
+  },
+  "100": {
+   "fetch": 2598.379,
+   "side": 477.037,
+   "build": 282.655,
+   "endorse": 683.313,
+   "order": 132.674,
+   "shares": 169.893,
+   "verify": 775.067,
+   "decrypt": 293.521,
+   "total": 5400.001
+  }
+ }
+}

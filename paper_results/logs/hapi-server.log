@@ -1,0 +1,20 @@
+------------------------------------------------------------
+🔥  HAPI FHIR 5.1.0 - Command Line Tool
+------------------------------------------------------------
+Process ID                      : 18941@pledge-testbed
+Max configured JVM memory (Xmx) : 2.0GB
+Detected Java version           : 11.0.25
+------------------------------------------------------------
+2026-10-31 00:20:08.54 [main] INFO  c.u.f.c.RunServerCommand Preparing HAPI FHIR JPA server on port 8080
+2026-10-31 00:20:08.300 [main] INFO  c.u.f.c.RunServerCommand Starting HAPI FHIR JPA server in R4 mode
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.springframework.cglib.core.ReflectUtils (file:/home/user/PLEDGE-Artifact/tools/hapi/hapi-fhir-cli.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of org.springframework.cglib.core.ReflectUtils
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2026-10-31 00:20:33.419 [main] WARN  o.s.b.c.c.a.DefaultBatchConfigurer No transaction manager was provided, using a DataSourceTransactionManager
+2026-10-31 00:20:33.611 [main] WARN  o.s.b.c.l.AbstractListenerFactoryBean org.springframework.batch.item.ItemWriter is an interface. The implementing class will not be queried for annotation based listener configurations. If using @StepScope on a @Bean method, be sure to return the implementing class so listener annotations can be used.
+2026-10-31 00:20:37.325 [main] INFO  c.u.f.c.RunServerCommand Server started on port 8080
+2026-10-31 00:20:37.325 [main] INFO  c.u.f.c.RunServerCommand Web Testing UI : http://localhost:8080/
+2026-10-31 00:20:37.326 [main] INFO  c.u.f.c.RunServerCommand Server Base URL: http://localhost:8080/baseR4/
+2026-10-31 00:22:08.248 [Thread-0] INFO  ca.uhn.fhir.cli.App HAPI FHIR is shutting down...
