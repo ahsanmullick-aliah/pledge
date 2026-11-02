@@ -75,6 +75,12 @@ Run single stages with `--only` (and leave out stages with `--skip`), for exampl
 Every run writes to `results/<mode>-<date-time>/`:
 `REPORT.html` (open it in a browser), `REPORT.md`, `numbers.json`, the figures `fig6`–`fig10`, every raw CSV/JSON file, and a log per stage in `logs/`.
 
+## Symbolic verification (Tamarin)
+
+The `tamarin/` folder holds the Tamarin model of the access protocol from the paper's appendix,
+four mutants that each remove one check, and the expected prover output. Run `tamarin/run.sh`
+(needs `tamarin-prover` 1.10 and `maude` 3.5; about one minute). See [tamarin/README.md](tamarin/README.md).
+
 ## Reading the report
 
 * **Exact results** do not depend on the machine and must equal the paper's: the outcome of every attack against every system (Table XVII), the test results, the differential test, the transaction and cryptographic-operation counts of revocation, onboarding and consent narrowing (Fig. 10), and the record counts of the Synthea cohort.

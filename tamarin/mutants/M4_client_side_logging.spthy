@@ -1,0 +1,213 @@
+theory PLEDGE
+begin
+
+/*
+  Symbolic model of PLEDGE's ledger-gated access (Sections V-E, V-H, V-I)
+  for the Tamarin prover (tested with Tamarin 1.10.0 and Maude 3.5).
+
+    tamarin-prover --prove pledge.spthy               (base model)
+    tamarin-prover --prove -D=QUORUM pledge.spthy     (colluding key-share quorum)
+
+  Abstractions
+  - LG-ABE as an equational theory with private key constructors: a header
+    abe(m, t, p) opens only with an attribute key ka(g, p) AND an access key
+    kacc(g, t) bound to the SAME identity g (collusion resistance of RW15),
+    or, on the break-glass branch, with ka(g, emg) and keacc(g, t). The
+    consent policy is abstracted to one role p; consent compilation is
+    Theorem 4 and is not modelled.
+  - The ledger is the ideal ordered log F_log of Section VI: an entry is
+    committed only if the chaincode checks pass. Its reads of the revocation
+    list and of the tag registry are modelled by the restrictions
+    NotRevokedYet and NotRetiredYet (the entry is ordered before the
+    revocation or retirement it would conflict with).
+  - The k-of-n key-share services are one ideal issuer that hands kacc(g, t)
+    to g over a confidential channel, only for a committed entry naming g
+    and t. That f = k-1 corrupted services learn nothing is Theorem 1 with
+    Lemmas A.1-A.2 (computational) and is assumed here.
+  - Under -D=QUORUM the adversary also controls a full issuance quorum and can
+    mint kacc and keacc for any identity and tag off the ledger.
+*/
+
+builtins: signing
+
+functions: abe/3, open/3, emg/0,
+           ka/2 [private], kacc/2 [private], keacc/2 [private]
+
+equations:
+  open(abe(m, t, p), ka(g, p), kacc(g, t)) = m,
+  open(abe(m, t, p), ka(g, emg), keacc(g, t)) = m
+
+/* ------------------------------------------------------------ */
+/* Enrolment by honest attribute authorities                     */
+/* ------------------------------------------------------------ */
+rule Enrol_Clinician:
+    [ Fr(~sk) ]
+  --[ Enrolled($G, $Role), OnlyOnce($G) ]->
+    [ !Clin($G, ~sk, $Role), !Pk($G, pk(~sk)), Out(pk(~sk)) ]
+
+rule Enrol_Emergency_Clinician:
+    [ Fr(~sk) ]
+  --[ Enrolled($G, emg()), OnlyOnce($G) ]->
+    [ !Clin($G, ~sk, emg()), !Pk($G, pk(~sk)), Out(pk(~sk)) ]
+
+/* Corrupting a clinician hands over its signing key and attribute key;
+   access keys later issued to it leak via Leak_To_Corrupt. */
+rule Corrupt_Clinician:
+    [ !Clin(G, sk, role) ]
+  --[ Corrupt(G), CorruptAttr(G, role) ]->
+    [ !Corrupted(G), Out(sk), Out(ka(G, role)) ]
+
+/* ------------------------------------------------------------ */
+/* Records on the untrusted encrypted store                     */
+/* ------------------------------------------------------------ */
+rule Upload_Record:
+    [ Fr(~m), Fr(~t) ]
+  --[ Secret(~m, ~t, $P) ]->
+    [ !Record(~t, $P), Out(<~t, abe(~m, ~t, $P)>) ]
+
+rule Retire_Tag:
+    [ !Record(t, P) ]
+  --[ Retired(t), OnlyOnceRetire(t) ]->
+    [ ]
+
+rule Revoke_Clinician:
+    [ !Pk(G, pkG) ]
+  --[ Revoked(G), OnlyOnceRevoke(G) ]->
+    [ ]
+
+/* ------------------------------------------------------------ */
+/* Honest clinicians                                              */
+/* ------------------------------------------------------------ */
+rule Request_Access:
+    [ !Clin(G, sk, role), !Record(t, P) ]
+  --[ Sign(G, t) ]->
+    [ Out(<'acc', G, t, sign(<'acc', G, t>, sk)>) ]
+
+rule Request_BreakGlass:
+    [ !Clin(G, sk, emg()), !Record(t, P) ]
+  --[ Sign(G, t) ]->
+    [ Out(<'bg', G, t, sign(<'bg', G, t>, sk)>) ]
+
+/* A second clinician co-signs a break-glass request it is shown */
+rule CoSign_BreakGlass:
+    [ !Clin(G2, sk2, role2), In(<R, t>) ]
+  --[ CoSign(G2, R, t) ]->
+    [ Out(<'cosig', G2, R, t, sign(<'bg', R, G2, t>, sk2)>) ]
+
+/* ------------------------------------------------------------ */
+/* Chaincode on F_log and key-share issuance                     */
+/* ------------------------------------------------------------ */
+rule Commit_Access:
+    [ In(<'acc', G, t, s>), !Pk(G, pkG), !Record(t, P) ]
+  --[ Eq(verify(s, <'acc', G, t>, pkG), true),
+      NotRevokedYet(G), NotRetiredYet(t),
+      Committed(G, t), Entry(G, t) ]->
+    [ Grant(G, t, kacc(G, t)) ]
+
+rule Commit_BreakGlass:
+    [ In(<'bg', G, t, s1>), In(<'cosig', G2, G, t, s2>),
+      !Pk(G, pk1), !Pk(G2, pk2), !Record(t, P) ]
+  --[ Eq(verify(s1, <'bg', G, t>, pk1), true),
+      Eq(verify(s2, <'bg', G, G2, t>, pk2), true),
+      Neq(G, G2), NotRevokedYet(G), NotRevokedYet(G2), NotRetiredYet(t),
+      CommittedBG(G, G2, t), Entry(G, t) ]->
+    [ Grant(G, t, keacc(G, t)) ]
+
+/* Confidential channel from the key-share services to the requester */
+rule Deliver:
+    [ Grant(G, t, k) ]
+  --[ Delivered(G, t) ]->
+    [ HasKey(G, t, k) ]
+
+rule Leak_To_Corrupt:
+    [ HasKey(G, t, k), !Corrupted(G) ]
+  --[ LeakKey(G, t) ]->
+    [ Out(k) ]
+
+/* An honest clinician opens the record and never publishes it */
+rule Open_Record:
+    [ HasKey(G, t, k), !Clin(G, sk, role), In(<t, c>) ]
+  --[ Read(G, t, open(c, ka(G, role), k)) ]->
+    [ ]
+
+/* Client-side logging: the key is released on request, the log entry is optional */
+rule Key_On_Request:
+    [ In(<G, t>), !Corrupted(G), !Record(t, P) ]
+  --[ KeyWithoutEntry(G, t) ]->
+    [ Out(kacc(G, t)) ]
+
+#ifdef QUORUM
+rule Quorum_Mints:
+    [ In(<G, t>) ]
+  --[ OffLedger(G, t) ]->
+    [ Out(kacc(G, t)), Out(keacc(G, t)) ]
+#endif
+
+/* ------------------------------------------------------------ */
+restriction Equality:   "All x y #i. Eq(x, y) @ i ==> x = y"
+restriction Inequality: "All x #i. Neq(x, x) @ i ==> F"
+restriction OneEnrolment:
+  "All G #i #j. OnlyOnce(G) @ i & OnlyOnce(G) @ j ==> #i = #j"
+restriction OneRevocation:
+  "All G #i #j. OnlyOnceRevoke(G) @ i & OnlyOnceRevoke(G) @ j ==> #i = #j"
+restriction OneRetirement:
+  "All t #i #j. OnlyOnceRetire(t) @ i & OnlyOnceRetire(t) @ j ==> #i = #j"
+/* F_log order: the chaincode reads the revocation list and tag registry */
+restriction RevocationListRead:
+  "All G #c #r. NotRevokedYet(G) @ c & Revoked(G) @ r ==> #c < #r"
+restriction TagRegistryRead:
+  "All t #c #r. NotRetiredYet(t) @ c & Retired(t) @ r ==> #c < #r"
+
+/* ---------------- executability (must be verified) ----------- */
+lemma exec_ordinary_read: exists-trace
+  "Ex G t m P #i #j. Secret(m, t, P) @ i & Read(G, t, m) @ j
+     & not (Ex #c. Corrupt(G) @ c)"
+
+lemma exec_breakglass_read: exists-trace
+  "Ex G G2 t m P #i #b #j. Secret(m, t, P) @ i & CommittedBG(G, G2, t) @ b
+     & Read(G, t, m) @ j
+     & not (Ex #c. Corrupt(G) @ c) & not (Ex #c. Corrupt(G2) @ c)"
+
+lemma exec_corrupt_reader_learns: exists-trace
+  "Ex G t m P #i #j #e. Secret(m, t, P) @ i & K(m) @ j & Entry(G, t) @ e"
+
+lemma exec_revoked_after_access: exists-trace
+  "Ex G t #e #r. Entry(G, t) @ e & Revoked(G) @ r"
+
+/* ---------------- security lemmas ---------------------------- */
+
+/* Theorem 2 / A1, A2: the adversary learns a record only after a committed
+   entry names that record and an identity it has corrupted. */
+lemma audit_soundness:
+  "All m t P #i #j. Secret(m, t, P) @ i & K(m) @ j ==>
+     Ex G #e #c. Entry(G, t) @ e & Corrupt(G) @ c & #e < #j"
+
+/* Theorem 2, second claim / A3: an entry naming an uncorrupted clinician
+   was signed by that clinician. */
+lemma attribution:
+  "All G t #e. Entry(G, t) @ e ==>
+     (Ex #s. Sign(G, t) @ s & #s < #e) | (Ex #c. Corrupt(G) @ c & #c < #e)"
+
+/* Section V-I / A8: break-glass needs a distinct co-signer, honest or
+   corrupted. */
+lemma breakglass_cosigned:
+  "All G G2 t #b. CommittedBG(G, G2, t) @ b ==>
+     not (G = G2) &
+     ((Ex #s. CoSign(G2, G, t) @ s & #s < #b) | (Ex #c. Corrupt(G2) @ c & #c < #b))"
+
+/* Corollary 1: no access key is issued for an entry ordered after the
+   requester's revocation or the tag's retirement. */
+lemma revocation_forward:
+  "All G t #r #e. Revoked(G) @ r & Entry(G, t) @ e ==> #e < #r"
+
+lemma retirement_forward:
+  "All G t #r #e. Retired(t) @ r & Entry(G, t) @ e ==> #e < #r"
+
+/* Section VI-E / A9: with or without a colluding quorum, the adversary
+   learns a record only by corrupting a clinician holding the policy role or
+   the emergency role. */
+lemma ledger_cannot_read:
+  "All m t P #i #j. Secret(m, t, P) @ i & K(m) @ j ==>
+     (Ex G #c. CorruptAttr(G, P) @ c) | (Ex G #c. CorruptAttr(G, emg()) @ c)"
+
+end

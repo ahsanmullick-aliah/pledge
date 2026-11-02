@@ -1,0 +1,22 @@
+summary of summaries:
+
+analyzed: pledge.spthy
+
+  processing time: 6.07s
+  
+  exec_ordinary_read (exists-trace): verified (7 steps)
+  exec_breakglass_read (exists-trace): verified (14 steps)
+  exec_corrupt_reader_learns (exists-trace): verified (8 steps)
+  exec_revoked_after_access (exists-trace): verified (8 steps)
+  audit_soundness (all-traces): falsified - found trace (4 steps)
+  attribution (all-traces): verified (34 steps)
+  breakglass_cosigned (all-traces): verified (42 steps)
+  revocation_forward (all-traces): verified (12 steps)
+  retirement_forward (all-traces): verified (8 steps)
+  ledger_cannot_read (all-traces): verified (7 steps)
+
+==============================================================================
+
+real	0m6.141s
+user	0m9.270s
+sys	0m0.174s
