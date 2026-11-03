@@ -129,15 +129,11 @@ func TestPledgeBench(t *testing.T) {
 	for _, bis := range strings.Split(envOr("CAL_BI", "50ms,100ms,250ms,500ms"), ",") {
 		bi, err := time.ParseDuration(bis)
 		require.NoError(t, err)
-		res := runOne(t, bi, n, rates, dur)
-		buf, _ := json.MarshalIndent(res, "", " ")
-		fn := filepath.Join(out, "calypso_bi"+bis+".json")
-		require.NoError(t, os.WriteFile(fn, buf, 0644))
-		t.Logf("wrote %s", fn)
+		runOne(t, bi, n, rates, dur, filepath.Join(out, "calypso_bi"+bis+".json"))
 	}
 }
 
-func runOne(t *testing.T, bi time.Duration, n int, rates []float64, dur time.Duration) *result {
+func runOne(t *testing.T, bi time.Duration, n int, rates []float64, dur time.Duration, fn string) {
 	res := &result{BlockInterval: bi.String(), Nodes: nNodes, PayloadBytes: payloadSize,
 		Seq: map[string][]float64{}, Security: map[string]interface{}{},
 		Started: time.Now().UTC().Format(time.RFC3339)}
@@ -149,6 +145,8 @@ func runOne(t *testing.T, bi time.Duration, n int, rates []float64, dur time.Dur
 	wait := int(10*time.Second/bi) + 2
 
 	l := onet.NewTCPTest(cothority.Suite)
+	// a saturated load level leaves requests in flight; do not fail on them at shutdown
+	l.Check = onet.CheckNone
 	servers, roster, _ := l.GenTree(nNodes, true)
 	defer l.CloseAll()
 
@@ -470,7 +468,10 @@ func runOne(t *testing.T, bi time.Duration, n int, rates []float64, dur time.Dur
 		t.Logf("BI %v %s p50 %.1f ms (n=%d)", bi, k, pct(v, 50), len(v))
 	}
 	res.Finished = time.Now().UTC().Format(time.RFC3339)
-	return res
+	// write before the network is closed
+	buf, _ := json.MarshalIndent(res, "", " ")
+	require.NoError(t, os.WriteFile(fn, buf, 0644))
+	t.Logf("wrote %s", fn)
 }
 
 func pct(v []float64, p float64) float64 {

@@ -15,7 +15,7 @@ grep -E "first access|p50|wrote|FAIL|PASS" "$HOME/calypso-out/calbench.log" | ta
 date -u
 # PLEDGE first access on the same VM (40 trials, as in the paper's Fig. 11)
 cd "$HOME/art"
-timeout 5400 tools/python/bin/python3 reproduce.py full --only fabric-e2e --out "$HOME/pledge-e2e" || echo E2E_FAILED
+mkdir -p "$HOME/art/results"; timeout 5400 tools/python/bin/python3 reproduce.py full --only fabric-e2e --out "$HOME/pledge-e2e" || echo E2E_FAILED
 tools/python/bin/python3 fabric/network/pledge_net.py clean --n 4 || true
 date -u
 cd "$HOME" && tar czf part3.tgz calypso-out pledge-e2e part3.log 2>/dev/null
