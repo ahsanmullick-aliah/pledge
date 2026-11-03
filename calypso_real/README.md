@@ -27,3 +27,24 @@ For each block interval it writes `out/calypso_bi<interval>.json` with:
 
 `run_vm.sh` is the unattended job used on the testbed VM. After the CALYPSO run
 it also measures PLEDGE's first access on the same machine.
+
+## Results in `results/`
+
+`results/calypso/` holds the run reported in the paper (Section VII-C, "CALYPSO on its original
+code"): one JSON per block interval plus the full log, on a GCP e2-standard-8 VM (8 vCPU, AMD EPYC).
+`results/SUMMARY.txt` is produced by the summary script below. `results/pledge_same_vm/` is PLEDGE's
+first-access run (40 accesses) on the same VM, for the latency comparison.
+
+| Block interval | 50 ms | 100 ms | 250 ms | 500 ms |
+|---|---|---|---|---|
+| First access, median (ms) | 174.9 | 173.2 | 167.2 | 191.1 |
+| Read committed / key re-encrypted, median (ms) | 70.5 / 50.3 | 87.9 / 50.6 | 74.0 / 50.3 | 83.8 / 57.1 |
+| 5 first accesses/s | all done | all done | all done | all done |
+| 10 first accesses/s | all done | 32 of 300 unfinished after 60 s | 58 of 300 | 51 of 300 |
+| Darc evolve (revoke / onboard), median (ms) | 104.4 | 73.8 | 87.1 | 114.9 |
+
+At every interval: DecryptKey with another record's read proof is refused; the read transaction
+names the record and the reader's key, and the write is governed by the owner's darc; 3 of 4
+trustees pooled their DKG shares and opened 5 of 5 records that had no read transaction, while 2
+could not. PLEDGE's first access on the same VM: median 118.1 ms (40 accesses, HAPI fetch included).
+The load test stops at the first rate CALYPSO cannot sustain, so higher rates were not offered.

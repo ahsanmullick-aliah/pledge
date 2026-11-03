@@ -1,0 +1,49 @@
+== 50ms threshold 3 errors 0
+  encrypt       n=40 p50=    8.1 p25=    7.2 p75=    9.5
+  write_commit  n=40 p50=  133.3 p25=  124.9 p75=  143.3
+  read_commit   n=40 p50=   70.5 p25=   68.4 p75=   94.2
+  read_proof    n=40 p50=   32.3 p25=   21.4 p75=   62.1
+  decrypt_key   n=40 p50=   50.3 p25=   42.5 p75=   63.0
+  recover       n=40 p50=    0.2 p25=    0.2 p75=    0.2
+  first_access  n=40 p50=  174.9 p25=  154.4 p75=  202.4
+  evolve        n=10 p50=104.4
+  load     5/s offered 150 done 150 fail 0 unfin 0 sat False thr 5.0 commit_p50 77 fa_p50 191 fa_p95 257
+  load    10/s offered 300 done 300 fail 0 unfin 0 sat False thr 10.0 commit_p50 114 fa_p50 236 fa_p95 324
+  load    20/s offered 251 done 73 fail 0 unfin 178 sat True thr 1.0 commit_p50 155 fa_p50 361 fa_p95 61358
+  security: {'below_quorum_opened_unread_records': '0/5', 'below_quorum_recovers_lts_key': False, 'decrypt_without_matching_read_refused': True, 'quorum_opened_unread_records': '5/5', 'quorum_recovers_lts_key': True, 'quorum_t': 3, 'read_tx_names_write_instance': 'c8cbb6f227918e9293895c52fb1056fa4c35afe43a529768dc2efdfc60ef16c3', 'revoked_reader_read_refused': True, 'trustees_with_shares': 4, 'write_instance_darc_description': 'Patient-P1'}
+== 100ms threshold 3 errors 0
+  encrypt       n=40 p50=    3.2 p25=    2.6 p75=    4.1
+  write_commit  n=40 p50=  121.7 p25=  109.6 p75=  127.2
+  read_commit   n=40 p50=   87.9 p25=   65.8 p75=   97.5
+  read_proof    n=40 p50=   30.5 p25=   24.4 p75=   45.2
+  decrypt_key   n=40 p50=   50.6 p25=   41.0 p75=   64.1
+  recover       n=40 p50=    0.2 p25=    0.2 p75=    0.3
+  first_access  n=40 p50=  173.2 p25=  152.1 p75=  193.9
+  evolve        n=10 p50=73.8
+  load     5/s offered 150 done 150 fail 0 unfin 0 sat False thr 5.0 commit_p50 95 fa_p50 196 fa_p95 253
+  load    10/s offered 300 done 268 fail 0 unfin 32 sat True thr 3.0 commit_p50 109 fa_p50 240 fa_p95 334
+  security: {'below_quorum_opened_unread_records': '0/5', 'below_quorum_recovers_lts_key': False, 'decrypt_without_matching_read_refused': True, 'quorum_opened_unread_records': '5/5', 'quorum_recovers_lts_key': True, 'quorum_t': 3, 'read_tx_names_write_instance': '0452bb37cac77c136608e97dd54f6123510d7e0470bd5841a9f5927c69f5981e', 'revoked_reader_read_refused': True, 'trustees_with_shares': 4, 'write_instance_darc_description': 'Patient-P1'}
+== 250ms threshold 3 errors 0
+  encrypt       n=40 p50=    2.6 p25=    2.0 p75=    3.7
+  write_commit  n=40 p50=  112.4 p25=  104.4 p75=  122.5
+  read_commit   n=40 p50=   74.0 p25=   66.0 p75=   94.0
+  read_proof    n=40 p50=   35.3 p25=   26.9 p75=   43.2
+  decrypt_key   n=40 p50=   50.3 p25=   40.8 p75=   61.0
+  recover       n=40 p50=    0.2 p25=    0.2 p75=    0.3
+  first_access  n=40 p50=  167.2 p25=  151.5 p75=  194.8
+  evolve        n=10 p50=87.1
+  load     5/s offered 150 done 150 fail 0 unfin 0 sat False thr 5.0 commit_p50 94 fa_p50 191 fa_p95 243
+  load    10/s offered 300 done 242 fail 0 unfin 58 sat True thr 2.7 commit_p50 102 fa_p50 225 fa_p95 333
+  security: {'below_quorum_opened_unread_records': '0/5', 'below_quorum_recovers_lts_key': False, 'decrypt_without_matching_read_refused': True, 'quorum_opened_unread_records': '5/5', 'quorum_recovers_lts_key': True, 'quorum_t': 3, 'read_tx_names_write_instance': '88ef26494e2c804a2c2614458214119491c2c22864298f040e7721ef9e0f3b62', 'revoked_reader_read_refused': True, 'trustees_with_shares': 4, 'write_instance_darc_description': 'Patient-P1'}
+== 500ms threshold 3 errors 0
+  encrypt       n=40 p50=    2.1 p25=    1.6 p75=    3.0
+  write_commit  n=40 p50=  141.3 p25=  121.0 p75=  153.0
+  read_commit   n=40 p50=   83.8 p25=   80.5 p75=  113.5
+  read_proof    n=40 p50=   42.2 p25=   28.2 p75=   49.4
+  decrypt_key   n=40 p50=   57.1 p25=   42.6 p75=   74.5
+  recover       n=40 p50=    0.2 p25=    0.2 p75=    0.3
+  first_access  n=40 p50=  191.1 p25=  175.0 p75=  226.5
+  evolve        n=10 p50=114.9
+  load     5/s offered 150 done 150 fail 0 unfin 0 sat False thr 5.0 commit_p50 100 fa_p50 204 fa_p95 276
+  load    10/s offered 300 done 249 fail 0 unfin 51 sat True thr 2.8 commit_p50 126 fa_p50 264 fa_p95 13533
+  security: {'below_quorum_opened_unread_records': '0/5', 'below_quorum_recovers_lts_key': False, 'decrypt_without_matching_read_refused': True, 'quorum_opened_unread_records': '5/5', 'quorum_recovers_lts_key': True, 'quorum_t': 3, 'read_tx_names_write_instance': 'cc76bd3cb9f076a95fbeaa6153eb7930785a100959fab0cc8c0c09df351f6230', 'revoked_reader_read_refused': True, 'trustees_with_shares': 4, 'write_instance_darc_description': 'Patient-P1'}

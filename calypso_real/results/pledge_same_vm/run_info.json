@@ -1,0 +1,30 @@
+{
+ "mode": "full",
+ "started": "2026-11-03T11:39:08",
+ "host": {
+  "system": "Linux-6.8.0-1070-gcp-x86_64-with-glibc2.35",
+  "machine": "x86_64",
+  "python": "3.12.10",
+  "cpus": 8,
+  "cpu": "AMD EPYC 7B12",
+  "ram_gb": 31.3
+ },
+ "stages": {
+  "fabric-e2e": {
+   "status": "ok",
+   "seconds": 88.0,
+   "note": "40 first accesses, charts 1,10,25,50,100"
+  },
+  "figures": {
+   "status": "ok",
+   "seconds": 2.7,
+   "note": ""
+  },
+  "report": {
+   "status": "ok",
+   "seconds": 0.1,
+   "note": ""
+  }
+ },
+ "finished": "2026-11-03T11:41:15"
+}
