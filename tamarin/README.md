@@ -9,7 +9,10 @@ paper's appendix ("Symbolic Verification in Tamarin").
 equivalence: validators cannot tell which of two patients owns a record, nor the purpose of an
 access even when the encrypted store reveals each tag's owner.
 
-Run `./run.sh` (needs `tamarin-prover` 1.10 and `maude` 3.5 on `PATH`; about 10 minutes).
+With `-D=QUORUM` the privacy models also give the adversary every record ciphertext, every
+attribute key and access keys minted off the ledger by a colluding key-share quorum.
+
+Run `./run.sh` (needs `tamarin-prover` 1.10 and `maude` 3.5 on `PATH`; about 30 minutes).
 
 | Run | Expected result |
 |---|---|
@@ -25,5 +28,9 @@ Run `./run.sh` (needs `tamarin-prover` 1.10 and `maude` 3.5 on `PATH`; about 10 
 | `mutants/M6_long_term_record_key` | owner privacy falsified (patient's long-term key on the record) |
 | `mutants/M7_purpose_in_clear` | purpose privacy falsified |
 | `mutants/M8_deterministic_purpose_enc` | purpose privacy falsified |
+| `privacy_owner.spthy` (`--diff -D=QUORUM`) | observational equivalence verified ([expected/privacy_owner_quorum.txt](expected/privacy_owner_quorum.txt)) |
+| `privacy_purpose.spthy` (`--diff -D=QUORUM`) | observational equivalence verified ([expected/privacy_purpose_quorum.txt](expected/privacy_purpose_quorum.txt)) |
+| `mutants/M9_owner_in_record` (`-D=QUORUM`) | owner privacy falsified (the record plaintext names its owner, and the quorum can open it) |
+| `mutants/M10_purpose_to_committee` (`-D=QUORUM`) | purpose privacy falsified (E_aud encrypted to a key the committee holds) |
 
 Not covered: consent compilation (a property of the compiler, Theorem 4); the threshold issuer is modelled as one ideal service (its security is Theorem 1).

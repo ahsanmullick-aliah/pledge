@@ -1,0 +1,11 @@
+summary of summaries:
+
+analyzed: privacy_owner.spthy
+
+  processing time: 294.38s
+  
+  RHS :  exec_access (exists-trace): verified (5 steps)
+  LHS :  exec_access (exists-trace): verified (5 steps)
+  DiffLemma:  Observational_equivalence : verified (15176 steps)
+
+==============================================================================

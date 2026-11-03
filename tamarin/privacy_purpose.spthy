@@ -10,13 +10,36 @@ begin
   regulator are honest.
 
     tamarin-prover --diff --prove privacy_purpose.spthy
+    tamarin-prover --diff --prove -D=QUORUM privacy_purpose.spthy
 
   E_aud is encrypted to the patient and to the regulator; the purpose OR-proof
   is abstracted as zero knowledge (it is checked by the chaincode against the
-  public purpose set and reveals nothing else).
+  public purpose set and reveals nothing else). Under -D=QUORUM the adversary
+  also gets every record ciphertext, can mint access keys off the ledger and
+  holds corrupted clinicians' attribute keys.
 */
 
 builtins: asymmetric-encryption, signing, hashing
+
+#ifdef QUORUM
+/* -D=QUORUM: the adversary also controls k key-share services and mints the
+   access key kacc(G, t) for any identity and tag, with no ledger entry. Record
+   ciphertexts are LG-ABE headers abe(m, t, role) as in pledge.spthy; the role
+   is adversary-chosen and the same in both worlds, and corrupted clinicians
+   hand over their attribute keys. */
+functions: abe/3, open/3, ka/2 [private], kacc/2 [private]
+equations: open(abe(m, t, p), ka(g, p), kacc(g, t)) = m
+
+rule Quorum_Mints:
+    [ In(<G, t>) ]
+  --[ OffLedger(G, t) ]->
+    [ Out(kacc(G, t)) ]
+
+rule Corrupt_Attr:
+    [ In(<G, role>) ]
+  --[ CorruptAttr(G, role) ]->
+    [ Out(ka(G, role)) ]
+#endif
 
 rule Setup_Regulator:
     [ Fr(~rk) ]
@@ -38,11 +61,20 @@ rule Corrupt_Clinician:
   --[ Corrupt(G) ]->
     [ Out(sk) ]
 
+#ifdef QUORUM
+rule Upload_Record:
+    [ !Patient($P, s), Fr(~t), Fr(~salt), Fr(~rid), Fr(~m) ]
+  --[ Upload(~t) ]->
+    [ !Rec(~t, $P, s, ~rid),
+      Out(<'ct', ~t, abe(~m, ~t, $Role)>),
+      Out(<'rectx', ~t, pk(h(<'rec', s, ~t>)), ~salt, h(<~salt, $D, ~t>), 'side'>) ]
+#else
 rule Upload_Record:
     [ !Patient($P, s), Fr(~t), Fr(~salt), Fr(~rid) ]
   --[ Upload(~t) ]->
     [ !Rec(~t, $P, s, ~rid),
       Out(<'rectx', ~t, pk(h(<'rec', s, ~t>)), ~salt, h(<~salt, $D, ~t>), 'side'>) ]
+#endif
 
 /* The ES colludes with the validators: it reveals tag -> patient and the
    stored ciphertext's resource id. */
