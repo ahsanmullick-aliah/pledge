@@ -94,7 +94,7 @@ the log-privacy equivalence models, eight mutants that each remove one check, an
 * CALYPSO runs its own skipchain ledger, which is not re-implemented; its ledger costs are counted as transactions, as in the paper.
 * Client code is Python (with the C pairing library), so absolute times are upper bounds for an optimized implementation.
 * Ports used during a run: 8080 (HAPI FHIR); for Fabric, 7010–7105, 8800–8810 and 9999. Close other programs using them.
-* The Go programs in `fabric/bin/` were built from `fabric/cmd` and `fabric/pkg` with Go 1.24 on Ubuntu 24.04. To rebuild them: install Go 1.22+, `g++` and `make`, then run `fabric/setup_deps.sh` (it fetches the Go modules, builds mcl at the pinned commit, builds the four programs and runs the cross-language test).
+* The Go programs in `fabric/bin/` and `pledge/crypto/libmcl.so` were built from `fabric/cmd`, `fabric/pkg` and mcl at the pinned commit with Go 1.24 on Ubuntu 22.04, so they run on Ubuntu 22.04 or newer (glibc 2.34+). To rebuild them: install Go 1.22+, `g++` and `make`, then run `fabric/setup_deps.sh` (it fetches the Go modules, builds mcl at the pinned commit, builds the four programs and runs the cross-language test).
 * A map from each section of the paper to the code is in `docs/CODE_MAP.md`.
 
 ## Licences of third-party components

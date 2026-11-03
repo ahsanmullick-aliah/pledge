@@ -25,7 +25,7 @@ parameters. By hand (Linux, after `./setup.sh`):
 ```bash
 export FABRIC_BIN=$PWD/tools/fabric
 tools/python/bin/python3 fabric/run_stage2.py --n 4 --bad-kss 1
-tools/python/bin/python3 fabric/bench_ledger.py --n 4 --systems pledge,guo --rates 5,10,15,20,30,40 --duration 30 --out results/manual/n4fine
+tools/python/bin/python3 fabric/bench_ledger.py --n 4 --systems pledge,guo --rates 5,10,15,20,30,40,50,60,80,100,120 --duration 30 --out results/manual/n4fine
 tools/python/bin/python3 fabric/network/pledge_net.py clean --n 4
 ```
 

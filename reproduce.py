@@ -49,7 +49,7 @@ PARAMS = {
                   n4_rates="10,20", n4_duration=10, bundles="1,10", bundle_duration=10, big_n=()),
     "full": dict(crypto_reps=40, micro_reps=30, micro_quick=False, lifecycle_quick=False, reg_reps=20, reg_records=20,
                  fhir_patients=50, mimic_patients=100, max_resources=300, e2e_trials=40, e2e_charts="1,10,25,50,100",
-                 n4_rates="5,10,15,20,30,40", n4_duration=30, bundles="1,10,25,50", bundle_duration=20,
+                 n4_rates="5,10,15,20,30,40,50,60,80,100,120", n4_duration=30, bundles="1,10,25,50", bundle_duration=20,
                  big_n=(7, 10)),
 }
 STAGES = ["tests", "attacks", "crypto", "micro", "lifecycle", "registration", "fhir-synthea", "fhir-mimic",
