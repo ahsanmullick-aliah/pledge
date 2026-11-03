@@ -45,6 +45,8 @@ import (
 const nNodes = 4
 const payloadSize = 2048
 const nReaders = 64
+const maxBacklog = 200
+const drainTimeout = 60 * time.Second
 
 func envOr(k, d string) string {
 	if v := os.Getenv(k); v != "" {
@@ -393,13 +395,25 @@ func runOne(t *testing.T, bi time.Duration, n int, rates []float64, dur time.Dur
 		total := int(rate * dur.Seconds())
 		var mu sync.Mutex
 		var commit, firstAcc []float64
-		fails := 0
+		fails, inflight, offered := 0, 0, 0
+		saturated := false
 		var wg sync.WaitGroup
 		start := time.Now()
 		for i := 0; i < total; i++ {
+			mu.Lock()
+			backlog := inflight
+			mu.Unlock()
+			if backlog > maxBacklog { // the system no longer keeps up: stop offering
+				saturated = true
+				break
+			}
 			sched := start.Add(time.Duration(float64(i) / rate * float64(time.Second)))
 			time.Sleep(time.Until(sched))
+			offered++
 			wg.Add(1)
+			mu.Lock()
+			inflight++
+			mu.Unlock()
 			go func(i int, sched time.Time) {
 				defer wg.Done()
 				rd := <-free
@@ -408,6 +422,7 @@ func runOne(t *testing.T, bi time.Duration, n int, rates []float64, dur time.Dur
 				a, _, err := access(r, rd)
 				mu.Lock()
 				defer mu.Unlock()
+				inflight--
 				if err != nil {
 					fails++
 					if fails <= 3 {
@@ -420,16 +435,35 @@ func runOne(t *testing.T, bi time.Duration, n int, rates []float64, dur time.Dur
 				firstAcc = append(firstAcc, ms(time.Since(sched)))
 			}(i, sched)
 		}
-		wg.Wait()
+		done := make(chan struct{})
+		go func() { wg.Wait(); close(done) }()
+		select {
+		case <-done:
+		case <-time.After(drainTimeout):
+			saturated = true
+		}
 		el := time.Since(start)
+		mu.Lock()
+		c := append([]float64(nil), commit...)
+		f := append([]float64(nil), firstAcc...)
+		nf, left := fails, inflight
+		mu.Unlock()
+		if len(f) < int(0.9*float64(total)) || pct(f, 50) > 2000 {
+			saturated = true
+		}
 		res.Load = append(res.Load, map[string]interface{}{
-			"rate_offered": rate, "offered": total, "completed": len(firstAcc), "failed": fails,
-			"elapsed_s": el.Seconds(), "throughput": float64(len(firstAcc)) / el.Seconds(),
-			"read_commit_ms": commit, "first_access_ms": firstAcc,
-			"read_commit_p50": pct(commit, 50), "first_access_p50": pct(firstAcc, 50),
-			"first_access_p95": pct(firstAcc, 95),
+			"rate_offered": rate, "scheduled": total, "offered": offered, "completed": len(f),
+			"failed": nf, "unfinished": left, "saturated": saturated,
+			"elapsed_s": el.Seconds(), "throughput": float64(len(f)) / el.Seconds(),
+			"read_commit_ms": c, "first_access_ms": f,
+			"read_commit_p50": pct(c, 50), "first_access_p50": pct(f, 50),
+			"first_access_p95": pct(f, 95),
 		})
-		t.Logf("BI %v rate %.0f: %d/%d ok, first access p50 %.1f ms", bi, rate, len(firstAcc), total, pct(firstAcc, 50))
+		t.Logf("BI %v rate %.0f: %d/%d ok (offered %d, unfinished %d, saturated %v), first access p50 %.1f ms",
+			bi, rate, len(f), total, offered, left, saturated, pct(f, 50))
+		if saturated {
+			break // higher rates would only queue further
+		}
 	}
 
 	for k, v := range res.Seq {
