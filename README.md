@@ -3,7 +3,7 @@
 This package contains the complete source code of **PLEDGE** (ledger-gated
 attribute-based encryption for accountable, consent-driven sharing of FHIR health
 records), the three systems the paper compares it with, and every experiment of
-the paper's evaluation (Section VII). One script reruns the experiments on your
+the paper's evaluation (Section 7). One script reruns the experiments on your
 computer and writes a report that puts each of your numbers next to the
 paper's.
 
@@ -20,7 +20,7 @@ paper's.
 The data sets:
 
 * **Synthea** (synthetic, used in the paper): realistic FHIR records of 50 generated patients. The exact cohort of the paper is included, so record counts and sizes match the paper exactly.
-* **MIMIC-IV Clinical Database Demo on FHIR v2.1.0** (real, Table XXII of the paper): 100 real, de-identified ICU patients from Beth Israel Deaconess Medical Center, published open access on PhysioNet under the ODbL 1.0 licence. Setup downloads it and checks every file against the publisher's SHA-256 sums. The FHIR workload runs on it exactly as on Synthea, with the same consent and the same HAPI FHIR server.
+* **MIMIC-IV Clinical Database Demo on FHIR v2.1.0** (real, Table 23 of the paper): 100 real, de-identified ICU patients from Beth Israel Deaconess Medical Center, published open access on PhysioNet under the ODbL 1.0 licence. Setup downloads it and checks every file against the publisher's SHA-256 sums. The FHIR workload runs on it exactly as on Synthea, with the same consent and the same HAPI FHIR server.
 
 ## Windows: one-click
 
@@ -54,15 +54,15 @@ or by hand: `docker build -t pledge-artifact .` and
 
 | Stage | Paper | Quick | Full |
 | --- | --- | --- | --- |
-| `tests` | VII-A | 66 tests incl. the compiler-vs-reference differential test (6,000 triples) and, on Linux, the Go/Python test vectors | same |
-| `attacks` | Table XVII | all 10 attacks against all 4 systems, each cell executed | same |
+| `tests` | 7.1 | 66 tests incl. the compiler-vs-reference differential test (6,000 triples) and, on Linux, the Go/Python test vectors | same |
+| `attacks` | Table 17 | all 10 attacks against all 4 systems, each cell executed | same |
 | `crypto` | Fig. 7 | 8 interleaved repetitions | 40 |
-| `micro` | VII-D | 5 repetitions | 30 |
+| `micro` | 7.4 | 5 repetitions | 30 |
 | `lifecycle` | Fig. 10 | reduced grid | 10–250 records, 5–50 clinicians, 1–10 patients |
-| `registration` | VII-A | 5 repetitions | 20 |
-| `fhir-synthea` | VII-G | 5 patients into HAPI FHIR | the 50-patient cohort, 13,791 resources |
+| `registration` | 7.6 | 5 repetitions | 20 |
+| `fhir-synthea` | 7.7 | 5 patients into HAPI FHIR | the 50-patient cohort, 13,791 resources |
 | `fhir-mimic` | — (real data) | 5 patients | all 100 patients |
-| `fabric-smoke` | VII-A | n = 4: flows, attacks, a faulty key-share service, registration, re-keying | same |
+| `fabric-smoke` | 7.1 | n = 4: flows, attacks, a faulty key-share service, registration, re-keying | same |
 | `fabric-e2e` | Fig. 11 | 5 first accesses, charts of 1 and 10 records | 40 first accesses, charts of 1–100 records |
 | `fabric-ledger` | Fig. 8 | PLEDGE vs Guo, n = 4, 10 and 20 entries/s for 10 s | 5–40 entries/s for 30 s; n = 7 and 10 |
 | `fabric-bundle` | Fig. 9 | m = 1, 10 | m = 1, 10, 25, 50 |
@@ -83,8 +83,8 @@ the log-privacy equivalence models, eight mutants that each remove one check, an
 
 ## Reading the report
 
-* **Exact results** do not depend on the machine and must equal the paper's: the outcome of every attack against every system (Table XVII), the test results, the differential test, the transaction and cryptographic-operation counts of revocation, onboarding and consent narrowing (Fig. 10), and the record counts of the Synthea cohort.
-* **Statements of Section VII** — for example *PLEDGE's extra decryption cost over Guo et al. stays about constant*, or *revocation is one transaction whose cost does not grow with the records* — are evaluated on your own numbers, so they can be checked on any hardware.
+* **Exact results** do not depend on the machine and must equal the paper's: the outcome of every attack against every system (Table 17), the test results, the differential test, the transaction and cryptographic-operation counts of revocation, onboarding and consent narrowing (Fig. 10), and the record counts of the Synthea cohort.
+* **Statements of Section 7** — for example *PLEDGE's extra decryption cost over Guo et al. stays about constant*, or *revocation is one transaction whose cost does not grow with the records* — are evaluated on your own numbers, so they can be checked on any hardware.
 * **Measured values** (milliseconds, entries per second) depend on the hardware. The paper used one Google Cloud e2-standard-8 VM (8 vCPU, 31 GiB) with every hospital on that host; the report shows the paper's value, yours, and their ratio. Faster machines give smaller times; the comparisons between systems should hold.
 * **Figures**: yours next to the paper's.
 
