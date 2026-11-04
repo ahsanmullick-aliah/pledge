@@ -1,0 +1,27 @@
+{
+  "title": "PLEDGE: source code and reproduction package for \"No Log, No Access: A Privacy-Preserving Ledger-Enforced Decryption Gate (PLEDGE) for FHIR Health Records Using Attribute-Based Encryption\"",
+  "upload_type": "software",
+  "description": "Source code and reproduction package for PLEDGE, a FHIR-native health-record sharing system built on ledger-gated multi-authority attribute-based encryption: no log, no access. The package contains the PLEDGE implementation (LG-ABE on BLS12-381, threshold key-share services, FHIR Consent compiler, Hyperledger Fabric chaincode and gateway), re-implementations of three baseline systems, the attack suite, the Tamarin models, all benchmark scripts and the raw results reported in the paper.",
+  "creators": [
+    {
+      "name": "Mullick, Ahsan",
+      "affiliation": "Department of Computer Science and Engineering, Aliah University, Kolkata, India"
+    },
+    {
+      "name": "Sengupta, Souvik",
+      "affiliation": "Department of Computer Science and Engineering, Aliah University, Kolkata, India"
+    }
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": [
+    "attribute-based encryption",
+    "accountable decryption",
+    "blockchain",
+    "threshold cryptography",
+    "electronic health records",
+    "HL7 FHIR",
+    "Hyperledger Fabric"
+  ],
+  "version": "v1.0"
+}
