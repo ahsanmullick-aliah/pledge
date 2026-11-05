@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ledger benchmarks on Fabric (planned paper Section VII-D/G).
+"""Ledger benchmarks on Fabric (paper Section 7.5, Figs. 8 and 9).
 
     export FABRIC_BIN=~/fabric-bin
     python3 fabric/bench_ledger.py --n 4 --rates 10,25,50,100 --duration 30
