@@ -1,4 +1,4 @@
-"""PLEDGE vs. re-implemented baselines (paper Table XVII and Figs. 7, 10).
+"""PLEDGE vs. re-implemented baselines (paper Table 17 and Figs. 7, 10).
 
     python3 -m bench.compare attacks            -> results/compare_attacks.{csv,md}
     python3 -m bench.compare lifecycle [--quick]-> results/compare_lifecycle.csv
