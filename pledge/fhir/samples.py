@@ -22,7 +22,7 @@ def actor(role=None, spec=None, org=None, dept=None, practitioner=None):
 
 
 def paper_consent(patient="p1", deny_practitioners=()):
-    """Section V-B example: cardiologists anywhere, ICU nurses at H1, never records labelled R."""
+    """Section 5.3 example: cardiologists anywhere, ICU nurses at H1, never records labelled R."""
     nurse_rule = {"type": "permit", "actor": [actor(role="nurse", org="H1", dept="ICU")],
                   "provision": [{"type": "deny", "securityLabel": [{"code": "R"}]}]}
     for g in deny_practitioners:
