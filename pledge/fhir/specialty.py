@@ -1,4 +1,4 @@
-"""Curated specialty hierarchy and ancestor closure (paper Section V-C).
+"""Curated specialty hierarchy and ancestor closure (paper Section 5.3).
 
 Specialty codes come from FHIR PractitionerRole.specialty (SNOMED CT practice
 setting codes). SNOMED's practice-code value set is flat, so the parent/child
