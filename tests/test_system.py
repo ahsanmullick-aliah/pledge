@@ -1,4 +1,4 @@
-"""End-to-end flows and the attack suite of paper Section VI-B / planned Table IV."""
+"""End-to-end flows and the attack suite of paper Section 7.3 (Table 17)."""
 import unittest
 
 from pledge.crypto import lgabe, rw15
@@ -107,7 +107,7 @@ class FlowTest(unittest.TestCase):
 
 
 class AttackTest(unittest.TestCase):
-    """Each test is one row of the attack table (paper Section VI-B)."""
+    """Each test is one row of the attack table (paper Table 17)."""
 
     def test_A1_skip_the_log(self):
         dep, pat = world()
