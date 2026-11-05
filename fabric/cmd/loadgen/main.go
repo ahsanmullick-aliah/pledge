@@ -1,4 +1,4 @@
-// Open-loop load generator for the PLEDGE ledger (planned paper Figs. 5, 6, 8).
+// Open-loop load generator for the PLEDGE ledger (paper Figs. 8 and 9).
 //
 //	pledge-loadgen --profile run/n4/profile.json --input load.jsonl --rate 50 --out res.csv [--kss-base 8800]
 //
