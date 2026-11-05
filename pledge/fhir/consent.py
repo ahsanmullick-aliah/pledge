@@ -1,4 +1,4 @@
-"""FHIR R4 Consent -> ABE policy compiler (paper Section V-B, Algorithm 1).
+"""FHIR R4 Consent -> ABE policy compiler (paper Section 5.3, Algorithm 1).
 
 Every provision is split into
   * data-side conditions  (class, code, securityLabel, dataPeriod): evaluated
@@ -17,7 +17,7 @@ PLEDGE actor profile (documented in the paper):
   * actor.reference Practitioner/<gid> -> id:<gid> in permits, deny-list entry in denies
   * several actors in one provision are alternatives (OR).
 
-Supported fragment F (paper Section V-C; anything else raises Unsupported):
+Supported fragment F (paper Section 5.3; anything else raises Unsupported):
 F1 status active (otherwise only the patient can read); F2 no provision.data;
 F3 actors as above; F4 provision types alternate (named denies anywhere);
 F5 denies are data denies or named-practitioner denies; F6 period only on the
@@ -172,7 +172,7 @@ def _purpose_set(node):
 
 
 def compile_consent(consent: dict, resource: Resource) -> Compiled:
-    """Algorithm 1 (Section V-C): check C against the fragment F, then apply the
+    """Algorithm 1 (Section 5.3): check C against the fragment F, then apply the
     resolution rules to resource r. Raises Unsupported for consents outside F."""
     if consent.get("resourceType") != "Consent":
         raise Unsupported("not a Consent resource")
@@ -231,7 +231,7 @@ def compile_consent(consent: dict, resource: Resource) -> Compiled:
     emergency = not any(e.get("url") == EXT_NO_EMERGENCY and e.get("valueBoolean")
                         for e in consent.get("extension", []))
     # The break-glass branch (role:emergency-clinician AND eacc:tau) is added by the
-    # encryptor next to (P_consent AND acc:tau); see Section V-J.
+    # encryptor next to (P_consent AND acc:tau); see Section 5.9.
     policy = to_string(tree) if tree is not None else None
     period = root.get("period", {})
     plist = sorted(next(iter(purpose_sets))) if purpose_sets else ["TREAT"]
@@ -277,7 +277,7 @@ def evaluate(consent: dict, resource: Resource, attrs, gid: str, purpose: str, o
         return False                     # named denies override every grant, break-glass included
     if EMERGENCY_ATTR in attrs and not any(e.get("url") == EXT_NO_EMERGENCY and e.get("valueBoolean")
                                            for e in consent.get("extension", [])):
-        return purpose == "ETREAT"       # break-glass override (Section V-J); ignores the period
+        return purpose == "ETREAT"       # break-glass override (Section 5.9); ignores the period
     if not _in_period(on, root.get("period")):
         return False
 
