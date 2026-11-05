@@ -7,22 +7,22 @@
     python reproduce.py full --skip fabric              # everything except the Fabric runs
 
 Results go to results/<mode>-<date-time>/ together with REPORT.html, which puts
-every number of Section VII of the paper next to the number measured here.
+every number of Section 7 of the paper next to the number measured here.
 
 Stages (in order):
   tests          unit, integration and differential tests (Python); Go/Python test vectors when Go is present
-  attacks        Table XVII: every attack executed against PLEDGE and the three baselines
+  attacks        Table 17: every attack executed against PLEDGE and the three baselines
   crypto         Fig. 7: per-record cryptographic cost, all four systems, interleaved repetitions
-  micro          Section VII-D: share generation, ShareVerify, Combine, outsourced decryption
+  micro          Section 7.4: share generation, ShareVerify, Combine, outsourced decryption
   lifecycle      Fig. 10: revocation, onboarding, consent narrowing for all four systems
-  registration   Section VII-A: identity registration and re-keying cost
-  fhir-synthea   Section VII-G: the paper's Synthea cohort encrypted into a real HAPI FHIR server
+  registration   Section 7.6: identity registration and re-keying cost
+  fhir-synthea   Section 7.7: the paper's Synthea cohort encrypted into a real HAPI FHIR server
   fhir-mimic     the same workload on real de-identified data (MIMIC-IV on FHIR demo; not in the paper)
   fabric-smoke   Hyperledger Fabric network: flows and attacks end to end          (Linux / Docker)
   fabric-e2e     Fig. 11: first access and chart opening on Fabric + HAPI FHIR      (Linux / Docker)
   fabric-ledger  Fig. 8: PLEDGE vs Guo on Fabric, n = 4 (n = 7, 10 in full mode)   (Linux / Docker)
   fabric-bundle  Fig. 9: bundling m record tags into one entry                     (Linux / Docker)
-  figures        Figs. 6-10 and numbers.json from the raw results
+  figures        Figs. 7-11 and numbers.json from the raw results
   report         REPORT.html / REPORT.md: your numbers next to the paper's
 """
 import argparse
