@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""End-to-end latency on Fabric with HAPI FHIR as the encrypted store (paper Fig. 9).
+"""End-to-end latency on Fabric with HAPI FHIR as the encrypted store (paper Fig. 11).
 
     export FABRIC_BIN=~/fabric-bin
     python3 fabric/bench_e2e.py --n 4 --synthea <dir>/fhir --trials 40 --charts 1,10,25,50,100
