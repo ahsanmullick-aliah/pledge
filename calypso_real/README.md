@@ -30,7 +30,7 @@ it also measures PLEDGE's first access on the same machine.
 
 ## Results in `results/`
 
-`results/calypso/` holds the run reported in the paper (Section VII-C, "CALYPSO on its original
+`results/calypso/` holds the run reported in the paper (Section 7.3, "CALYPSO on its original
 code"): one JSON per block interval plus the full log, on a GCP e2-standard-8 VM (8 vCPU, AMD EPYC).
 `results/SUMMARY.txt` is produced by `python3 summarize.py results/calypso`. `results/pledge_same_vm/` is PLEDGE's
 first-access run (40 accesses) on the same VM, for the latency comparison.
