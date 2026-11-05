@@ -1,4 +1,4 @@
-"""Identity registration (Section V-B), per-record keys (V-G) and tag retirement (V-I)."""
+"""Identity registration (Section 5.2), per-record keys (5.2) and tag retirement (5.8)."""
 import copy
 import unittest
 
