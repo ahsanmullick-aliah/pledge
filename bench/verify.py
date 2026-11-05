@@ -5,7 +5,7 @@
 Three kinds of result:
   * exact      security outcomes, test results and operation counts. They do not depend on the
                machine and must equal the paper's.
-  * trend      statements of Section VII that compare systems or describe how a cost grows, such
+  * trend      statements of Section 7 that compare systems or describe how a cost grows, such
                as "the decryption overhead over Guo et al. is constant". They are evaluated on your
                own numbers, so they hold or fail independently of how fast your machine is.
   * measured   times and throughputs. They depend on the hardware; the report shows the paper's
@@ -63,28 +63,28 @@ def exact_checks(run, paper, N, P, info):
     note = st.get("tests", {}).get("note", "")
     m = re.search(r"(\d+) tests: (OK|FAILED)", note)
     passed = bool(m) and m.group(2) == "OK"
-    add("VII-A", "Unit and integration tests", "all pass",
+    add("7.1", "Unit and integration tests", "all pass",
         (f"{m.group(1)} run, " + ("all pass" if passed else "FAILURES")) if m else None,
         None if not m else ("match" if passed else "DIFFERS"))
     m = re.search(r"differential test (\d+) triples agree, (\d+) consents outside F rejected", note)
-    add("VII-A", "Differential test: compiler = reference evaluator (triples agreeing)", 6000,
+    add("7.1", "Differential test: compiler = reference evaluator (triples agreeing)", 6000,
         int(m.group(1)) if m else None)
-    add("VII-A", "Differential test: generated Consents outside F rejected", 14, int(m.group(2)) if m else None)
+    add("7.1", "Differential test: generated Consents outside F rejected", 14, int(m.group(2)) if m else None)
     if "Go/Python" in note:
-        add("VII-A", "Go chaincode = Python reference on the cross-language test vectors", "pass",
+        add("7.1", "Go chaincode = Python reference on the cross-language test vectors", "pass",
             "pass" if "vectors pass" in note else "FAIL")
-    # Table XVII
+    # Table 17
     mine, ref = csv_rows(Path(run) / "compare_attacks.csv"), csv_rows(Path(paper) / "compare_attacks.csv")
     if ref:
         for r in ref:
             y = next((x for x in mine or [] if x["attack"] == r["attack"]), None)
             for col in ("PLEDGE", "Guo et al. 2022", "Romel et al. 2025", "CALYPSO 2021"):
-                add("Table XVII", f"{r['attack']} — {col}", r[col], y[col] if y else None)
+                add("Table 17", f"{r['attack']} — {col}", r[col], y[col] if y else None)
     # Fabric smoke
     sm = re.search(r"attacks blocked (\d+)/(\d+)", st.get("fabric-smoke", {}).get("note", ""))
-    add("VII-A", "Fabric network: flows and attacks end to end (blocked/total)", "8/8",
+    add("7.1", "Fabric network: flows and attacks end to end (blocked/total)", "8/8",
         f"{sm.group(1)}/{sm.group(2)}" if sm else None)
-    # Lifecycle counts (Fig. 10 caption, Section VII-F)
+    # Lifecycle counts (Fig. 10 caption, Section 7.6)
     for key, what in (("lc_PLEDGE_revoke_250", "Revoke, 250 records: PLEDGE"),
                       ("lc_Guo et al. 2022_revoke_250", "Revoke, 250 records: Guo et al."),
                       ("lc_Romel et al. 2025_revoke_250", "Revoke, 250 records: Romel et al."),
@@ -105,14 +105,14 @@ def exact_checks(run, paper, N, P, info):
         pv, yv = P.get(key), N.get(key)
         fmt = lambda v: None if v is None else f"{v['tx']} tx, {v['ops']} crypto ops"
         smaller = yv is None and key.startswith("lc_") and any(k.startswith("lc_") for k in N)
-        add("Fig. 10 / VII-F", what, fmt(pv), "quick grid stops at 100 records" if smaller else fmt(yv),
+        add("Fig. 10 / 7.6", what, fmt(pv), "quick grid stops at 100 records" if smaller else fmt(yv),
             "smaller run" if smaller else None)
     # Synthea cohort
     if N.get("fhir_patients") == P.get("fhir_patients"):
-        add("VII-G", "Synthea cohort: resources encrypted", P.get("fhir_resources"), N.get("fhir_resources"))
-        add("VII-G", "Synthea cohort: resources labelled R", P.get("fhir_restricted"), N.get("fhir_restricted"))
+        add("7.7", "Synthea cohort: resources encrypted", P.get("fhir_resources"), N.get("fhir_resources"))
+        add("7.7", "Synthea cohort: resources labelled R", P.get("fhir_restricted"), N.get("fhir_restricted"))
     else:
-        add("VII-G", "Synthea cohort (50 patients): resources / labelled R",
+        add("7.7", "Synthea cohort (50 patients): resources / labelled R",
             f"{P.get('fhir_resources')} / {P.get('fhir_restricted')}",
             None if N.get("fhir_patients") is None else
             f"{N.get('fhir_resources')} / {N.get('fhir_restricted')} ({N.get('fhir_patients')} patients)",
@@ -121,7 +121,7 @@ def exact_checks(run, paper, N, P, info):
 
 
 def trend_checks(N):
-    """Statements of Section VII, evaluated on your numbers."""
+    """Statements of Section 7, evaluated on your numbers."""
     out = []   # (section, statement, evidence, status)
 
     def add(sec, stmt, needed, fn, evidence):
@@ -134,55 +134,55 @@ def trend_checks(N):
             out.append((sec, stmt, evidence(*vals), "holds" if ok else "DOES NOT HOLD"))
         except Exception as e:
             out.append((sec, stmt, f"{type(e).__name__}: {e}", "error"))
-    add("VII-D", "PLEDGE's extra decryption cost over Guo et al. stays about constant from 5 to 50 policy attributes",
+    add("7.4", "PLEDGE's extra decryption cost over Guo et al. stays about constant from 5 to 50 policy attributes",
         ["pledge_dec_5", "guo_dec_5", "pledge_dec_50", "guo_dec_50"],
         lambda a, b, c, d: abs((c - d) - (a - b)) <= max(1.5, 0.5 * (a - b)),
         lambda a, b, c, d: f"overhead {a - b:.2f} ms at 5 attributes, {c - d:.2f} ms at 50")
-    add("VII-D", "PLEDGE's extra encryption cost over Guo et al. is small and does not grow with the policy",
+    add("7.4", "PLEDGE's extra encryption cost over Guo et al. is small and does not grow with the policy",
         ["pledge_enc_5", "guo_enc_5", "pledge_enc_50", "guo_enc_50"],
         lambda a, b, c, d: (c - d) < 0.2 * d and (c - d) <= max(3.0, 3 * abs(a - b)),
         lambda a, b, c, d: f"overhead {a - b:.2f} ms at 5 attributes, {c - d:.2f} ms at 50")
-    add("VII-D", "Romel et al. encryption grows per grantee and exceeds PLEDGE's above roughly 8 grantees",
+    add("7.4", "Romel et al. encryption grows per grantee and exceeds PLEDGE's above roughly 8 grantees",
         ["romel_crossover"], lambda x: 3 <= x <= 20, lambda x: f"crossover at {x:.1f} grantees (paper 8.2)")
-    add("VII-D", "CALYPSO is the cheapest of the four to encrypt and to decrypt",
+    add("7.4", "CALYPSO is the cheapest of the four to encrypt and to decrypt",
         ["calypso_enc", "pledge_enc_5", "guo_enc_5", "romel_enc_5", "calypso_dec", "pledge_dec_5", "guo_dec_5"],
         lambda c, p, g, r, cd, pd, gd: c < min(p, g, r) and cd < min(pd, gd),
         lambda c, p, g, r, cd, pd, gd: f"encrypt {c:.2f} ms vs {min(p, g, r):.2f} ms; decrypt {cd:.2f} vs {min(pd, gd):.2f}")
-    add("VII-D", "Outsourced decryption leaves the device a fraction of a millisecond-scale task",
+    add("7.4", "Outsourced decryption leaves the device a fraction of a millisecond-scale task",
         ["device_finish", "pledge_dec_5"], lambda a, b: a < 0.25 * b,
         lambda a, b: f"device finish {a:.2f} ms vs full decryption {b:.2f} ms")
-    add("VII-E", "At 10 entries/s PLEDGE's commit latency is close to Guo's plain logging (within 25%)",
+    add("7.5", "At 10 entries/s PLEDGE's commit latency is close to Guo's plain logging (within 25%)",
         ["pledge_n4_r10_p50", "guo_n4_r10_p50"], lambda a, b: a <= 1.25 * b,
         lambda a, b: f"PLEDGE {a:.1f} ms vs Guo {b:.1f} ms (+{a - b:.1f} ms)")
-    add("VII-E", "The extra cost is in endorsement (PLEDGE's chaincode checks)",
+    add("7.5", "The extra cost is in endorsement (PLEDGE's chaincode checks)",
         ["pledge_n4_r10_endorse_p50", "guo_n4_r10_endorse_p50"], lambda a, b: a > b,
         lambda a, b: f"endorsement {a:.1f} ms vs {b:.1f} ms")
-    add("VII-E", "Key shares are available within tens of milliseconds after commit",
+    add("7.5", "Key shares are available within tens of milliseconds after commit",
         ["pledge_n4_r10_shares_p50"], lambda a: a < 100, lambda a: f"{a:.1f} ms (median)")
-    add("VII-E", "PLEDGE saturates no later than Guo's plain logging on a shared host",
+    add("7.5", "PLEDGE saturates no later than Guo's plain logging on a shared host",
         ["max_thr_pledge_n4", "max_thr_guo_n4"], lambda a, b: a <= b * 1.05,
         lambda a, b: f"max committed {a:.1f} vs {b:.1f} entries/s")
-    add("VII-E", "Bundling raises the records opened per second",
+    add("7.5", "Bundling raises the records opened per second",
         ["bundle_1_records_per_s", "bundle_10_records_per_s"], lambda a, b: b > 3 * a,
         lambda a, b: f"{a:.0f} records/s at m = 1, {b:.0f} at m = 10")
-    add("VII-F", "Revoking a clinician in PLEDGE is one transaction whose cost does not grow with the records",
+    add("7.6", "Revoking a clinician in PLEDGE is one transaction whose cost does not grow with the records",
         ["pledge_revoke_ms_range", "lc_PLEDGE_revoke_250"], lambda r, c: c["tx"] == 1 and c["ops"] == 0 and r[1] < 100,
         lambda r, c: f"{c['tx']} tx, {c['ops']} ops; {r[0]:.1f}–{r[1]:.1f} ms across all sizes")
-    add("VII-F", "Revoking under Guo et al.'s re-keying grows with the records affected",
+    add("7.6", "Revoking under Guo et al.'s re-keying grows with the records affected",
         ["guo_revoke_ms_range"], lambda r: r[1] > 10 * r[0], lambda r: f"{r[0]:.0f} ms to {r[1]:.0f} ms")
-    add("VII-F", "Narrowing a consent costs PLEDGE about as much time as Guo et al. (within 2x)",
+    add("7.6", "Narrowing a consent costs PLEDGE about as much time as Guo et al. (within 2x)",
         ["pledge_narrow_consent_500", "guo_narrow_consent_500"], lambda a, b: 0.5 <= a["s"] / b["s"] <= 2,
         lambda a, b: f"{a['s']:.2f} s vs {b['s']:.2f} s for 500 records")
-    add("VII-G", "A first access completes within interactive limits (< 1 s)",
+    add("7.7", "A first access completes within interactive limits (< 1 s)",
         ["e2e.total"], lambda t: t < 1000, lambda t: f"{t:.0f} ms median")
-    add("VII-G", "The ledger (endorse, order, key shares) is most of a first access",
+    add("7.7", "The ledger (endorse, order, key shares) is most of a first access",
         ["e2e"], lambda e: (e["endorse"] + e["order"] + e["shares"]) / e["total"] >= 0.5,
         lambda e: f"{e['endorse'] + e['order'] + e['shares']:.0f} of {e['total']:.0f} ms "
                   f"({100 * (e['endorse'] + e['order'] + e['shares']) / e['total']:.0f}%)")
-    add("VII-G", "Opening a chart with one bundled entry grows roughly linearly with the records",
+    add("7.7", "Opening a chart with one bundled entry grows roughly linearly with the records",
         ["chart"], lambda c: _linear(c), lambda c: ", ".join(f"{m} rec: {v['total'] / 1000:.2f} s"
                                                            for m, v in sorted(c.items(), key=lambda x: int(x[0]))))
-    add("VII-G", "Storage expansion on Synthea records is about 20x as stored, 10x in binary",
+    add("7.7", "Storage expansion on Synthea records is about 20x as stored, 10x in binary",
         ["fhir_expansion", "fhir_binary_expansion"], lambda a, b: 15 <= a <= 25 and 7 <= b <= 12,
         lambda a, b: f"x{a:.1f} as stored, x{b:.1f} binary")
     return out
@@ -197,55 +197,55 @@ def _linear(c):
 
 
 MEASURED = [  # section, label, key, unit
-    ("VII-D", "Encrypt header, PLEDGE, 5 attributes", "pledge_enc_5", "ms"),
-    ("VII-D", "Encrypt header, Guo et al., 5 attributes", "guo_enc_5", "ms"),
-    ("VII-D", "Encrypt header, PLEDGE, 50 attributes", "pledge_enc_50", "ms"),
-    ("VII-D", "Encrypt header, Guo et al., 50 attributes", "guo_enc_50", "ms"),
-    ("VII-D", "First decryption, PLEDGE, 5 attributes", "pledge_dec_5", "ms"),
-    ("VII-D", "First decryption, Guo et al., 5 attributes", "guo_dec_5", "ms"),
-    ("VII-D", "First decryption, PLEDGE, 50 attributes", "pledge_dec_50", "ms"),
-    ("VII-D", "First decryption, Guo et al., 50 attributes", "guo_dec_50", "ms"),
-    ("VII-D", "ShareVerify (one share)", "share_verify", "ms"),
-    ("VII-D", "Combine incl. verification, k = 2", "combine", "ms"),
-    ("VII-D", "ShareGen (one partial key)", "share_gen", "ms"),
-    ("VII-D", "Outsourced decryption: device work", "device_finish", "ms"),
-    ("VII-D", "Romel et al.: decrypt (one ECDH)", "romel_dec", "ms"),
-    ("VII-D", "Romel et al.: encrypt for 5 grantees", "romel_enc_5", "ms"),
-    ("VII-D", "Romel et al.: encrypt for 50 grantees", "romel_enc_50", "ms"),
-    ("VII-D", "CALYPSO: encrypt", "calypso_enc", "ms"),
-    ("VII-D", "CALYPSO: trustee share release", "calypso_release", "ms"),
-    ("VII-D", "CALYPSO: reader recovers the key", "calypso_dec", "ms"),
-    ("VII-E", "Commit latency p50 at 10/s, PLEDGE", "pledge_n4_r10_p50", "ms"),
-    ("VII-E", "Commit latency p50 at 10/s, Guo et al.", "guo_n4_r10_p50", "ms"),
-    ("VII-E", "Commit latency p95 at 10/s, PLEDGE", "pledge_n4_r10_p95", "ms"),
-    ("VII-E", "Commit latency p95 at 10/s, Guo et al.", "guo_n4_r10_p95", "ms"),
-    ("VII-E", "Endorsement p50 at 10/s, PLEDGE", "pledge_n4_r10_endorse_p50", "ms"),
-    ("VII-E", "Endorsement p50 at 10/s, Guo et al.", "guo_n4_r10_endorse_p50", "ms"),
-    ("VII-E", "Key shares after commit, p50 at 10/s", "pledge_n4_r10_shares_p50", "ms"),
-    ("VII-E", "Commit latency p50 at 20/s, PLEDGE", "pledge_n4_r20_p50", "ms"),
-    ("VII-E", "Commit latency p50 at 20/s, Guo et al.", "guo_n4_r20_p50", "ms"),
-    ("VII-E", "Max committed throughput, PLEDGE, n = 4", "max_thr_pledge_n4", "entries/s"),
-    ("VII-E", "Max committed throughput, Guo et al., n = 4", "max_thr_guo_n4", "entries/s"),
-    ("VII-E", "Commit latency p50 at 10/s, PLEDGE, n = 7", "pledge_n7_r10_p50", "ms"),
-    ("VII-E", "Commit latency p50 at 10/s, PLEDGE, n = 10", "pledge_n10_r10_p50", "ms"),
-    ("VII-E", "Records opened per second, m = 10", "bundle_10_records_per_s", "records/s"),
-    ("VII-E", "Records opened per second, m = 50", "bundle_50_records_per_s", "records/s"),
-    ("VII-F", "Narrow consent, 500 records: PLEDGE", "pledge_narrow_consent_500.s", "s"),
-    ("VII-F", "Narrow consent, 500 records: Guo et al.", "guo_narrow_consent_500.s", "s"),
-    ("VII-F", "Revoke, 500 records: Guo et al.", "guo_revoke_500.s", "s"),
-    ("VII-G", "Encryption per resource (median)", "fhir_enc_ms", "ms"),
-    ("VII-G", "FHIR write per resource", "fhir_put_ms", "ms"),
-    ("VII-G", "FHIR read per resource", "fhir_get_ms", "ms"),
-    ("VII-G", "Storage expansion as stored", "fhir_expansion", "x"),
-    ("VII-G", "Storage expansion in binary", "fhir_binary_expansion", "x"),
-    ("VII-G", "First access end to end (median)", "e2e.total", "ms"),
-    ("VII-G", "First access p95", "e2e_p95_total", "ms"),
-    ("VII-G", "  of which endorsement", "e2e.endorse", "ms"),
-    ("VII-G", "  of which ordering and commit", "e2e.order", "ms"),
-    ("VII-G", "  of which key shares", "e2e.shares", "ms"),
-    ("VII-G", "Open a chart of 10 records", "chart.10.total", "ms"),
-    ("VII-G", "Open a chart of 50 records", "chart.50.total", "ms"),
-    ("VII-G", "Open a chart of 100 records", "chart.100.total", "ms"),
+    ("7.4", "Encrypt header, PLEDGE, 5 attributes", "pledge_enc_5", "ms"),
+    ("7.4", "Encrypt header, Guo et al., 5 attributes", "guo_enc_5", "ms"),
+    ("7.4", "Encrypt header, PLEDGE, 50 attributes", "pledge_enc_50", "ms"),
+    ("7.4", "Encrypt header, Guo et al., 50 attributes", "guo_enc_50", "ms"),
+    ("7.4", "First decryption, PLEDGE, 5 attributes", "pledge_dec_5", "ms"),
+    ("7.4", "First decryption, Guo et al., 5 attributes", "guo_dec_5", "ms"),
+    ("7.4", "First decryption, PLEDGE, 50 attributes", "pledge_dec_50", "ms"),
+    ("7.4", "First decryption, Guo et al., 50 attributes", "guo_dec_50", "ms"),
+    ("7.4", "ShareVerify (one share)", "share_verify", "ms"),
+    ("7.4", "Combine incl. verification, k = 2", "combine", "ms"),
+    ("7.4", "ShareGen (one partial key)", "share_gen", "ms"),
+    ("7.4", "Outsourced decryption: device work", "device_finish", "ms"),
+    ("7.4", "Romel et al.: decrypt (one ECDH)", "romel_dec", "ms"),
+    ("7.4", "Romel et al.: encrypt for 5 grantees", "romel_enc_5", "ms"),
+    ("7.4", "Romel et al.: encrypt for 50 grantees", "romel_enc_50", "ms"),
+    ("7.4", "CALYPSO: encrypt", "calypso_enc", "ms"),
+    ("7.4", "CALYPSO: trustee share release", "calypso_release", "ms"),
+    ("7.4", "CALYPSO: reader recovers the key", "calypso_dec", "ms"),
+    ("7.5", "Commit latency p50 at 10/s, PLEDGE", "pledge_n4_r10_p50", "ms"),
+    ("7.5", "Commit latency p50 at 10/s, Guo et al.", "guo_n4_r10_p50", "ms"),
+    ("7.5", "Commit latency p95 at 10/s, PLEDGE", "pledge_n4_r10_p95", "ms"),
+    ("7.5", "Commit latency p95 at 10/s, Guo et al.", "guo_n4_r10_p95", "ms"),
+    ("7.5", "Endorsement p50 at 10/s, PLEDGE", "pledge_n4_r10_endorse_p50", "ms"),
+    ("7.5", "Endorsement p50 at 10/s, Guo et al.", "guo_n4_r10_endorse_p50", "ms"),
+    ("7.5", "Key shares after commit, p50 at 10/s", "pledge_n4_r10_shares_p50", "ms"),
+    ("7.5", "Commit latency p50 at 20/s, PLEDGE", "pledge_n4_r20_p50", "ms"),
+    ("7.5", "Commit latency p50 at 20/s, Guo et al.", "guo_n4_r20_p50", "ms"),
+    ("7.5", "Max committed throughput, PLEDGE, n = 4", "max_thr_pledge_n4", "entries/s"),
+    ("7.5", "Max committed throughput, Guo et al., n = 4", "max_thr_guo_n4", "entries/s"),
+    ("7.5", "Commit latency p50 at 10/s, PLEDGE, n = 7", "pledge_n7_r10_p50", "ms"),
+    ("7.5", "Commit latency p50 at 10/s, PLEDGE, n = 10", "pledge_n10_r10_p50", "ms"),
+    ("7.5", "Records opened per second, m = 10", "bundle_10_records_per_s", "records/s"),
+    ("7.5", "Records opened per second, m = 50", "bundle_50_records_per_s", "records/s"),
+    ("7.6", "Narrow consent, 500 records: PLEDGE", "pledge_narrow_consent_500.s", "s"),
+    ("7.6", "Narrow consent, 500 records: Guo et al.", "guo_narrow_consent_500.s", "s"),
+    ("7.6", "Revoke, 500 records: Guo et al.", "guo_revoke_500.s", "s"),
+    ("7.7", "Encryption per resource (median)", "fhir_enc_ms", "ms"),
+    ("7.7", "FHIR write per resource", "fhir_put_ms", "ms"),
+    ("7.7", "FHIR read per resource", "fhir_get_ms", "ms"),
+    ("7.7", "Storage expansion as stored", "fhir_expansion", "x"),
+    ("7.7", "Storage expansion in binary", "fhir_binary_expansion", "x"),
+    ("7.7", "First access end to end (median)", "e2e.total", "ms"),
+    ("7.7", "First access p95", "e2e_p95_total", "ms"),
+    ("7.7", "  of which endorsement", "e2e.endorse", "ms"),
+    ("7.7", "  of which ordering and commit", "e2e.order", "ms"),
+    ("7.7", "  of which key shares", "e2e.shares", "ms"),
+    ("7.7", "Open a chart of 10 records", "chart.10.total", "ms"),
+    ("7.7", "Open a chart of 50 records", "chart.50.total", "ms"),
+    ("7.7", "Open a chart of 100 records", "chart.100.total", "ms"),
 ]
 
 
@@ -256,7 +256,7 @@ def registration_rows(run, paper):
     out = []
     for r in ref:
         y = next((x for x in mine or [] if x["op"] == r["op"]), None)
-        out.append(("VII-A", f"Registration / re-key: {r['op']}", float(r["median_ms"]),
+        out.append(("7.6", f"Registration / re-key: {r['op']}", float(r["median_ms"]),
                     float(y["median_ms"]) if y else None, "ms"))
     return out
 
@@ -320,7 +320,7 @@ def render(run, paper, info, exact, trends, measured, mimic, N):
          f"<div class=tile><b>{sum(1 for s in info.get('stages', {}).values() if s['status'] == 'ok')}/"
          f"{len(info.get('stages', {}))}</b><span>stages completed</span></div></div>",
          "<p class=note>Exact results (security outcomes, test results, operation counts) do not depend on the "
-         "machine and must equal the paper's. Trend statements are the comparisons of Section VII, checked on "
+         "machine and must equal the paper's. Trend statements are the comparisons of Section 7, checked on "
          "your own numbers. Measured times depend on the hardware: compare them through the ratio, not the "
          "absolute value. Fabric experiments need Linux (or Docker on Windows/macOS). In a quick run each "
          "ledger point lasts 10 s instead of 30 s, so ledger statements are marked indicative when they "
@@ -340,7 +340,7 @@ def render(run, paper, info, exact, trends, measured, mimic, N):
                  f"<td>{html.escape(str(yv))}</td><td class='s {status_class(st)}'>{st}</td></tr>")
     h.append("</table></div>")
     # trends
-    h.append("<h2>Statements of Section VII, checked on your numbers</h2><div class=wrap><table><tr><th>Where</th>"
+    h.append("<h2>Statements of Section 7, checked on your numbers</h2><div class=wrap><table><tr><th>Where</th>"
              "<th>Statement</th><th>Your evidence</th><th>Status</th></tr>")
     for sec, stmt, ev, st in trends:
         h.append(f"<tr><td>{sec}</td><td>{html.escape(stmt)}</td><td>{html.escape(ev)}</td>"
@@ -396,7 +396,7 @@ def markdown(info, exact, trends, measured):
     L = [f"# PLEDGE reproduction report ({info.get('mode')} run, {info.get('started')})", ""]
     L += ["## Exact results", "", "| Where | Result | Paper | Yours | Status |", "|---|---|---|---|---|"]
     L += [f"| {a} | {b} | {c} | {d} | {e} |" for a, b, c, d, e in exact]
-    L += ["", "## Statements of Section VII on your numbers", "", "| Where | Statement | Evidence | Status |",
+    L += ["", "## Statements of Section 7 on your numbers", "", "| Where | Statement | Evidence | Status |",
           "|---|---|---|---|"]
     L += [f"| {a} | {b} | {c} | {d} |" for a, b, c, d in trends]
     L += ["", "## Measured values", "", "| Where | Quantity | Paper | Yours | Ratio |", "|---|---|---|---|---|"]
@@ -418,7 +418,7 @@ def main():
     trends = trend_checks(N)
     if info.get("mode") == "quick":                 # 10-second ledger points: indicative only
         trends = [(sec, stmt, ev + " (quick run: 10 s per point)", st if st != "DOES NOT HOLD" else "indicative")
-                  if sec == "VII-E" and st not in ("not run",) else (sec, stmt, ev, st)
+                  if sec == "7.5" and st not in ("not run",) else (sec, stmt, ev, st)
                   for sec, stmt, ev, st in trends]
     quick = info.get("mode") == "quick"
     measured = [(sec, label + (" (full run only)" if quick and key.startswith("max_thr") else ""), get(P, key),
@@ -431,7 +431,7 @@ def main():
     ex = [e for e in exact if e[4] not in ("not run", "smaller run")]
     tr = [t for t in trends if t[3] not in ("not run", "indicative")]
     print(f"exact results equal to the paper: {sum(e[4] == 'match' for e in ex)}/{len(ex)}")
-    print(f"Section VII statements holding on this run: {sum(t[3] == 'holds' for t in tr)}/{len(tr)}")
+    print(f"Section 7 statements holding on this run: {sum(t[3] == 'holds' for t in tr)}/{len(tr)}")
     for e in ex:
         if e[4] != "match":
             print("  differs:", e[1], "| paper", e[2], "| yours", e[3])
