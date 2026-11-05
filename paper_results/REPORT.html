@@ -19,7 +19,7 @@ figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:8px;p
 <div class=tile><b>16/17</b><span>trend statements hold on your numbers</span></div>
 <div class=tile><b>57</b><span>measured values compared</span></div>
 <div class=tile><b>5/5</b><span>stages completed</span></div></div>
-<p class=note>Exact results (security outcomes, test results, operation counts) do not depend on the machine and must equal the paper's. Trend statements are the comparisons of Section VII, checked on your own numbers. Measured times depend on the hardware: compare them through the ratio, not the absolute value. Fabric experiments need Linux (or Docker on Windows/macOS). A quick run uses 8 instead of 40 repetitions for the cryptographic costs and 10 s instead of 30 s per ledger point, so those statements are marked indicative when they do not hold; run the full experiments to check them.</p>
+<p class=note>Exact results (security outcomes, test results, operation counts) do not depend on the machine and must equal the paper's. Trend statements are the comparisons of Section 7, checked on your own numbers. Measured times depend on the hardware: compare them through the ratio, not the absolute value. Fabric experiments need Linux (or Docker on Windows/macOS). A quick run uses 8 instead of 40 repetitions for the cryptographic costs and 10 s instead of 30 s per ledger point, so those statements are marked indicative when they do not hold; run the full experiments to check them.</p>
 <h2>Stages</h2><div class=wrap><table><tr><th>Stage</th><th>Status</th><th>Time</th><th>Notes</th></tr>
 <tr><td>fabric-smoke</td><td class='s ok'>ok</td><td class=num>35 s</td><td>attacks blocked 8/8</td></tr>
 <tr><td>fabric-e2e</td><td class='s ok'>ok</td><td class=num>90 s</td><td>40 first accesses, charts 1,10,25,50,100</td></tr>
@@ -28,147 +28,147 @@ figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:8px;p
 <tr><td>figures</td><td class='s ok'>ok</td><td class=num>6 s</td><td></td></tr>
 </table></div>
 <h2>Exact results (must equal the paper)</h2><div class=wrap><table><tr><th>Where</th><th>Result</th><th>Paper</th><th>Yours</th><th>Status</th></tr>
-<tr><td>VII-A</td><td>Unit and integration tests</td><td>all pass</td><td>—</td><td class='s na'>not run</td></tr>
-<tr><td>VII-A</td><td>Differential test: compiler = reference evaluator (triples agreeing)</td><td>6000</td><td>—</td><td class='s na'>not run</td></tr>
-<tr><td>VII-A</td><td>Differential test: generated Consents outside F rejected</td><td>14</td><td>—</td><td class='s na'>not run</td></tr>
-<tr><td>Table IV</td><td>A1 Read without a log entry — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A1 Read without a log entry — Guo et al. 2022</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A1 Read without a log entry — Romel et al. 2025</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A1 Read without a log entry — CALYPSO 2021</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A2 Log record A, read record B — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A2 Log record A, read record B — Guo et al. 2022</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A2 Log record A, read record B — Romel et al. 2025</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A2 Log record A, read record B — CALYPSO 2021</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A3 Use another clinician&#x27;s access capability — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A3 Use another clinician&#x27;s access capability — Guo et al. 2022</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A3 Use another clinician&#x27;s access capability — Romel et al. 2025</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A3 Use another clinician&#x27;s access capability — CALYPSO 2021</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A4 Revoked clinician opens a new record — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A4 Revoked clinician opens a new record — Guo et al. 2022</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A4 Revoked clinician opens a new record — Romel et al. 2025</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A4 Revoked clinician opens a new record — CALYPSO 2021</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A4b Revoked clinician re-reads a record opened before — PLEDGE</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A4b Revoked clinician re-reads a record opened before — Guo et al. 2022</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A4b Revoked clinician re-reads a record opened before — Romel et al. 2025</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A4b Revoked clinician re-reads a record opened before — CALYPSO 2021</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A5 f &lt; n/3 ledger nodes grant access off-ledger — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A5 f &lt; n/3 ledger nodes grant access off-ledger — Guo et al. 2022</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A5 f &lt; n/3 ledger nodes grant access off-ledger — Romel et al. 2025</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A5 f &lt; n/3 ledger nodes grant access off-ledger — CALYPSO 2021</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A6 Validators learn which patient record was read — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A6 Validators learn which patient record was read — Guo et al. 2022</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A6 Validators learn which patient record was read — Romel et al. 2025</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A6 Validators learn which patient record was read — CALYPSO 2021</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A7 Validators learn the purpose of access — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A7 Validators learn the purpose of access — Guo et al. 2022</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A7 Validators learn the purpose of access — Romel et al. 2025</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A7 Validators learn the purpose of access — CALYPSO 2021</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A8 Emergency role used without co-signed break-glass — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A8 Emergency role used without co-signed break-glass — Guo et al. 2022</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A8 Emergency role used without co-signed break-glass — Romel et al. 2025</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A8 Emergency role used without co-signed break-glass — CALYPSO 2021</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A9 A ledger quorum decrypts records itself — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A9 A ledger quorum decrypts records itself — Guo et al. 2022</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A9 A ledger quorum decrypts records itself — Romel et al. 2025</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
-<tr><td>Table IV</td><td>A9 A ledger quorum decrypts records itself — CALYPSO 2021</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
-<tr><td>VII-A</td><td>Fabric network: flows and attacks end to end (blocked/total)</td><td>8/8</td><td>8/8</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Revoke, 250 records: PLEDGE</td><td>1 tx, 0 crypto ops</td><td>1 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Revoke, 250 records: Guo et al.</td><td>0 tx, 326 crypto ops</td><td>0 tx, 326 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Revoke, 250 records: Romel et al.</td><td>1 tx, 0 crypto ops</td><td>1 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Revoke, 250 records: CALYPSO</td><td>1 tx, 0 crypto ops</td><td>1 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Onboard, 250 records: PLEDGE</td><td>1 tx, 0 crypto ops</td><td>1 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Onboard, 250 records: Romel et al.</td><td>1 tx, 250 crypto ops</td><td>1 tx, 250 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Onboard, 250 records: CALYPSO</td><td>1 tx, 0 crypto ops</td><td>1 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Narrow consent, 250 records: PLEDGE</td><td>250 tx, 250 crypto ops</td><td>250 tx, 250 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Narrow consent, 250 records: Guo et al.</td><td>0 tx, 250 crypto ops</td><td>0 tx, 250 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Narrow consent, 250 records: Romel et al.</td><td>19 tx, 0 crypto ops</td><td>19 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Narrow consent, 250 records: CALYPSO</td><td>1 tx, 0 crypto ops</td><td>1 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Revoke, 500 records of 5 patients: Guo et al.</td><td>0 tx, 576 crypto ops</td><td>0 tx, 576 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Revoke, 500 records of 5 patients: Romel et al.</td><td>5 tx, 0 crypto ops</td><td>5 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Onboard, 500 records of 5 patients: Romel et al.</td><td>5 tx, 500 crypto ops</td><td>5 tx, 500 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Narrow consent, 500 records: PLEDGE</td><td>500 tx, 500 crypto ops</td><td>500 tx, 500 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Narrow consent, 500 records: Romel et al.</td><td>95 tx, 0 crypto ops</td><td>95 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>Fig. 9 / VII-F</td><td>Narrow consent, 500 records: CALYPSO</td><td>5 tx, 0 crypto ops</td><td>5 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
-<tr><td>VII-G</td><td>Synthea cohort: resources encrypted</td><td>13791</td><td>13791</td><td class='s ok'>match</td></tr>
-<tr><td>VII-G</td><td>Synthea cohort: resources labelled R</td><td>9</td><td>9</td><td class='s ok'>match</td></tr>
+<tr><td>7.1</td><td>Unit and integration tests</td><td>all pass</td><td>—</td><td class='s na'>not run</td></tr>
+<tr><td>7.1</td><td>Differential test: compiler = reference evaluator (triples agreeing)</td><td>6000</td><td>—</td><td class='s na'>not run</td></tr>
+<tr><td>7.1</td><td>Differential test: generated Consents outside F rejected</td><td>14</td><td>—</td><td class='s na'>not run</td></tr>
+<tr><td>Table 17</td><td>A1 Read without a log entry — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A1 Read without a log entry — Guo et al. 2022</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A1 Read without a log entry — Romel et al. 2025</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A1 Read without a log entry — CALYPSO 2021</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A2 Log record A, read record B — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A2 Log record A, read record B — Guo et al. 2022</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A2 Log record A, read record B — Romel et al. 2025</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A2 Log record A, read record B — CALYPSO 2021</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A3 Use another clinician&#x27;s access capability — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A3 Use another clinician&#x27;s access capability — Guo et al. 2022</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A3 Use another clinician&#x27;s access capability — Romel et al. 2025</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A3 Use another clinician&#x27;s access capability — CALYPSO 2021</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A4 Revoked clinician opens a new record — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A4 Revoked clinician opens a new record — Guo et al. 2022</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A4 Revoked clinician opens a new record — Romel et al. 2025</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A4 Revoked clinician opens a new record — CALYPSO 2021</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A4b Revoked clinician re-reads a record opened before — PLEDGE</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A4b Revoked clinician re-reads a record opened before — Guo et al. 2022</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A4b Revoked clinician re-reads a record opened before — Romel et al. 2025</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A4b Revoked clinician re-reads a record opened before — CALYPSO 2021</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A5 f &lt; n/3 ledger nodes grant access off-ledger — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A5 f &lt; n/3 ledger nodes grant access off-ledger — Guo et al. 2022</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A5 f &lt; n/3 ledger nodes grant access off-ledger — Romel et al. 2025</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A5 f &lt; n/3 ledger nodes grant access off-ledger — CALYPSO 2021</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A6 Validators learn which patient record was read — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A6 Validators learn which patient record was read — Guo et al. 2022</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A6 Validators learn which patient record was read — Romel et al. 2025</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A6 Validators learn which patient record was read — CALYPSO 2021</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A7 Validators learn the purpose of access — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A7 Validators learn the purpose of access — Guo et al. 2022</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A7 Validators learn the purpose of access — Romel et al. 2025</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A7 Validators learn the purpose of access — CALYPSO 2021</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A8 Emergency role used without co-signed break-glass — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A8 Emergency role used without co-signed break-glass — Guo et al. 2022</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A8 Emergency role used without co-signed break-glass — Romel et al. 2025</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A8 Emergency role used without co-signed break-glass — CALYPSO 2021</td><td>n/a</td><td>n/a</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A9 A ledger quorum decrypts records itself — PLEDGE</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A9 A ledger quorum decrypts records itself — Guo et al. 2022</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A9 A ledger quorum decrypts records itself — Romel et al. 2025</td><td>blocked</td><td>blocked</td><td class='s ok'>match</td></tr>
+<tr><td>Table 17</td><td>A9 A ledger quorum decrypts records itself — CALYPSO 2021</td><td>succeeds</td><td>succeeds</td><td class='s ok'>match</td></tr>
+<tr><td>7.1</td><td>Fabric network: flows and attacks end to end (blocked/total)</td><td>8/8</td><td>8/8</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Revoke, 250 records: PLEDGE</td><td>1 tx, 0 crypto ops</td><td>1 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Revoke, 250 records: Guo et al.</td><td>0 tx, 326 crypto ops</td><td>0 tx, 326 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Revoke, 250 records: Romel et al.</td><td>1 tx, 0 crypto ops</td><td>1 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Revoke, 250 records: CALYPSO</td><td>1 tx, 0 crypto ops</td><td>1 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Onboard, 250 records: PLEDGE</td><td>1 tx, 0 crypto ops</td><td>1 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Onboard, 250 records: Romel et al.</td><td>1 tx, 250 crypto ops</td><td>1 tx, 250 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Onboard, 250 records: CALYPSO</td><td>1 tx, 0 crypto ops</td><td>1 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Narrow consent, 250 records: PLEDGE</td><td>250 tx, 250 crypto ops</td><td>250 tx, 250 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Narrow consent, 250 records: Guo et al.</td><td>0 tx, 250 crypto ops</td><td>0 tx, 250 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Narrow consent, 250 records: Romel et al.</td><td>19 tx, 0 crypto ops</td><td>19 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Narrow consent, 250 records: CALYPSO</td><td>1 tx, 0 crypto ops</td><td>1 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Revoke, 500 records of 5 patients: Guo et al.</td><td>0 tx, 576 crypto ops</td><td>0 tx, 576 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Revoke, 500 records of 5 patients: Romel et al.</td><td>5 tx, 0 crypto ops</td><td>5 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Onboard, 500 records of 5 patients: Romel et al.</td><td>5 tx, 500 crypto ops</td><td>5 tx, 500 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Narrow consent, 500 records: PLEDGE</td><td>500 tx, 500 crypto ops</td><td>500 tx, 500 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Narrow consent, 500 records: Romel et al.</td><td>95 tx, 0 crypto ops</td><td>95 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>Fig. 9 / 7.6</td><td>Narrow consent, 500 records: CALYPSO</td><td>5 tx, 0 crypto ops</td><td>5 tx, 0 crypto ops</td><td class='s ok'>match</td></tr>
+<tr><td>7.7</td><td>Synthea cohort: resources encrypted</td><td>13791</td><td>13791</td><td class='s ok'>match</td></tr>
+<tr><td>7.7</td><td>Synthea cohort: resources labelled R</td><td>9</td><td>9</td><td class='s ok'>match</td></tr>
 </table></div>
-<h2>Statements of Section VII, checked on your numbers</h2><div class=wrap><table><tr><th>Where</th><th>Statement</th><th>Your evidence</th><th>Status</th></tr>
-<tr><td>VII-D</td><td>PLEDGE&#x27;s extra decryption cost over Guo et al. stays about constant from 5 to 50 policy attributes</td><td>overhead 4.31 ms at 5 attributes, 4.23 ms at 50</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-D</td><td>PLEDGE&#x27;s extra encryption cost over Guo et al. is small and does not grow with the policy</td><td>overhead 1.36 ms at 5 attributes, 1.61 ms at 50</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-D</td><td>Romel et al. encryption grows per grantee and exceeds PLEDGE&#x27;s above roughly 8 grantees</td><td>crossover at 7.5 grantees (paper 8.2)</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-D</td><td>CALYPSO is the cheapest of the four to encrypt and to decrypt</td><td>encrypt 0.62 ms vs 6.22 ms; decrypt 0.39 vs 3.82</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-D</td><td>Outsourced decryption leaves the device a fraction of a millisecond-scale task</td><td>device finish 0.32 ms vs full decryption 8.13 ms</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-E</td><td>At 10 entries/s PLEDGE&#x27;s commit latency is close to Guo&#x27;s plain logging (within 25%)</td><td>PLEDGE 109.9 ms vs Guo 77.1 ms (+32.8 ms)</td><td class='s bad'>DOES NOT HOLD</td></tr>
-<tr><td>VII-E</td><td>The extra cost is in endorsement (PLEDGE&#x27;s chaincode checks)</td><td>endorsement 28.2 ms vs 11.4 ms</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-E</td><td>Key shares are available within tens of milliseconds after commit</td><td>8.1 ms (median)</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-E</td><td>PLEDGE saturates no later than Guo&#x27;s plain logging on a shared host</td><td>max committed 39.8 vs 39.9 entries/s</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-E</td><td>Bundling raises the records opened per second</td><td>10 records/s at m = 1, 100 at m = 10</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-F</td><td>Revoking a clinician in PLEDGE is one transaction whose cost does not grow with the records</td><td>1 tx, 0 ops; 7.8–9.7 ms across all sizes</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-F</td><td>Revoking under Guo et al.&#x27;s re-keying grows with the records affected</td><td>117 ms to 10834 ms</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-F</td><td>Narrowing a consent costs PLEDGE about as much time as Guo et al. (within 2x)</td><td>4.54 s vs 3.87 s for 500 records</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-G</td><td>A first access completes within interactive limits (&lt; 1 s)</td><td>163 ms median</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-G</td><td>The ledger (endorse, order, key shares) is most of a first access</td><td>96 of 163 ms (59%)</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-G</td><td>Opening a chart with one bundled entry grows roughly linearly with the records</td><td>1 rec: 0.14 s, 10 rec: 0.68 s, 25 rec: 1.55 s, 50 rec: 2.93 s, 100 rec: 5.40 s</td><td class='s ok'>holds</td></tr>
-<tr><td>VII-G</td><td>Storage expansion on Synthea records is about 20x as stored, 10x in binary</td><td>x19.8 as stored, x9.6 binary</td><td class='s ok'>holds</td></tr>
+<h2>Statements of Section 7, checked on your numbers</h2><div class=wrap><table><tr><th>Where</th><th>Statement</th><th>Your evidence</th><th>Status</th></tr>
+<tr><td>7.4</td><td>PLEDGE&#x27;s extra decryption cost over Guo et al. stays about constant from 5 to 50 policy attributes</td><td>overhead 4.31 ms at 5 attributes, 4.23 ms at 50</td><td class='s ok'>holds</td></tr>
+<tr><td>7.4</td><td>PLEDGE&#x27;s extra encryption cost over Guo et al. is small and does not grow with the policy</td><td>overhead 1.36 ms at 5 attributes, 1.61 ms at 50</td><td class='s ok'>holds</td></tr>
+<tr><td>7.4</td><td>Romel et al. encryption grows per grantee and exceeds PLEDGE&#x27;s above roughly 8 grantees</td><td>crossover at 7.5 grantees (paper 8.2)</td><td class='s ok'>holds</td></tr>
+<tr><td>7.4</td><td>CALYPSO is the cheapest of the four to encrypt and to decrypt</td><td>encrypt 0.62 ms vs 6.22 ms; decrypt 0.39 vs 3.82</td><td class='s ok'>holds</td></tr>
+<tr><td>7.4</td><td>Outsourced decryption leaves the device a fraction of a millisecond-scale task</td><td>device finish 0.32 ms vs full decryption 8.13 ms</td><td class='s ok'>holds</td></tr>
+<tr><td>7.5</td><td>At 10 entries/s PLEDGE&#x27;s commit latency is close to Guo&#x27;s plain logging (within 25%)</td><td>PLEDGE 109.9 ms vs Guo 77.1 ms (+32.8 ms)</td><td class='s bad'>DOES NOT HOLD</td></tr>
+<tr><td>7.5</td><td>The extra cost is in endorsement (PLEDGE&#x27;s chaincode checks)</td><td>endorsement 28.2 ms vs 11.4 ms</td><td class='s ok'>holds</td></tr>
+<tr><td>7.5</td><td>Key shares are available within tens of milliseconds after commit</td><td>8.1 ms (median)</td><td class='s ok'>holds</td></tr>
+<tr><td>7.5</td><td>PLEDGE saturates no later than Guo&#x27;s plain logging on a shared host</td><td>max committed 39.8 vs 39.9 entries/s</td><td class='s ok'>holds</td></tr>
+<tr><td>7.5</td><td>Bundling raises the records opened per second</td><td>10 records/s at m = 1, 100 at m = 10</td><td class='s ok'>holds</td></tr>
+<tr><td>7.6</td><td>Revoking a clinician in PLEDGE is one transaction whose cost does not grow with the records</td><td>1 tx, 0 ops; 7.8–9.7 ms across all sizes</td><td class='s ok'>holds</td></tr>
+<tr><td>7.6</td><td>Revoking under Guo et al.&#x27;s re-keying grows with the records affected</td><td>117 ms to 10834 ms</td><td class='s ok'>holds</td></tr>
+<tr><td>7.6</td><td>Narrowing a consent costs PLEDGE about as much time as Guo et al. (within 2x)</td><td>4.54 s vs 3.87 s for 500 records</td><td class='s ok'>holds</td></tr>
+<tr><td>7.7</td><td>A first access completes within interactive limits (&lt; 1 s)</td><td>163 ms median</td><td class='s ok'>holds</td></tr>
+<tr><td>7.7</td><td>The ledger (endorse, order, key shares) is most of a first access</td><td>96 of 163 ms (59%)</td><td class='s ok'>holds</td></tr>
+<tr><td>7.7</td><td>Opening a chart with one bundled entry grows roughly linearly with the records</td><td>1 rec: 0.14 s, 10 rec: 0.68 s, 25 rec: 1.55 s, 50 rec: 2.93 s, 100 rec: 5.40 s</td><td class='s ok'>holds</td></tr>
+<tr><td>7.7</td><td>Storage expansion on Synthea records is about 20x as stored, 10x in binary</td><td>x19.8 as stored, x9.6 binary</td><td class='s ok'>holds</td></tr>
 </table></div>
 <h2>Measured values (hardware-dependent)</h2><div class=wrap><table><tr><th>Where</th><th>Quantity</th><th>Paper</th><th>Yours</th><th>Yours / paper</th></tr>
-<tr><td>VII-D</td><td>Encrypt header, PLEDGE, 5 attributes</td><td class=num>6.68 ms</td><td class=num>8.98 ms</td><td class=num>1.34x</td></tr>
-<tr><td>VII-D</td><td>Encrypt header, Guo et al., 5 attributes</td><td class=num>5.80 ms</td><td class=num>7.62 ms</td><td class=num>1.31x</td></tr>
-<tr><td>VII-D</td><td>Encrypt header, PLEDGE, 50 attributes</td><td class=num>56.96 ms</td><td class=num>74.02 ms</td><td class=num>1.30x</td></tr>
-<tr><td>VII-D</td><td>Encrypt header, Guo et al., 50 attributes</td><td class=num>55.46 ms</td><td class=num>72.41 ms</td><td class=num>1.31x</td></tr>
-<tr><td>VII-D</td><td>First decryption, PLEDGE, 5 attributes</td><td class=num>6.01 ms</td><td class=num>8.13 ms</td><td class=num>1.35x</td></tr>
-<tr><td>VII-D</td><td>First decryption, Guo et al., 5 attributes</td><td class=num>2.89 ms</td><td class=num>3.82 ms</td><td class=num>1.32x</td></tr>
-<tr><td>VII-D</td><td>First decryption, PLEDGE, 50 attributes</td><td class=num>24.87 ms</td><td class=num>32.95 ms</td><td class=num>1.32x</td></tr>
-<tr><td>VII-D</td><td>First decryption, Guo et al., 50 attributes</td><td class=num>21.79 ms</td><td class=num>28.72 ms</td><td class=num>1.32x</td></tr>
-<tr><td>VII-D</td><td>ShareVerify (one share)</td><td class=num>1.26 ms</td><td class=num>1.75 ms</td><td class=num>1.39x</td></tr>
-<tr><td>VII-D</td><td>Combine incl. verification, k = 2</td><td class=num>2.88 ms</td><td class=num>3.74 ms</td><td class=num>1.30x</td></tr>
-<tr><td>VII-D</td><td>ShareGen (one partial key)</td><td class=num>0.58 ms</td><td class=num>0.78 ms</td><td class=num>1.35x</td></tr>
-<tr><td>VII-D</td><td>Outsourced decryption: device work</td><td class=num>0.25 ms</td><td class=num>0.32 ms</td><td class=num>1.31x</td></tr>
-<tr><td>VII-D</td><td>Romel et al.: decrypt (one ECDH)</td><td class=num>0.59 ms</td><td class=num>0.81 ms</td><td class=num>1.37x</td></tr>
-<tr><td>VII-D</td><td>Romel et al.: encrypt for 5 grantees</td><td class=num>4.13 ms</td><td class=num>6.22 ms</td><td class=num>1.50x</td></tr>
-<tr><td>VII-D</td><td>Romel et al.: encrypt for 50 grantees</td><td class=num>40.76 ms</td><td class=num>60.44 ms</td><td class=num>1.48x</td></tr>
-<tr><td>VII-D</td><td>CALYPSO: encrypt</td><td class=num>0.48 ms</td><td class=num>0.62 ms</td><td class=num>1.30x</td></tr>
-<tr><td>VII-D</td><td>CALYPSO: trustee share release</td><td class=num>0.23 ms</td><td class=num>0.29 ms</td><td class=num>1.29x</td></tr>
-<tr><td>VII-D</td><td>CALYPSO: reader recovers the key</td><td class=num>0.28 ms</td><td class=num>0.39 ms</td><td class=num>1.42x</td></tr>
-<tr><td>VII-E</td><td>Commit latency p50 at 10/s, PLEDGE</td><td class=num>82.48 ms</td><td class=num>110 ms</td><td class=num>1.33x</td></tr>
-<tr><td>VII-E</td><td>Commit latency p50 at 10/s, Guo et al.</td><td class=num>79.72 ms</td><td class=num>77.07 ms</td><td class=num>0.97x</td></tr>
-<tr><td>VII-E</td><td>Commit latency p95 at 10/s, PLEDGE</td><td class=num>117 ms</td><td class=num>151 ms</td><td class=num>1.30x</td></tr>
-<tr><td>VII-E</td><td>Commit latency p95 at 10/s, Guo et al.</td><td class=num>116 ms</td><td class=num>101 ms</td><td class=num>0.87x</td></tr>
-<tr><td>VII-E</td><td>Endorsement p50 at 10/s, PLEDGE</td><td class=num>18.00 ms</td><td class=num>28.17 ms</td><td class=num>1.57x</td></tr>
-<tr><td>VII-E</td><td>Endorsement p50 at 10/s, Guo et al.</td><td class=num>11.69 ms</td><td class=num>11.36 ms</td><td class=num>0.97x</td></tr>
-<tr><td>VII-E</td><td>Key shares after commit, p50 at 10/s</td><td class=num>7.85 ms</td><td class=num>8.08 ms</td><td class=num>1.03x</td></tr>
-<tr><td>VII-E</td><td>Commit latency p50 at 20/s, PLEDGE</td><td class=num>144 ms</td><td class=num>133 ms</td><td class=num>0.92x</td></tr>
-<tr><td>VII-E</td><td>Commit latency p50 at 20/s, Guo et al.</td><td class=num>108 ms</td><td class=num>91.07 ms</td><td class=num>0.84x</td></tr>
-<tr><td>VII-E</td><td>Max committed throughput, PLEDGE, n = 4</td><td class=num>34.80 entries/s</td><td class=num>39.80 entries/s</td><td class=num>1.14x</td></tr>
-<tr><td>VII-E</td><td>Max committed throughput, Guo et al., n = 4</td><td class=num>39.80 entries/s</td><td class=num>39.90 entries/s</td><td class=num>1.00x</td></tr>
-<tr><td>VII-E</td><td>Commit latency p50 at 10/s, PLEDGE, n = 7</td><td class=num>594 ms</td><td class=num>145 ms</td><td class=num>0.24x</td></tr>
-<tr><td>VII-E</td><td>Commit latency p50 at 10/s, PLEDGE, n = 10</td><td class=num>7,102 ms</td><td class=num>253 ms</td><td class=num>0.04x</td></tr>
-<tr><td>VII-E</td><td>Records opened per second, m = 10</td><td class=num>98.00 records/s</td><td class=num>100 records/s</td><td class=num>1.02x</td></tr>
-<tr><td>VII-E</td><td>Records opened per second, m = 50</td><td class=num>245 records/s</td><td class=num>430 records/s</td><td class=num>1.76x</td></tr>
-<tr><td>VII-F</td><td>Narrow consent, 500 records: PLEDGE</td><td class=num>3.59 s</td><td class=num>4.54 s</td><td class=num>1.26x</td></tr>
-<tr><td>VII-F</td><td>Narrow consent, 500 records: Guo et al.</td><td class=num>3.64 s</td><td class=num>3.87 s</td><td class=num>1.06x</td></tr>
-<tr><td>VII-F</td><td>Revoke, 500 records: Guo et al.</td><td class=num>5.37 s</td><td class=num>5.36 s</td><td class=num>1.00x</td></tr>
-<tr><td>VII-G</td><td>Encryption per resource (median)</td><td class=num>12.13 ms</td><td class=num>15.66 ms</td><td class=num>1.29x</td></tr>
-<tr><td>VII-G</td><td>FHIR write per resource</td><td class=num>6.90 ms</td><td class=num>6.12 ms</td><td class=num>0.89x</td></tr>
-<tr><td>VII-G</td><td>FHIR read per resource</td><td class=num>2.59 ms</td><td class=num>3.33 ms</td><td class=num>1.28x</td></tr>
-<tr><td>VII-G</td><td>Storage expansion as stored</td><td class=num>19.78 x</td><td class=num>19.78 x</td><td class=num>1.00x</td></tr>
-<tr><td>VII-G</td><td>Storage expansion in binary</td><td class=num>9.58 x</td><td class=num>9.58 x</td><td class=num>1.00x</td></tr>
-<tr><td>VII-G</td><td>First access end to end (median)</td><td class=num>133 ms</td><td class=num>163 ms</td><td class=num>1.22x</td></tr>
-<tr><td>VII-G</td><td>First access p95</td><td class=num>169 ms</td><td class=num>191 ms</td><td class=num>1.13x</td></tr>
-<tr><td>VII-G</td><td>  of which endorsement</td><td class=num>20.37 ms</td><td class=num>20.06 ms</td><td class=num>0.98x</td></tr>
-<tr><td>VII-G</td><td>  of which ordering and commit</td><td class=num>58.27 ms</td><td class=num>73.59 ms</td><td class=num>1.26x</td></tr>
-<tr><td>VII-G</td><td>  of which key shares</td><td class=num>23.72 ms</td><td class=num>2.63 ms</td><td class=num>0.11x</td></tr>
-<tr><td>VII-G</td><td>Open a chart of 10 records</td><td class=num>428 ms</td><td class=num>675 ms</td><td class=num>1.58x</td></tr>
-<tr><td>VII-G</td><td>Open a chart of 50 records</td><td class=num>1,975 ms</td><td class=num>2,935 ms</td><td class=num>1.49x</td></tr>
-<tr><td>VII-G</td><td>Open a chart of 100 records</td><td class=num>3,827 ms</td><td class=num>5,400 ms</td><td class=num>1.41x</td></tr>
-<tr><td>VII-A</td><td>Registration / re-key: reg/patient-client</td><td class=num>0.70 ms</td><td class=num>0.78 ms</td><td class=num>1.11x</td></tr>
-<tr><td>VII-A</td><td>Registration / re-key: reg/patient-aa</td><td class=num>3.26 ms</td><td class=num>3.52 ms</td><td class=num>1.08x</td></tr>
-<tr><td>VII-A</td><td>Registration / re-key: reg/patient-check</td><td class=num>1.31 ms</td><td class=num>1.27 ms</td><td class=num>0.97x</td></tr>
-<tr><td>VII-A</td><td>Registration / re-key: reg/clinician-aa</td><td class=num>28.69 ms</td><td class=num>42.92 ms</td><td class=num>1.50x</td></tr>
-<tr><td>VII-A</td><td>Registration / re-key: rec/key-derive</td><td class=num>0.18 ms</td><td class=num>0.31 ms</td><td class=num>1.72x</td></tr>
-<tr><td>VII-A</td><td>Registration / re-key: rekey/header-only</td><td class=num>17.17 ms</td><td class=num>28.02 ms</td><td class=num>1.63x</td></tr>
-<tr><td>VII-A</td><td>Registration / re-key: rekey/strict</td><td class=num>20.00 ms</td><td class=num>28.16 ms</td><td class=num>1.41x</td></tr>
-<tr><td>VII-A</td><td>Registration / re-key: check/rekey</td><td class=num>1.63 ms</td><td class=num>2.96 ms</td><td class=num>1.82x</td></tr>
+<tr><td>7.4</td><td>Encrypt header, PLEDGE, 5 attributes</td><td class=num>6.68 ms</td><td class=num>8.98 ms</td><td class=num>1.34x</td></tr>
+<tr><td>7.4</td><td>Encrypt header, Guo et al., 5 attributes</td><td class=num>5.80 ms</td><td class=num>7.62 ms</td><td class=num>1.31x</td></tr>
+<tr><td>7.4</td><td>Encrypt header, PLEDGE, 50 attributes</td><td class=num>56.96 ms</td><td class=num>74.02 ms</td><td class=num>1.30x</td></tr>
+<tr><td>7.4</td><td>Encrypt header, Guo et al., 50 attributes</td><td class=num>55.46 ms</td><td class=num>72.41 ms</td><td class=num>1.31x</td></tr>
+<tr><td>7.4</td><td>First decryption, PLEDGE, 5 attributes</td><td class=num>6.01 ms</td><td class=num>8.13 ms</td><td class=num>1.35x</td></tr>
+<tr><td>7.4</td><td>First decryption, Guo et al., 5 attributes</td><td class=num>2.89 ms</td><td class=num>3.82 ms</td><td class=num>1.32x</td></tr>
+<tr><td>7.4</td><td>First decryption, PLEDGE, 50 attributes</td><td class=num>24.87 ms</td><td class=num>32.95 ms</td><td class=num>1.32x</td></tr>
+<tr><td>7.4</td><td>First decryption, Guo et al., 50 attributes</td><td class=num>21.79 ms</td><td class=num>28.72 ms</td><td class=num>1.32x</td></tr>
+<tr><td>7.4</td><td>ShareVerify (one share)</td><td class=num>1.26 ms</td><td class=num>1.75 ms</td><td class=num>1.39x</td></tr>
+<tr><td>7.4</td><td>Combine incl. verification, k = 2</td><td class=num>2.88 ms</td><td class=num>3.74 ms</td><td class=num>1.30x</td></tr>
+<tr><td>7.4</td><td>ShareGen (one partial key)</td><td class=num>0.58 ms</td><td class=num>0.78 ms</td><td class=num>1.35x</td></tr>
+<tr><td>7.4</td><td>Outsourced decryption: device work</td><td class=num>0.25 ms</td><td class=num>0.32 ms</td><td class=num>1.31x</td></tr>
+<tr><td>7.4</td><td>Romel et al.: decrypt (one ECDH)</td><td class=num>0.59 ms</td><td class=num>0.81 ms</td><td class=num>1.37x</td></tr>
+<tr><td>7.4</td><td>Romel et al.: encrypt for 5 grantees</td><td class=num>4.13 ms</td><td class=num>6.22 ms</td><td class=num>1.50x</td></tr>
+<tr><td>7.4</td><td>Romel et al.: encrypt for 50 grantees</td><td class=num>40.76 ms</td><td class=num>60.44 ms</td><td class=num>1.48x</td></tr>
+<tr><td>7.4</td><td>CALYPSO: encrypt</td><td class=num>0.48 ms</td><td class=num>0.62 ms</td><td class=num>1.30x</td></tr>
+<tr><td>7.4</td><td>CALYPSO: trustee share release</td><td class=num>0.23 ms</td><td class=num>0.29 ms</td><td class=num>1.29x</td></tr>
+<tr><td>7.4</td><td>CALYPSO: reader recovers the key</td><td class=num>0.28 ms</td><td class=num>0.39 ms</td><td class=num>1.42x</td></tr>
+<tr><td>7.5</td><td>Commit latency p50 at 10/s, PLEDGE</td><td class=num>82.48 ms</td><td class=num>110 ms</td><td class=num>1.33x</td></tr>
+<tr><td>7.5</td><td>Commit latency p50 at 10/s, Guo et al.</td><td class=num>79.72 ms</td><td class=num>77.07 ms</td><td class=num>0.97x</td></tr>
+<tr><td>7.5</td><td>Commit latency p95 at 10/s, PLEDGE</td><td class=num>117 ms</td><td class=num>151 ms</td><td class=num>1.30x</td></tr>
+<tr><td>7.5</td><td>Commit latency p95 at 10/s, Guo et al.</td><td class=num>116 ms</td><td class=num>101 ms</td><td class=num>0.87x</td></tr>
+<tr><td>7.5</td><td>Endorsement p50 at 10/s, PLEDGE</td><td class=num>18.00 ms</td><td class=num>28.17 ms</td><td class=num>1.57x</td></tr>
+<tr><td>7.5</td><td>Endorsement p50 at 10/s, Guo et al.</td><td class=num>11.69 ms</td><td class=num>11.36 ms</td><td class=num>0.97x</td></tr>
+<tr><td>7.5</td><td>Key shares after commit, p50 at 10/s</td><td class=num>7.85 ms</td><td class=num>8.08 ms</td><td class=num>1.03x</td></tr>
+<tr><td>7.5</td><td>Commit latency p50 at 20/s, PLEDGE</td><td class=num>144 ms</td><td class=num>133 ms</td><td class=num>0.92x</td></tr>
+<tr><td>7.5</td><td>Commit latency p50 at 20/s, Guo et al.</td><td class=num>108 ms</td><td class=num>91.07 ms</td><td class=num>0.84x</td></tr>
+<tr><td>7.5</td><td>Max committed throughput, PLEDGE, n = 4</td><td class=num>34.80 entries/s</td><td class=num>39.80 entries/s</td><td class=num>1.14x</td></tr>
+<tr><td>7.5</td><td>Max committed throughput, Guo et al., n = 4</td><td class=num>39.80 entries/s</td><td class=num>39.90 entries/s</td><td class=num>1.00x</td></tr>
+<tr><td>7.5</td><td>Commit latency p50 at 10/s, PLEDGE, n = 7</td><td class=num>594 ms</td><td class=num>145 ms</td><td class=num>0.24x</td></tr>
+<tr><td>7.5</td><td>Commit latency p50 at 10/s, PLEDGE, n = 10</td><td class=num>7,102 ms</td><td class=num>253 ms</td><td class=num>0.04x</td></tr>
+<tr><td>7.5</td><td>Records opened per second, m = 10</td><td class=num>98.00 records/s</td><td class=num>100 records/s</td><td class=num>1.02x</td></tr>
+<tr><td>7.5</td><td>Records opened per second, m = 50</td><td class=num>245 records/s</td><td class=num>430 records/s</td><td class=num>1.76x</td></tr>
+<tr><td>7.6</td><td>Narrow consent, 500 records: PLEDGE</td><td class=num>3.59 s</td><td class=num>4.54 s</td><td class=num>1.26x</td></tr>
+<tr><td>7.6</td><td>Narrow consent, 500 records: Guo et al.</td><td class=num>3.64 s</td><td class=num>3.87 s</td><td class=num>1.06x</td></tr>
+<tr><td>7.6</td><td>Revoke, 500 records: Guo et al.</td><td class=num>5.37 s</td><td class=num>5.36 s</td><td class=num>1.00x</td></tr>
+<tr><td>7.7</td><td>Encryption per resource (median)</td><td class=num>12.13 ms</td><td class=num>15.66 ms</td><td class=num>1.29x</td></tr>
+<tr><td>7.7</td><td>FHIR write per resource</td><td class=num>6.90 ms</td><td class=num>6.12 ms</td><td class=num>0.89x</td></tr>
+<tr><td>7.7</td><td>FHIR read per resource</td><td class=num>2.59 ms</td><td class=num>3.33 ms</td><td class=num>1.28x</td></tr>
+<tr><td>7.7</td><td>Storage expansion as stored</td><td class=num>19.78 x</td><td class=num>19.78 x</td><td class=num>1.00x</td></tr>
+<tr><td>7.7</td><td>Storage expansion in binary</td><td class=num>9.58 x</td><td class=num>9.58 x</td><td class=num>1.00x</td></tr>
+<tr><td>7.7</td><td>First access end to end (median)</td><td class=num>133 ms</td><td class=num>163 ms</td><td class=num>1.22x</td></tr>
+<tr><td>7.7</td><td>First access p95</td><td class=num>169 ms</td><td class=num>191 ms</td><td class=num>1.13x</td></tr>
+<tr><td>7.7</td><td>  of which endorsement</td><td class=num>20.37 ms</td><td class=num>20.06 ms</td><td class=num>0.98x</td></tr>
+<tr><td>7.7</td><td>  of which ordering and commit</td><td class=num>58.27 ms</td><td class=num>73.59 ms</td><td class=num>1.26x</td></tr>
+<tr><td>7.7</td><td>  of which key shares</td><td class=num>23.72 ms</td><td class=num>2.63 ms</td><td class=num>0.11x</td></tr>
+<tr><td>7.7</td><td>Open a chart of 10 records</td><td class=num>428 ms</td><td class=num>675 ms</td><td class=num>1.58x</td></tr>
+<tr><td>7.7</td><td>Open a chart of 50 records</td><td class=num>1,975 ms</td><td class=num>2,935 ms</td><td class=num>1.49x</td></tr>
+<tr><td>7.7</td><td>Open a chart of 100 records</td><td class=num>3,827 ms</td><td class=num>5,400 ms</td><td class=num>1.41x</td></tr>
+<tr><td>7.6</td><td>Registration / re-key: reg/patient-client</td><td class=num>0.70 ms</td><td class=num>0.78 ms</td><td class=num>1.11x</td></tr>
+<tr><td>7.6</td><td>Registration / re-key: reg/patient-aa</td><td class=num>3.26 ms</td><td class=num>3.52 ms</td><td class=num>1.08x</td></tr>
+<tr><td>7.6</td><td>Registration / re-key: reg/patient-check</td><td class=num>1.31 ms</td><td class=num>1.27 ms</td><td class=num>0.97x</td></tr>
+<tr><td>7.6</td><td>Registration / re-key: reg/clinician-aa</td><td class=num>28.69 ms</td><td class=num>42.92 ms</td><td class=num>1.50x</td></tr>
+<tr><td>7.6</td><td>Registration / re-key: rec/key-derive</td><td class=num>0.18 ms</td><td class=num>0.31 ms</td><td class=num>1.72x</td></tr>
+<tr><td>7.6</td><td>Registration / re-key: rekey/header-only</td><td class=num>17.17 ms</td><td class=num>28.02 ms</td><td class=num>1.63x</td></tr>
+<tr><td>7.6</td><td>Registration / re-key: rekey/strict</td><td class=num>20.00 ms</td><td class=num>28.16 ms</td><td class=num>1.41x</td></tr>
+<tr><td>7.6</td><td>Registration / re-key: check/rekey</td><td class=num>1.63 ms</td><td class=num>2.96 ms</td><td class=num>1.82x</td></tr>
 </table></div>
 <h2>Real data: MIMIC-IV Clinical Database Demo on FHIR</h2>
 <p class=note>Not in the paper. 100 real, de-identified ICU patients (PhysioNet, ODbL 1.0), encrypted with the same consent and stored in the same HAPI FHIR server as the Synthea cohort.</p><div class=wrap><table><tr><th>Quantity</th><th>MIMIC-IV (yours)</th><th>Synthea (yours)</th><th>Synthea (paper)</th></tr>
