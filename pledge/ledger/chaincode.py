@@ -103,9 +103,9 @@ class RecordTx:
     salt: bytes
     period: tuple             # (start ISO, end ISO) or Nones
     emergency: bool
-    owner_vk: bytes           # per-record update key vk_tau (Section V-B), fixed at first registration
+    owner_vk: bytes           # per-record update key vk_tau (Section 5.2), fixed at first registration
     patient_purpose_pk: object  # per-record G1 ElGamal key the purpose is encrypted to
-    retires: str | None = None  # re-key: the old tag this registration retires (Section V-I)
+    retires: str | None = None  # re-key: the old tag this registration retires (Section 5.8)
     sig: object = None
     retire_sig: object = None   # signature by the old tag's update key over the same body
     KIND = "record"
@@ -127,7 +127,7 @@ class RecordTx:
 
 @dataclass
 class PatientRegTx:
-    """Reg_P (Section V-B): binds a salted pseudonym psi_P to the patient's keys,
+    """Reg_P (Section 5.2): binds a salted pseudonym psi_P to the patient's keys,
     certified by the registering hospital's AA. rotate=True replaces a binding."""
     psi: str                  # hex of H(HID || s_P)
     box_pk: bytes             # patient's X25519 key (E_aud, W_p)
