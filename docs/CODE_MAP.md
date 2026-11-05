@@ -2,26 +2,26 @@
 
 | Paper | Code |
 | --- | --- |
-| III-B RW15 multi-authority CP-ABE (Type-3 pairing), LSSS | `pledge/crypto/rw15.py`, `pledge/crypto/lsss.py`, `pledge/crypto/pairing.py` (mcl via ctypes) |
-| V-B Identity registration and authentication (ABHA, HPR, HFR), Reg_P, per-record keys | `pledge/system/registry.py`, `Deployment.certify_patient`, `Patient.register`, `Patient._owner_key/_purpose_key/_salt`, `chaincode.PatientRegTx` |
-| V-C Consent-to-policy compiler (fragment F1–F8) and the reference evaluator | `pledge/fhir/consent.py` |
-| V-D Specialty hierarchy and ancestor closure | `pledge/fhir/specialty.py` |
-| V-E Ledger-gated ABE: DKG, ShareGen, ShareVerify, Combine | `pledge/crypto/lgabe.py`; Go: `fabric/pkg/pledgecc/kss.go` |
-| V-E Record encryption: AES-256-GCM, key wrap W, patient wrap W_p | `pledge/crypto/sym.py`, `Patient._encrypt` |
-| V-F Access entries and chaincode checks, BLS signatures | `pledge/ledger/chaincode.py`, `pledge/crypto/sig.py`; Go: `fabric/pkg/pledgecc/checks.go`, `fabric/cmd/chaincode` |
-| V-F Ordering, validation, key-share services (in-process model) | `pledge/ledger/network.py`, `pledge/ledger/merkle.py` |
-| V-F The same on Hyperledger Fabric 3.1.1 with SmartBFT | `fabric/network/pledge_net.py`, `fabric/cmd/{kss,gateway,loadgen}`, `pledge/fabric_client.py` |
-| V-G Encrypted purpose and OR-proof, sealed audit fields | `pledge/crypto/sigma.py` |
-| V-H Outsourced decryption | `rw15.make_transform_key / transform / finish` |
-| V-I Revocation, consent change, tag retirement, strict re-key | `Deployment.revoke`, `Patient.update_consent(strict=...)`, `RecordTx.retires` |
-| V-J Break-glass | `Clinician.access(..., cosigner=...)` |
-| VII baselines | `baselines/guo.py`, `baselines/romel.py`, `baselines/calypso.py` |
-| Table XVII attacks | `bench/compare.py attacks`, `tests/test_system.py`, `fabric/run_stage2.py` |
-| Fig. 7, VII-D | `bench/compare.py crypto`, `bench/micro.py` |
+| 3.2 RW15 multi-authority CP-ABE (Type-3 pairing), LSSS | `pledge/crypto/rw15.py`, `pledge/crypto/lsss.py`, `pledge/crypto/pairing.py` (mcl via ctypes) |
+| 5.2 Identity registration and authentication (ABHA, HPR, HFR), Reg_P, per-record keys | `pledge/system/registry.py`, `Deployment.certify_patient`, `Patient.register`, `Patient._owner_key/_purpose_key/_salt`, `chaincode.PatientRegTx` |
+| 5.3 Consent-to-policy compiler (fragment F1–F8) and the reference evaluator | `pledge/fhir/consent.py` |
+| 5.3 Specialty hierarchy and ancestor closure | `pledge/fhir/specialty.py` |
+| 5.4 Ledger-gated ABE: DKG, ShareGen, ShareVerify, Combine | `pledge/crypto/lgabe.py`; Go: `fabric/pkg/pledgecc/kss.go` |
+| 5.1 Record encryption: AES-256-GCM, key wrap W, patient wrap W_p | `pledge/crypto/sym.py`, `Patient._encrypt` |
+| 5.5 Access entries and chaincode checks, BLS signatures | `pledge/ledger/chaincode.py`, `pledge/crypto/sig.py`; Go: `fabric/pkg/pledgecc/checks.go`, `fabric/cmd/chaincode` |
+| 5.5 Ordering, validation, key-share services (in-process model) | `pledge/ledger/network.py`, `pledge/ledger/merkle.py` |
+| 7.1 The same on Hyperledger Fabric 3.1.1 with SmartBFT | `fabric/network/pledge_net.py`, `fabric/cmd/{kss,gateway,loadgen}`, `pledge/fabric_client.py` |
+| 5.6 Encrypted purpose and OR-proof, sealed audit fields | `pledge/crypto/sigma.py` |
+| 5.7 Outsourced decryption | `rw15.make_transform_key / transform / finish` |
+| 5.8 Revocation, consent change, tag retirement, strict re-key | `Deployment.revoke`, `Patient.update_consent(strict=...)`, `RecordTx.retires` |
+| 5.9 Break-glass | `Clinician.access(..., cosigner=...)` |
+| 7 Baselines | `baselines/guo.py`, `baselines/romel.py`, `baselines/calypso.py` |
+| Table 17 attacks | `bench/compare.py attacks`, `tests/test_system.py`, `fabric/run_stage2.py` |
+| Fig. 7, 7.4 | `bench/compare.py crypto`, `bench/micro.py` |
 | Fig. 8, Fig. 9 | `fabric/bench_ledger.py` (load generator `fabric/cmd/loadgen`) |
 | Fig. 10 | `bench/compare.py lifecycle` |
-| VII-G, Fig. 11, Table XXII | `bench/fhir_workload.py`, `fabric/bench_e2e.py`, `pledge/fhir/store.py` (HAPI FHIR as the encrypted store) |
-| Registration cost (VII-A) | `bench/registration.py` |
+| 7.7, Fig. 11, Table 23 | `bench/fhir_workload.py`, `fabric/bench_e2e.py`, `pledge/fhir/store.py` (HAPI FHIR as the encrypted store) |
+| Registration cost (7.6) | `bench/registration.py` |
 | Theorem 4 evidence | `tests/test_consent.py::DifferentialTest` |
 | Figures and numbers | `bench/figures.py` → `numbers.json`; `bench/verify.py` → `REPORT.html` |
 | Data sets | `pledge/fhir/synthea.py`, `pledge/fhir/mimic.py`, `pledge/fhir/datasets.py` |
