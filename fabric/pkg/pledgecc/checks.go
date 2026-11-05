@@ -161,7 +161,7 @@ func CheckRevoke(st State, m map[string]interface{}) error {
 }
 
 // CheckPatient validates Reg_P: an AA-certified binding of a salted pseudonym to the
-// patient's keys (paper Section V-B). rotate=true replaces an existing binding.
+// patient's keys (paper Section 5.2). rotate=true replaces an existing binding.
 func CheckPatient(st State, m map[string]interface{}) error {
 	cfg, err := st.Config()
 	if err != nil {
@@ -194,7 +194,7 @@ func CheckPatient(st State, m map[string]interface{}) error {
 
 // CheckRecord validates a record registration or update. A registration that
 // names "retires" re-keys a record: it registers a new tag and retires the old
-// one, signed by the old tag's update key too (Section V-I). retires == tau
+// one, signed by the old tag's update key too (Section 5.8). retires == tau
 // retires a tag without a successor.
 func CheckRecord(st State, m map[string]interface{}) (ownerVK string, err error) {
 	tau, err := str(m, "tau")
