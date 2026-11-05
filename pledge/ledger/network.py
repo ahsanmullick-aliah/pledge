@@ -1,10 +1,10 @@
 """In-process simulation of the hospital ledger: n hospitals, each running a
 BFT orderer, a committing peer and a key-share service (KSS).
 
-Faithful to the protocol logic of Section V-E (execute-order-validate with a
+Faithful to the protocol logic of Section 5.5 (execute-order-validate with a
 PBFT-style ordering service and k = f + 1 endorsement), not to Fabric's
 wire formats or timings. Byzantine behaviours can be switched on per node to
-reproduce the attacks of Section VI-B. Real throughput and latency numbers
+reproduce the attacks of Section 6.2. Real throughput and latency numbers
 come from the Hyperledger Fabric deployment, not from this simulator.
 
 Behaviour flags per hospital:
