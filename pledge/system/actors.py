@@ -1,4 +1,4 @@
-"""PLEDGE participants wired together (paper Sections IV-V).
+"""PLEDGE participants wired together (paper Sections 4 and 5).
 
     Deployment   - sets up authorities, the regulator and the hospital ledger
     Patient      - uploads FHIR resources, owns consent, reads own data, audits
@@ -23,7 +23,7 @@ COUNCIL = "council"
 
 
 def owner_of(attr: str) -> str:
-    """The attribute-to-authority map T (paper Section III-B)."""
+    """The attribute-to-authority map T (paper Section 3.2)."""
     if lgabe.is_ledger_attr(attr):
         return lgabe.LEDGER_AUTHORITY
     if attr.startswith("org:"):
@@ -97,7 +97,7 @@ class Deployment:
         self.hfr = {h: self.abdm.hfr.register(h) for h in hospitals}
         self.registrations = {}        # AA side: ABHA -> (aa, psi salt), for rotation
 
-    # ---- patient registration (Section V-B): the registering hospital's AA certifies ----
+    # ---- patient registration (Section 5.2): the registering hospital's AA certifies ----
     def certify_patient(self, hospital, assertion, nonce, box_pk, vk_bytes, psi_salt, pop,
                         expiry="2031-12-31"):
         if not self.abdm.idp.verify(assertion, nonce):
@@ -137,7 +137,7 @@ class Deployment:
 
     # ---- enrolment of clinicians (standing keys + ledger credential) ----
     def enroll(self, gid, role, specialty_code=None, hospital=None, dept=None, emergency=False, hpr=None):
-        """Clinician registration (Section V-B). The council AA checks the HPR record and
+        """Clinician registration (Section 5.2). The council AA checks the HPR record and
         the clinician's proof of possession before issuing keys and submitting Reg_C.
         Tests pass readable GIDs; a deployment uses GID = (HPR ID, key epoch)."""
         c = Clinician(gid, self)
@@ -178,7 +178,7 @@ class Deployment:
 # ---------------- patient ----------------
 
 class Patient:
-    """The patient's application (Sections V-A to V-C, V-I).
+    """The patient's application (Sections 5.1 to 5.3 and 5.8).
 
     Keys: a box key (W_p, E_aud) and a BLS key vk_P, certified against the
     patient's ABHA number by a hospital AA under the pseudonym psi_P; a private
@@ -202,7 +202,7 @@ class Patient:
         if register:
             self.register(hospital or next(iter(dep.hospital_aa)))
 
-    # ---- registration and recovery (Section V-B) ----
+    # ---- registration and recovery (Section 5.2) ----
     def _registration_tx(self, hospital):
         idp = self.dep.abdm.idp
         txn, code = idp.request_otp(self.abha)          # code arrives on the patient's phone
@@ -303,7 +303,7 @@ class Patient:
         return rec
 
     def update_consent(self, new_consent: dict, strict: bool = False):
-        """Re-key every record under the new consent (Section V-I).
+        """Re-key every record under the new consent (Section 5.8).
 
         Default: header-only re-key. A fresh M' and tag tau' under the new policy
         re-wrap the same DEK; CT_data and W_p are untouched; the registration of
@@ -406,7 +406,7 @@ class Clinician:
 
     def _patient_box(self, rid):
         # E_aud is addressed to the key in cert_P, carried in the record's header and
-        # checked against the certifying AA's public key (Section V-B)
+        # checked against the certifying AA's public key (Section 5.2)
         rec = self.dep.store.get(rid)
         if rec.patient_cert is not None:
             return self.dep.verify_patient_cert(rec.patient_cert)
