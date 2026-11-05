@@ -104,7 +104,7 @@ def main(out):
     rot2 = copy.copy(fresh); rot2.rotate = True; rot2.sig = dep.hospital_signer["H2"].sign(rot2.body())
     add("patient/rotate-unbound", rot2)
     bad = copy.copy(fresh); bad.sig = bls.SigningKey.generate().sign(bad.body()); add("patient/unknown-signer", bad)
-    # re-keying (Section V-I)
+    # re-keying (Section 5.8)
     old_tau = pat.taus["MedicationRequest/med-1"]
     newrec, compiled = pat._encrypt(samples.medication(), 1)
     side = compiled.side
