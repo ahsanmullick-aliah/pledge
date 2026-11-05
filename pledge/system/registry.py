@@ -1,4 +1,4 @@
-"""Simulated national health-ID registries (paper Section V-B).
+"""Simulated national health-ID registries (paper Section 5.2).
 
 Modelled on India's Ayushman Bharat Digital Mission (ABDM):
 
