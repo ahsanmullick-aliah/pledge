@@ -5,7 +5,7 @@
 // It follows chaincode events from its OWN hospital's peer. Fabric delivers
 // chaincode events only for transactions that were ordered, committed and
 // marked valid, so a partial key is produced only for a committed access
-// entry (paper Section V-E, step 5). Clinicians fetch partial keys with
+// entry (paper Section 5.5, step 5). Clinicians fetch partial keys with
 //
 //	GET /shares?entry=<entry id>  ->  [PartialKey]
 package main
