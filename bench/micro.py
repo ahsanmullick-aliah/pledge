@@ -1,4 +1,4 @@
-"""Micro-benchmarks for the cryptographic layer (planned paper Section VII-C).
+"""Micro-benchmarks for the cryptographic layer (paper Section 7.4).
 
     python3 -m bench.micro --reps 20 --out results/micro.csv
 
